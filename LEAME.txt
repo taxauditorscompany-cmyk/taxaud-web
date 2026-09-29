@@ -14,4 +14,8 @@ Publicar: suba TODA la carpeta tal cual a su hosting (Cloudflare Pages, Netlify,
 No abra index.html con doble clic: use un servidor (el hosting o "npx serve").
 
 Enlace CONTA - X: en index.html busque  const CONTAX_URL
+  (hoy: https://sparkling-heart-e8a4.taxauditorscompany.workers.dev ; con dominio: https://sistema.taxauditorscompany.com)
+
+MODO PRUEBA: _headers (noindex) y robots.txt (Disallow) ocultan el sitio a Google.
+  Al lanzar: borrar _headers y dejar robots.txt con "Disallow:" vacío.
 Supabase (blog, admin y contador de visitas): ver publicaciones/CONFIGURACION.md

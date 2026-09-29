@@ -1,2 +1,3 @@
+# PRUEBA: al lanzar oficialmente cambiar a  Disallow:  (vacío)
 User-agent: *
 Disallow: /
