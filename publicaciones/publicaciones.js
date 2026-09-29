@@ -11,70 +11,22 @@
 */
 window.TAXAUD_PUBS = [
   {
-    id: 'calendario-tributario-2026', tipo: 'documento', fecha: '2026-09-22', destacado: true,
-    titulo: 'Calendario tributario: vencimientos según el noveno dígito del RUC',
-    resumen: 'Tabla de fechas de declaración de IVA, retenciones y anexos para sociedades y personas naturales, lista para imprimir.',
+    id: 'registro-proveedores-facturacion-electronica', tipo: 'documento', fecha: '2026-09-29', destacado: true,
+    titulo: 'SRI crea el registro de proveedores de facturación electrónica',
+    resumen: 'La Resolución Nro. NAC-DGERCGC26-00000027 obliga a quienes desarrollan o comercializan sistemas de facturación electrónica a identificarse en el RUC, y a los emisores a incluir el RUC de su proveedor en los comprobantes.',
     temas: ['SRI'],
-    archivo: { url: 'publicaciones/archivos/calendario-tributario.pdf', peso: '420 KB', paginas: 2 },
-    cuerpo: ['Las obligaciones mensuales vencen según el noveno dígito del RUC. Descargue la tabla y compártala con su equipo contable.']
-  },
-  {
-    id: 'notificaciones-sri-que-hacer', tipo: 'video', fecha: '2026-09-15',
-    titulo: 'Recibí una notificación del SRI: qué hacer en las primeras 48 horas',
-    resumen: 'Cómo leer el documento, qué plazos corren y qué información reunir antes de responder.',
-    temas: ['SRI'],
-    video: { youtube: '', duracion: '6:40' }
-  },
-  {
-    id: 'balances-scvs', tipo: 'noticia', fecha: '2026-09-08',
-    titulo: 'Carga de estados financieros en la SCVS: errores frecuentes que generan observaciones',
-    resumen: 'Diferencias entre formularios, notas incompletas y firmas: lo que revisamos antes de cada presentación.',
-    temas: ['SCVS', 'NIIF'],
+    archivo: { url: 'publicaciones/archivos/resolucion-NAC-DGERCGC26-00000027.pdf', peso: '305 KB', paginas: 4 },
     cuerpo: [
-      'Cada año, una parte importante de las observaciones de la Superintendencia de Compañías se origina en detalles de forma que pueden evitarse con una revisión previa.',
-      'En esta nota resumimos los puntos que verificamos antes de cada carga: coherencia entre estados, notas explicativas y documentos habilitantes.'
+      'El Servicio de Rentas Internas expidió la Resolución Nro. NAC-DGERCGC26-00000027 (27 de julio de 2026). Establece que quienes desarrollan o comercializan sistemas de facturación electrónica deberán identificarse formalmente en el RUC.',
+      'Qué cambia',
+      '• Los desarrolladores y los propietarios de licencias de estos sistemas, domiciliados en Ecuador, deben registrar un establecimiento exclusivo en el RUC con los códigos CIIU J62021002 (desarrollo de sistemas) o J62021003 (comercialización de sistemas de terceros).',
+      '• El SRI publicará en su portal el listado de proveedores registrados. Se actualizará cada mes, dentro de los primeros 10 días hábiles, y la primera publicación será desde octubre de 2026.',
+      '• Los emisores de comprobantes electrónicos deberán incluir en la información adicional el RUC del proveedor de su sistema de facturación.',
+      'Plazos (desde la publicación en el Registro Oficial)',
+      '• 30 días para inscribirse o actualizar el RUC.',
+      '• 60 días calendario para incluir el RUC del proveedor en los comprobantes.',
+      'Qué hacer: revise quién le provee su sistema de facturación y confirme que esté registrado. Si usted desarrolla o comercializa software de facturación, actualice su RUC dentro del plazo.',
+      'TAX AUDITORS COMPANY TAXAUD S.A.S. — Seguridad jurídica y eficiencia tributaria. Fuente: SRI, Resolución NAC-DGERCGC26-00000027.'
     ]
-  },
-  {
-    id: 'guia-riesgo-liquidez', tipo: 'documento', fecha: '2026-08-28',
-    titulo: 'Guía práctica: indicadores de riesgo de liquidez para cooperativas',
-    resumen: 'Plantilla de indicadores, límites sugeridos y forma de reportarlos al consejo de administración.',
-    temas: ['SEPS'],
-    archivo: { url: 'publicaciones/archivos/guia-riesgo-liquidez.pdf', peso: '1,2 MB', paginas: 14 }
-  },
-  {
-    id: 'decimos-2026', tipo: 'noticia', fecha: '2026-08-12',
-    titulo: 'Décimo cuarto sueldo en la Sierra y Amazonía: cálculo y fecha de pago',
-    resumen: 'Quiénes lo reciben, cómo se calcula de forma proporcional y cómo registrarlo en el IESS.',
-    temas: ['IESS', 'Laboral'],
-    cuerpo: ['El décimo cuarto sueldo se paga de forma proporcional al tiempo trabajado en el periodo de cálculo. Revise la fecha límite aplicable a su región.']
-  },
-  {
-    id: 'webinar-niif-pymes', tipo: 'video', fecha: '2026-07-30',
-    titulo: 'Webinar: NIIF para PYMES — cambios que debe conocer su contador',
-    resumen: 'Grabación completa de la sesión con preguntas del público.',
-    temas: ['NIIF'],
-    video: { youtube: '', duracion: '48:10' }
-  },
-  {
-    id: 'uafe-reportes', tipo: 'noticia', fecha: '2026-07-18',
-    titulo: 'Reportes a la UAFE: qué sujetos obligados deben presentarlos y con qué frecuencia',
-    resumen: 'Resumen de obligaciones de prevención de lavado de activos para empresas y cooperativas.',
-    temas: ['UAFE'],
-    cuerpo: ['Los sujetos obligados deben designar un oficial de cumplimiento y presentar reportes periódicos. Verifique si su actividad está incluida.']
-  },
-  {
-    id: 'checklist-cierre', tipo: 'documento', fecha: '2026-07-02',
-    titulo: 'Checklist de cierre contable mensual',
-    resumen: 'Lista de verificación de conciliaciones, provisiones y ajustes antes de emitir estados financieros.',
-    temas: ['NIIF', 'General'],
-    archivo: { url: 'publicaciones/archivos/checklist-cierre.pdf', peso: '310 KB', paginas: 3 }
-  },
-  {
-    id: 'ats-guia', tipo: 'noticia', fecha: '2026-06-20',
-    titulo: 'Anexo Transaccional Simplificado: cómo evitar diferencias con las declaraciones',
-    resumen: 'Por qué el ATS y el formulario de IVA no cuadran y cómo conciliarlos cada mes.',
-    temas: ['SRI'],
-    cuerpo: ['Las diferencias entre el ATS y las declaraciones son una de las causas más comunes de comunicaciones del SRI. Conciliar mensualmente evita sorpresas.']
   }
 ];
