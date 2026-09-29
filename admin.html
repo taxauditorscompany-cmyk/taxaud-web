@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Administración — TAXAUD</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="publicaciones/supabase-config.js"></script>
+<style>
+body{margin:0;background:#0A1428;color:#EEF2F8;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#8FC6F2;text-decoration:none}
+a:hover{color:#FFFFFF}
+::selection{background:#58A8EA;color:#07101F}
+:focus-visible{outline:2px solid #58A8EA;outline-offset:3px;border-radius:6px}
+input,select,textarea,button{font-family:inherit}
+input::placeholder,textarea::placeholder{color:#6B7A96}
+input[type=date]{color-scheme:dark}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:40;background:rgba(10,20,40,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,40px);height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <div style="display:flex;align-items:center;gap:14px;min-width:0">
+      <img src="assets/logo.png" alt="TAX AUDITORS" style="height:30px;width:auto;display:block">
+      <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#58A8EA;white-space:nowrap">Administración</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;min-width:0">
+      <a href="blog.html" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;color:#B7C3D8;white-space:nowrap" style-hover="color:#FFFFFF"><i class="ph-light ph-arrow-square-out" aria-hidden="true" style="font-size:17px"></i>Ver sitio</a>
+      <sc-if value="{{ signedIn }}" hint-placeholder-val="{{ false }}">
+        <span style="font-size:13px;color:#6B7A96;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px">{{ email }}</span>
+        <button type="button" onClick="{{ logout }}" style="background:none;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:7px 12px;color:#EEF2F8;font-size:13px;cursor:pointer;white-space:nowrap" style-hover="border-color:#58A8EA">Salir</button>
+      </sc-if>
+    </div>
+  </div>
+</header>
+
+<main style="max-width:1120px;margin:0 auto;padding:clamp(28px,5vw,56px) clamp(16px,4vw,40px) 96px">
+
+  <sc-if value="{{ msg.text }}" hint-placeholder-val="{{ false }}">
+    <div role="status" style="margin-bottom:24px;display:flex;align-items:flex-start;gap:10px;padding:14px 16px;border-radius:10px;font-size:15px;line-height:1.5;background:{{ msg.bg }};border:1px solid {{ msg.border }};color:{{ msg.color }}">
+      <i class="{{ msg.icon }}" aria-hidden="true" style="font-size:19px;flex-shrink:0;margin-top:1px"></i>
+      <span style="flex:1">{{ msg.text }}</span>
+      <button type="button" onClick="{{ clearMsg }}" aria-label="Cerrar aviso" style="background:none;border:none;color:inherit;cursor:pointer;padding:0;font-size:18px;line-height:1"><i class="ph-light ph-x" aria-hidden="true"></i></button>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ isBoot }}" hint-placeholder-val="{{ true }}">
+    <div style="padding:80px 0;text-align:center;color:#9AA8C2;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.14em">CARGANDO…</div>
+  </sc-if>
+
+  <sc-if value="{{ isNoConfig }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:640px;margin:0 auto;background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:16px;padding:clamp(24px,4vw,40px)">
+      <i class="ph-light ph-plugs" aria-hidden="true" style="font-size:32px;color:#58A8EA"></i>
+      <h1 style="margin:14px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:32px;line-height:1.1;color:#FFFFFF">Falta conectar Supabase</h1>
+      <p style="margin:12px 0 0;color:#B7C3D8;font-size:16px;line-height:1.6">Complete estos pasos una sola vez. La guía completa está en <span style="font-family:'Geist Mono',monospace;font-size:13px;color:#EEF2F8">publicaciones/CONFIGURACION.md</span>.</p>
+      <ol style="margin:20px 0 0;padding-left:20px;display:grid;gap:10px;color:#D6DEEA;font-size:15px;line-height:1.55">
+        <li>Ejecute <span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8FC6F2">publicaciones/supabase.sql</span> en el SQL Editor de Supabase.</li>
+        <li>Cree su usuario en Authentication → Users con el correo autorizado.</li>
+        <li>Copie el Project URL y la clave pública en <span style="font-family:'Geist Mono',monospace;font-size:13px;color:#8FC6F2">publicaciones/supabase-config.js</span>.</li>
+      </ol>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isLogin }}" hint-placeholder-val="{{ false }}">
+    <form onSubmit="{{ login }}" style="max-width:420px;margin:0 auto;background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:16px;padding:clamp(24px,4vw,36px);display:grid;gap:18px">
+      <div>
+        <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:32px;line-height:1.1;color:#FFFFFF">Iniciar sesión</h1>
+        <p style="margin:8px 0 0;color:#9AA8C2;font-size:15px">Acceso para el equipo de TAXAUD.</p>
+      </div>
+      <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Correo
+        <input type="email" required="" autocomplete="username" value="{{ loginEmail }}" onInput="{{ h.loginEmail }}" style="width:100%;height:46px;background:#0A1428;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+      </label>
+      <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Contraseña
+        <input type="password" required="" autocomplete="current-password" value="{{ loginPass }}" onInput="{{ h.loginPass }}" style="width:100%;height:46px;background:#0A1428;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+      </label>
+      <button type="submit" disabled="{{ busy }}" style="height:48px;border:none;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;cursor:pointer;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA" style-active="transform:scale(.98)">{{ loginLabel }}</button>
+      <button type="button" onClick="{{ forgot }}" style="justify-self:center;background:none;border:none;color:#8FC6F2;font-size:14px;cursor:pointer;padding:4px" style-hover="color:#FFFFFF">¿Olvidó su contraseña?</button>
+    </form>
+  </sc-if>
+
+  <sc-if value="{{ isRecovery }}" hint-placeholder-val="{{ false }}">
+    <form onSubmit="{{ saveNewPass }}" style="max-width:420px;margin:0 auto;background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:16px;padding:clamp(24px,4vw,36px);display:grid;gap:18px">
+      <h1 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:32px;line-height:1.1;color:#FFFFFF">Nueva contraseña</h1>
+      <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Contraseña (mínimo 8 caracteres)
+        <input type="password" required="" minLength="8" autocomplete="new-password" value="{{ newPass }}" onInput="{{ h.newPass }}" style="width:100%;height:46px;background:#0A1428;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+      </label>
+      <button type="submit" disabled="{{ busy }}" style="height:48px;border:none;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;cursor:pointer" style-hover="background:#58A8EA">Guardar contraseña</button>
+    </form>
+  </sc-if>
+
+  <sc-if value="{{ isNoEditor }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width:520px;margin:0 auto;background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:16px;padding:clamp(24px,4vw,36px)">
+      <i class="ph-light ph-lock-key" aria-hidden="true" style="font-size:32px;color:#58A8EA"></i>
+      <h1 style="margin:14px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:30px;line-height:1.1;color:#FFFFFF">Cuenta sin permiso de edición</h1>
+      <p style="margin:12px 0 0;color:#B7C3D8;font-size:15px;line-height:1.6">El correo <strong style="color:#FFFFFF;font-weight:500">{{ email }}</strong> no está en la tabla <span style="font-family:'Geist Mono',monospace;font-size:13px">editores</span> de Supabase. Agréguelo allí y vuelva a entrar.</p>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isList }}" hint-placeholder-val="{{ false }}">
+    <section>
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px">
+        <div>
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Blog</div>
+          <h1 style="margin:10px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(32px,4vw,48px);line-height:1;letter-spacing:-.015em;color:#FFFFFF">{{ listTitle }}</h1>
+        </div>
+        <button type="button" onClick="{{ newPub }}" style="display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 18px;border:none;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;cursor:pointer;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA" style-active="transform:scale(.97)"><i class="ph-light ph-plus" aria-hidden="true" style="font-size:18px"></i>Nueva publicación</button>
+      </div>
+      <label style="margin-top:28px;display:flex;align-items:center;gap:10px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:10px;padding:0 14px;height:46px;max-width:420px" style-focus-within="border-color:#58A8EA">
+        <i class="ph-light ph-magnifying-glass" aria-hidden="true" style="font-size:19px;color:#9AA8C2"></i>
+        <input type="search" value="{{ q }}" onInput="{{ h.q }}" placeholder="Buscar por título" aria-label="Buscar" style="flex:1;min-width:0;height:100%;background:transparent;border:none;outline:none;color:#EEF2F8;font-size:15px">
+      </label>
+      <div style="margin-top:20px;border-top:1px solid rgba(157,190,230,.14)">
+        <sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:16px 0;border-bottom:1px solid rgba(157,190,230,.14)">
+            <span style="width:40px;height:40px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:#0D1A33;border:1px solid rgba(157,190,230,.16);color:#58A8EA"><i class="{{ r.icon }}" aria-hidden="true" style="font-size:20px"></i></span>
+            <div style="flex:1 1 320px;min-width:0">
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase">
+                <span style="color:#9AA8C2">{{ r.dateStr }}</span>
+                <span style="color:#8FC6F2">{{ r.typeLabel }}</span>
+                <span style="border-radius:4px;padding:2px 6px;background:{{ r.stateBg }};color:{{ r.stateColor }}">{{ r.stateLabel }}</span>
+                <sc-if value="{{ r.destacado }}" hint-placeholder-val="{{ false }}"><span style="color:#07101F;background:#58A8EA;border-radius:4px;padding:2px 6px">Destacado</span></sc-if>
+              </div>
+              <div style="margin-top:6px;font-size:17px;line-height:1.35;color:#FFFFFF;text-wrap:pretty">{{ r.titulo }}</div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <button type="button" onClick="{{ r.edit }}" style="display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-radius:8px;background:transparent;border:1px solid rgba(157,190,230,.28);color:#EEF2F8;font-size:14px;cursor:pointer" style-hover="border-color:#58A8EA"><i class="ph-light ph-pencil-simple" aria-hidden="true" style="font-size:16px"></i>Editar</button>
+              <button type="button" onClick="{{ r.toggle }}" style="display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-radius:8px;background:transparent;border:1px solid rgba(157,190,230,.28);color:#EEF2F8;font-size:14px;cursor:pointer" style-hover="border-color:#58A8EA"><i class="{{ r.toggleIcon }}" aria-hidden="true" style="font-size:16px"></i>{{ r.toggleLabel }}</button>
+              <button type="button" onClick="{{ r.del }}" style="display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-radius:8px;background:{{ r.delBg }};border:1px solid {{ r.delBorder }};color:{{ r.delColor }};font-size:14px;cursor:pointer"><i class="ph-light ph-trash" aria-hidden="true" style="font-size:16px"></i>{{ r.delLabel }}</button>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <sc-if value="{{ listEmpty }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:56px 24px;text-align:center;color:#9AA8C2;font-size:15px">{{ listEmptyText }}</div>
+      </sc-if>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ isForm }}" hint-placeholder-val="{{ false }}">
+    <form onSubmit="{{ save }}" style="display:grid;gap:28px">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+        <button type="button" onClick="{{ cancel }}" style="display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:#8FC6F2;font-size:14px;cursor:pointer;padding:4px 0" style-hover="color:#FFFFFF"><span aria-hidden="true">←</span> Volver a la lista</button>
+      </div>
+      <h1 style="margin:-12px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(30px,3.6vw,44px);line-height:1.05;letter-spacing:-.015em;color:#FFFFFF">{{ formTitle }}</h1>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 40px;align-items:start">
+        <div style="display:grid;gap:20px">
+          <div style="display:grid;gap:8px">
+            <span style="font-size:13px;color:#B7C3D8">Tipo</span>
+            <div role="radiogroup" aria-label="Tipo" style="display:flex;flex-wrap:wrap;gap:4px;padding:4px;background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:10px;justify-self:start">
+              <sc-for list="{{ tipos }}" as="t" hint-placeholder-count="3">
+                <button type="button" role="radio" aria-checked="{{ t.on }}" onClick="{{ t.pick }}" style="display:inline-flex;align-items:center;gap:8px;border:none;border-radius:7px;padding:8px 14px;font-size:14px;font-weight:500;cursor:pointer;white-space:nowrap;background:{{ t.bg }};color:{{ t.color }}"><i class="{{ t.icon }}" aria-hidden="true" style="font-size:17px"></i>{{ t.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+          <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Título
+            <input type="text" required="" value="{{ f.titulo }}" onInput="{{ h.titulo }}" placeholder="Ej. Nuevo plazo para el anexo de dividendos" style="width:100%;height:46px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+          </label>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:16px">
+            <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Fecha
+              <input type="date" required="" value="{{ f.fecha }}" onInput="{{ h.fecha }}" style="width:100%;height:46px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+            </label>
+            <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Dirección (URL)
+              <input type="text" required="" pattern="[a-z0-9-]+" value="{{ f.id }}" onInput="{{ h.id }}" disabled="{{ isEditing }}" placeholder="se-genera-del-titulo" style="width:100%;height:46px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:14px;font-family:'Geist Mono',monospace;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+            </label>
+          </div>
+          <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Resumen
+            <textarea rows="3" value="{{ f.resumen }}" onInput="{{ h.resumen }}" placeholder="Una o dos frases que aparecen en el listado" style="width:100%;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px;color:#EEF2F8;font-size:15px;line-height:1.5;outline:none;resize:vertical" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></textarea>
+          </label>
+          <div style="display:grid;gap:8px">
+            <span style="font-size:13px;color:#B7C3D8">Temas</span>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <sc-for list="{{ temas }}" as="tm" hint-placeholder-count="8">
+                <button type="button" aria-pressed="{{ tm.on }}" onClick="{{ tm.pick }}" style="font-size:13px;border-radius:999px;padding:7px 13px;cursor:pointer;border:1px solid {{ tm.border }};background:{{ tm.bg }};color:{{ tm.color }}">{{ tm.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid;gap:20px">
+          <sc-if value="{{ showFile }}" hint-placeholder-val="{{ true }}">
+            <div style="display:grid;gap:8px">
+              <span style="font-size:13px;color:#B7C3D8">{{ fileTitle }}</span>
+              <sc-if value="{{ hasFileInfo }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:10px;background:#07101F;border:1px solid rgba(157,190,230,.14)">
+                  <span style="width:40px;height:48px;border-radius:6px;background:#E8EDF4;color:#0A1428;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ph-light ph-file-pdf" aria-hidden="true" style="font-size:22px"></i></span>
+                  <div style="flex:1;min-width:0">
+                    <div style="font-size:14px;color:#FFFFFF;overflow-wrap:anywhere">{{ fileName }}</div>
+                    <div style="margin-top:3px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;color:#9AA8C2">{{ fileMeta }}</div>
+                  </div>
+                  <button type="button" onClick="{{ removeFile }}" aria-label="Quitar PDF" style="width:36px;height:36px;border-radius:8px;border:1px solid rgba(157,190,230,.24);background:transparent;color:#EEF2F8;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="border-color:#F28B82;color:#F28B82"><i class="ph-light ph-trash" aria-hidden="true" style="font-size:17px"></i></button>
+                </div>
+              </sc-if>
+              <label style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:120px;padding:20px;border:1px dashed rgba(157,190,230,.3);border-radius:12px;background:rgba(88,168,234,.04);text-align:center;cursor:pointer;transition:border-color .15s ease,background-color .15s ease" style-hover="border-color:#58A8EA;background:rgba(88,168,234,.08)">
+                <i class="ph-light ph-upload-simple" aria-hidden="true" style="font-size:26px;color:#58A8EA"></i>
+                <span style="font-size:14px;color:#EEF2F8">{{ dropLabel }}</span>
+                <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.08em;color:#6B7A96">PDF · MÁXIMO 50 MB</span>
+                <input type="file" accept="application/pdf,.pdf" onChange="{{ h.file }}" style="position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%">
+              </label>
+              <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8;max-width:200px">Número de páginas (opcional)
+                <input type="number" min="1" value="{{ f.archivo_paginas }}" onInput="{{ h.archivo_paginas }}" style="width:100%;height:46px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA">
+              </label>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ showVideo }}" hint-placeholder-val="{{ false }}">
+            <div style="display:grid;gap:16px">
+              <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Enlace de YouTube
+                <input type="url" value="{{ f.video_youtube }}" onInput="{{ h.video_youtube }}" placeholder="https://www.youtube.com/watch?v=…" style="width:100%;height:46px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+              </label>
+              <sc-if value="{{ ytThumb }}" hint-placeholder-val="{{ false }}">
+                <img src="{{ ytThumb }}" alt="Vista previa del video" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;border:1px solid rgba(157,190,230,.14);display:block">
+              </sc-if>
+              <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8;max-width:200px">Duración
+                <input type="text" value="{{ f.video_duracion }}" onInput="{{ h.video_duracion }}" placeholder="12:30" style="width:100%;height:46px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:0 12px;color:#EEF2F8;font-size:15px;outline:none" style-focus="border-color:#58A8EA">
+              </label>
+            </div>
+          </sc-if>
+
+          <label style="display:grid;gap:6px;font-size:13px;color:#B7C3D8">Contenido (opcional)
+            <textarea rows="9" value="{{ f.cuerpo }}" onInput="{{ h.cuerpo }}" placeholder="Texto completo. Separe los párrafos con una línea en blanco." style="width:100%;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px;color:#EEF2F8;font-size:15px;line-height:1.6;outline:none;resize:vertical" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></textarea>
+          </label>
+
+          <div style="display:grid;gap:12px;padding:16px;border-radius:10px;background:#07101F;border:1px solid rgba(157,190,230,.14)">
+            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+              <input type="checkbox" checked="{{ f.publicado }}" onChange="{{ h.publicado }}" style="width:18px;height:18px;margin:2px 0 0;accent-color:#58A8EA">
+              <span style="display:grid;gap:2px"><span style="font-size:15px;color:#FFFFFF">Publicado</span><span style="font-size:13px;color:#9AA8C2">Desmarque para guardar como borrador, oculto al público.</span></span>
+            </label>
+            <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer">
+              <input type="checkbox" checked="{{ f.destacado }}" onChange="{{ h.destacado }}" style="width:18px;height:18px;margin:2px 0 0;accent-color:#58A8EA">
+              <span style="display:grid;gap:2px"><span style="font-size:15px;color:#FFFFFF">Destacado</span><span style="font-size:13px;color:#9AA8C2">Aparece arriba como publicación principal. Reemplaza al destacado anterior.</span></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(157,190,230,.14)">
+        <button type="submit" disabled="{{ busy }}" style="display:inline-flex;align-items:center;gap:8px;height:48px;padding:0 22px;border:none;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;cursor:pointer;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA" style-active="transform:scale(.97)"><i class="ph-light ph-check" aria-hidden="true" style="font-size:18px"></i>{{ saveLabel }}</button>
+        <button type="button" onClick="{{ cancel }}" style="height:48px;padding:0 20px;border-radius:8px;background:transparent;border:1px solid rgba(157,190,230,.28);color:#EEF2F8;font-size:15px;cursor:pointer" style-hover="border-color:#58A8EA">Cancelar</button>
+      </div>
+    </form>
+  </sc-if>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const TEMAS = ['SRI', 'SCVS', 'SEPS', 'IESS', 'UAFE', 'NIIF', 'Laboral', 'General'];
+const TIPOS = { noticia: ['Noticia', 'ph-light ph-newspaper'], documento: ['Documento PDF', 'ph-light ph-file-pdf'], video: ['Video', 'ph-light ph-play-circle'] };
+const MONTHS = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+const BUCKET = 'documentos', MAX = 50 * 1024 * 1024;
+const norm = s => (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const slug = s => norm(s).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70).replace(/-+$/, '');
+const today = () => { const d = new Date(); return new Date(d - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10); };
+const fmtSize = b => b < 1048576 ? Math.max(1, Math.round(b / 1024)) + ' KB' : (b / 1048576).toFixed(1).replace('.', ',') + ' MB';
+const ytId = s => { s = (s || '').trim(); const m = s.match(/(?:v=|youtu\.be\/|embed\/|shorts\/|live\/)([\w-]{11})/); return m ? m[1] : (/^[\w-]{11}$/.test(s) ? s : ''); };
+const blank = () => ({ id: '', tipo: 'noticia', titulo: '', fecha: today(), resumen: '', temas: [], cuerpo: '', destacado: false, publicado: true, archivo_url: '', archivo_path: '', archivo_peso: '', archivo_paginas: '', video_youtube: '', video_duracion: '' });
+const ES = m => /invalid login/i.test(m) ? 'Correo o contraseña incorrectos.' : /email not confirmed/i.test(m) ? 'El correo aún no está confirmado en Supabase.' : /row-level security|violates/i.test(m) ? 'Su cuenta no tiene permiso para esta acción.' : /exceeded|too large|maximum/i.test(m) ? 'El archivo supera el tamaño permitido (50 MB).' : /duplicate key|23505/i.test(m) ? 'Ya existe una publicación con esa dirección (URL). Cámbiela.' : /failed to fetch|network/i.test(m) ? 'Sin conexión con Supabase. Revise su internet o la configuración.' : m;
+
+class Component extends DCLogic {
+  state = { phase: 'boot', email: '', loginEmail: '', loginPass: '', newPass: '', busy: false, msg: null, rows: [], q: '', f: blank(), editing: null, file: null, idTouched: false, removePath: '', confirmDel: null };
+
+  componentDidMount() {
+    let tries = 0;
+    const init = () => {
+      if ((!window.supabase || !window.TAXAUD_SUPABASE) && tries++ < 100) { setTimeout(init, 60); return; }
+      const cfg = window.TAXAUD_SUPABASE || {};
+      if (!window.supabase || !cfg.url || !cfg.anonKey) { this.setState({ phase: 'noconfig' }); return; }
+      this.sb = window.supabase.createClient(cfg.url, cfg.anonKey);
+      const { data } = this.sb.auth.onAuthStateChange((ev, session) => {
+        if (ev === 'PASSWORD_RECOVERY') { this.setState({ phase: 'recovery', email: session?.user?.email || '' }); return; }
+        if (this.state.phase === 'recovery' && ev !== 'SIGNED_OUT') return;
+        setTimeout(() => this.handleSession(session), 0);
+      });
+      this.authSub = data.subscription;
+    };
+    init();
+  }
+  componentWillUnmount() { this.authSub && this.authSub.unsubscribe(); }
+
+  say(kind, text) { this.setState({ msg: text ? { kind, text } : null }); }
+  async handleSession(session) {
+    if (!session) { this.setState({ phase: 'login', email: '' }); return; }
+    const email = (session.user.email || '').toLowerCase();
+    this.setState({ email });
+    const { data, error } = await this.sb.from('editores').select('email').ilike('email', email).maybeSingle();
+    if (error) { this.say('error', ES(error.message)); this.setState({ phase: 'noeditor' }); return; }
+    if (!data) { this.setState({ phase: 'noeditor' }); return; }
+    if (this.state.phase !== 'form') this.setState({ phase: 'list' });
+    this.loadRows();
+  }
+  async loadRows() {
+    const { data, error } = await this.sb.from('publicaciones').select('*').order('fecha', { ascending: false }).order('creado_en', { ascending: false });
+    if (error) { this.say('error', ES(error.message)); return; }
+    this.setState({ rows: data || [] });
+  }
+
+  login = async e => {
+    e.preventDefault();
+    this.setState({ busy: true, msg: null });
+    const { error } = await this.sb.auth.signInWithPassword({ email: this.state.loginEmail.trim(), password: this.state.loginPass });
+    this.setState({ busy: false, loginPass: '' });
+    if (error) this.say('error', ES(error.message));
+  };
+  forgot = async () => {
+    const email = this.state.loginEmail.trim();
+    if (!email) { this.say('error', 'Escriba su correo y vuelva a pulsar "¿Olvidó su contraseña?".'); return; }
+    const { error } = await this.sb.auth.resetPasswordForEmail(email, { redirectTo: location.href.split('#')[0] });
+    error ? this.say('error', ES(error.message)) : this.say('ok', 'Le enviamos un enlace a ' + email + ' para crear una nueva contraseña.');
+  };
+  saveNewPass = async e => {
+    e.preventDefault();
+    this.setState({ busy: true });
+    const { error } = await this.sb.auth.updateUser({ password: this.state.newPass });
+    this.setState({ busy: false, newPass: '' });
+    if (error) { this.say('error', ES(error.message)); return; }
+    this.say('ok', 'Contraseña actualizada.');
+    this.setState({ phase: 'boot' });
+    const { data } = await this.sb.auth.getSession();
+    this.handleSession(data.session);
+  };
+  logout = async () => { await this.sb.auth.signOut(); this.setState({ phase: 'login', rows: [], msg: null }); };
+
+  openForm(row) {
+    const f = row ? { ...blank(), ...Object.fromEntries(Object.entries(row).map(([k, v]) => [k, v ?? ''])), temas: row.temas || [], destacado: !!row.destacado, publicado: !!row.publicado, archivo_paginas: row.archivo_paginas ? String(row.archivo_paginas) : '', video_youtube: row.video_youtube ? 'https://www.youtube.com/watch?v=' + row.video_youtube : '' } : blank();
+    this.setState({ phase: 'form', f, editing: row ? row.id : null, file: null, idTouched: !!row, removePath: '', msg: null, confirmDel: null });
+    scrollTo({ top: 0 });
+  }
+  setF(patch) { this.setState(s => ({ f: { ...s.f, ...patch } })); }
+  pickFile = e => {
+    const file = e.target.files && e.target.files[0]; e.target.value = '';
+    if (!file) return;
+    if (!/pdf$/i.test(file.type) && !/\.pdf$/i.test(file.name)) { this.say('error', 'Solo se aceptan archivos PDF.'); return; }
+    if (file.size > MAX) { this.say('error', 'El PDF pesa ' + fmtSize(file.size) + '. El máximo es 50 MB; comprímalo antes de subirlo.'); return; }
+    const patch = {};
+    if (!this.state.f.titulo) patch.titulo = file.name.replace(/\.pdf$/i, '').replace(/[-_]+/g, ' ');
+    if (this.state.f.tipo === 'noticia') patch.tipo = 'documento';
+    if (patch.titulo && !this.state.idTouched) patch.id = slug(patch.titulo);
+    this.setState({ file, msg: null }); this.setF(patch);
+    file.arrayBuffer().then(buf => {
+      const txt = new TextDecoder('latin1').decode(buf);
+      const n = (txt.match(/\/Type\s*\/Page(?!s)/g) || []).length;
+      if (n && !this.state.f.archivo_paginas) this.setF({ archivo_paginas: String(n) });
+    }).catch(() => {});
+  };
+  removeFile = () => this.setState(s => ({ file: null, removePath: s.f.archivo_path || s.removePath, f: { ...s.f, archivo_url: '', archivo_path: '', archivo_peso: '' } }));
+
+  save = async e => {
+    e.preventDefault();
+    const { f, file, editing, removePath } = this.state;
+    const id = editing || slug(f.id || f.titulo);
+    if (!f.titulo.trim() || !id) { this.say('error', 'Escriba un título.'); return; }
+    if (f.tipo === 'documento' && !file && !f.archivo_url) { this.say('error', 'Adjunte el PDF del documento.'); return; }
+    const yt = ytId(f.video_youtube);
+    if (f.tipo === 'video' && f.video_youtube.trim() && !yt) { this.say('error', 'El enlace de YouTube no es válido.'); return; }
+    this.setState({ busy: true, msg: null });
+    try {
+      let archivo = { archivo_url: f.archivo_url || null, archivo_path: f.archivo_path || null, archivo_peso: f.archivo_peso || null };
+      const toRemove = [];
+      if (removePath) toRemove.push(removePath);
+      if (f.tipo === 'video' && archivo.archivo_path) { toRemove.push(archivo.archivo_path); archivo = { archivo_url: null, archivo_path: null, archivo_peso: null }; }
+      if (file && f.tipo !== 'video') {
+        const path = 'pdf/' + id + '-' + Date.now().toString(36) + '.pdf';
+        const up = await this.sb.storage.from(BUCKET).upload(path, file, { contentType: 'application/pdf', cacheControl: '31536000', upsert: false });
+        if (up.error) throw up.error;
+        if (archivo.archivo_path) toRemove.push(archivo.archivo_path);
+        archivo = { archivo_url: this.sb.storage.from(BUCKET).getPublicUrl(path).data.publicUrl, archivo_path: path, archivo_peso: fmtSize(file.size) };
+      }
+      const row = {
+        id, tipo: f.tipo, fecha: f.fecha || today(), titulo: f.titulo.trim(), resumen: f.resumen.trim() || null, temas: f.temas,
+        cuerpo: f.cuerpo.trim() || null, destacado: !!f.destacado, publicado: !!f.publicado, ...archivo,
+        archivo_paginas: f.tipo !== 'video' && parseInt(f.archivo_paginas, 10) > 0 ? parseInt(f.archivo_paginas, 10) : null,
+        video_youtube: f.tipo === 'video' ? (yt || null) : null, video_duracion: f.tipo === 'video' ? (f.video_duracion.trim() || null) : null
+      };
+      const res = editing ? await this.sb.from('publicaciones').update(row).eq('id', editing) : await this.sb.from('publicaciones').insert(row);
+      if (res.error) throw res.error;
+      if (row.destacado) await this.sb.from('publicaciones').update({ destacado: false }).neq('id', id).eq('destacado', true);
+      if (toRemove.length) await this.sb.storage.from(BUCKET).remove(toRemove);
+      await this.loadRows();
+      this.setState({ phase: 'list', busy: false, file: null, removePath: '' });
+      this.say('ok', row.publicado ? '"' + row.titulo + '" está publicada.' : '"' + row.titulo + '" se guardó como borrador.');
+      scrollTo({ top: 0 });
+    } catch (err) {
+      this.setState({ busy: false });
+      this.say('error', ES(err.message || String(err)));
+    }
+  };
+  async toggle(r) {
+    const { error } = await this.sb.from('publicaciones').update({ publicado: !r.publicado }).eq('id', r.id);
+    if (error) { this.say('error', ES(error.message)); return; }
+    this.say('ok', r.publicado ? '"' + r.titulo + '" ahora está oculta al público.' : '"' + r.titulo + '" está publicada.');
+    this.loadRows();
+  }
+  async del(r) {
+    if (this.state.confirmDel !== r.id) {
+      this.setState({ confirmDel: r.id });
+      clearTimeout(this.delT); this.delT = setTimeout(() => this.setState({ confirmDel: null }), 4000);
+      return;
+    }
+    this.setState({ confirmDel: null });
+    const { error } = await this.sb.from('publicaciones').delete().eq('id', r.id);
+    if (error) { this.say('error', ES(error.message)); return; }
+    if (r.archivo_path) await this.sb.storage.from(BUCKET).remove([r.archivo_path]);
+    this.say('ok', '"' + r.titulo + '" se eliminó.');
+    this.loadRows();
+  }
+
+  renderVals() {
+    const { phase, email, loginEmail, loginPass, newPass, busy, msg, rows, q, f, editing, file, confirmDel } = this.state;
+    const nq = norm(q.trim());
+    const list = rows.filter(r => !nq || norm(r.titulo).includes(nq)).map(r => {
+      const [y, m, d] = (r.fecha || '').split('-').map(Number), t = TIPOS[r.tipo] || TIPOS.noticia, conf = confirmDel === r.id;
+      return {
+        titulo: r.titulo, destacado: !!r.destacado, typeLabel: t[0], icon: t[1],
+        dateStr: (d || '') + ' ' + (MONTHS[(m || 1) - 1] || '') + ' ' + (y || ''),
+        stateLabel: r.publicado ? 'Publicado' : 'Borrador',
+        stateBg: r.publicado ? 'rgba(127,209,174,.14)' : 'rgba(157,190,230,.12)', stateColor: r.publicado ? '#7FD1AE' : '#B7C3D8',
+        toggleLabel: r.publicado ? 'Ocultar' : 'Publicar', toggleIcon: r.publicado ? 'ph-light ph-eye-slash' : 'ph-light ph-eye',
+        delLabel: conf ? '¿Confirmar?' : 'Eliminar',
+        delBg: conf ? 'rgba(242,139,130,.14)' : 'transparent', delBorder: conf ? '#F28B82' : 'rgba(157,190,230,.28)', delColor: conf ? '#F28B82' : '#EEF2F8',
+        edit: () => this.openForm(r), toggle: () => this.toggle(r), del: () => this.del(r)
+      };
+    });
+    const txt = k => e => this.setState({ [k]: e.target.value });
+    const fv = k => e => this.setF({ [k]: e.target.value });
+    const yt = ytId(f.video_youtube);
+    const M = { ok: ['rgba(127,209,174,.1)', 'rgba(127,209,174,.4)', '#A9E4CB', 'ph-light ph-check-circle'], error: ['rgba(242,139,130,.1)', 'rgba(242,139,130,.45)', '#F7B4AD', 'ph-light ph-warning-circle'] };
+    const mm = msg ? M[msg.kind] : M.ok;
+    return {
+      email, loginEmail, loginPass, newPass, busy, q, f,
+      msg: { text: msg ? msg.text : '', bg: mm[0], border: mm[1], color: mm[2], icon: mm[3] },
+      clearMsg: () => this.setState({ msg: null }),
+      signedIn: ['list', 'form', 'noeditor'].includes(phase),
+      isBoot: phase === 'boot', isNoConfig: phase === 'noconfig', isLogin: phase === 'login', isRecovery: phase === 'recovery', isNoEditor: phase === 'noeditor', isList: phase === 'list', isForm: phase === 'form',
+      loginLabel: busy ? 'Entrando…' : 'Entrar',
+      login: this.login, forgot: this.forgot, saveNewPass: this.saveNewPass, logout: this.logout,
+      listTitle: rows.length === 1 ? '1 publicación' : rows.length + ' publicaciones',
+      rows: list, listEmpty: list.length === 0, listEmptyText: rows.length ? 'Ninguna publicación coincide con la búsqueda.' : 'Aún no hay publicaciones. Cree la primera con "Nueva publicación".',
+      newPub: () => this.openForm(null), cancel: () => { this.setState({ phase: 'list', msg: null }); scrollTo({ top: 0 }); },
+      formTitle: editing ? 'Editar publicación' : 'Nueva publicación', isEditing: !!editing,
+      saveLabel: busy ? (file ? 'Subiendo PDF…' : 'Guardando…') : (f.publicado ? 'Guardar y publicar' : 'Guardar borrador'),
+      tipos: Object.keys(TIPOS).map(k => ({ label: TIPOS[k][0], icon: TIPOS[k][1], on: f.tipo === k, bg: f.tipo === k ? '#EEF2F8' : 'transparent', color: f.tipo === k ? '#0A1428' : '#B7C3D8', pick: () => this.setF({ tipo: k }) })),
+      temas: TEMAS.map(t => {
+        const on = f.temas.includes(t);
+        return { label: t, on, border: on ? '#58A8EA' : 'rgba(157,190,230,.2)', bg: on ? 'rgba(88,168,234,.16)' : 'transparent', color: on ? '#FFFFFF' : '#B7C3D8', pick: () => this.setF({ temas: on ? f.temas.filter(x => x !== t) : [...f.temas, t] }) };
+      }),
+      showFile: f.tipo !== 'video', showVideo: f.tipo === 'video',
+      fileTitle: f.tipo === 'documento' ? 'Archivo PDF' : 'PDF adjunto (opcional)',
+      hasFileInfo: !!(file || f.archivo_url),
+      fileName: file ? file.name : (f.archivo_path || f.archivo_url).split('/').pop(),
+      fileMeta: file ? 'NUEVO · ' + fmtSize(file.size) + ' · SE SUBE AL GUARDAR' : ['PDF', f.archivo_peso].filter(Boolean).join(' · '),
+      dropLabel: file || f.archivo_url ? 'Reemplazar con otro PDF' : 'Arrastre el PDF aquí o haga clic para elegirlo',
+      removeFile: this.removeFile,
+      ytThumb: yt ? 'https://i.ytimg.com/vi/' + yt + '/hqdefault.jpg' : '',
+      save: this.save,
+      h: {
+        loginEmail: txt('loginEmail'), loginPass: txt('loginPass'), newPass: txt('newPass'), q: txt('q'),
+        titulo: e => { const v = e.target.value; this.setF(this.state.idTouched ? { titulo: v } : { titulo: v, id: slug(v) }); },
+        id: e => { this.setState({ idTouched: true }); this.setF({ id: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '-') }); },
+        fecha: fv('fecha'), resumen: fv('resumen'), cuerpo: fv('cuerpo'), archivo_paginas: fv('archivo_paginas'), video_youtube: fv('video_youtube'), video_duracion: fv('video_duracion'),
+        publicado: e => this.setF({ publicado: e.target.checked }), destacado: e => this.setF({ destacado: e.target.checked }),
+        file: this.pickFile
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

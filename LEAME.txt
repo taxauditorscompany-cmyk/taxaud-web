@@ -1,0 +1,17 @@
+TAXAUD Auditores — paquete del sitio web
+
+index.html   Sitio principal (Inicio, Servicios, Nosotros, Cómo trabajamos, Calculadora, Contacto)
+blog.html    Blog / publicaciones
+admin.html   Panel para publicar en el blog (requiere Supabase)
+support.js   Motor de la página — obligatorio, no borrar
+assets/      Imágenes (logo.png, firma.png)
+publicaciones/  Datos del blog y conexión con Supabase
+
+Los estilos (CSS) están dentro de cada HTML; no hay archivo .css aparte.
+Fuentes e íconos se cargan desde Google Fonts y Phosphor (requiere internet).
+
+Publicar: suba TODA la carpeta tal cual a su hosting (Cloudflare Pages, Netlify, cPanel…).
+No abra index.html con doble clic: use un servidor (el hosting o "npx serve").
+
+Enlace CONTA - X: en index.html busque  const CONTAX_URL
+Supabase (blog, admin y contador de visitas): ver publicaciones/CONFIGURACION.md

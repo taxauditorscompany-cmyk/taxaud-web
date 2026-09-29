@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Blog — TAXAUD Auditores</title>
+<meta name="description" content="Noticias tributarias, documentos descargables y videos de TAX AUDITORS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<script src="publicaciones/publicaciones.js"></script>
+<script src="publicaciones/supabase-config.js"></script>
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A1428;color:#EEF2F8;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#8FC6F2;text-decoration:none}
+a:hover{color:#FFFFFF}
+::selection{background:#58A8EA;color:#07101F}
+:focus-visible{outline:2px solid #58A8EA;outline-offset:3px;border-radius:6px}
+input,select,textarea,button{font-family:inherit}
+input::placeholder{color:#6B7A96}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:40;background:rgba(10,20,40,.72);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="index.html#inicio" aria-label="TAX AUDITORS, inicio" style="display:flex"><img src="assets/logo.png" alt="TAX AUDITORS" style="height:34px;width:auto;display:block"></a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Secciones" style="display:flex;gap:28px;font-size:14px">
+        <a href="index.html#inicio" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Inicio</a>
+        <a href="index.html#servicios" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Servicios</a>
+        <a href="index.html#nosotros" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Nosotros</a>
+        <a href="index.html#metodo" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Cómo trabajamos</a>
+        <a href="blog.html" aria-current="page" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#FFFFFF;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px">Blog</a>
+        <a href="index.html#contacto" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Contacto</a>
+      </nav>
+    </sc-if>
+    <a data-press="" href="index.html#contacto" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;padding:9px 14px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:14px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta</a>
+  </div>
+</header>
+
+<main>
+<section data-screen-label="Blog" data-glow-host="" style="position:relative;overflow:hidden;padding:clamp(56px,8vw,104px) 0 clamp(32px,4vw,48px)">
+  <div data-glow="" aria-hidden="true" style="position:absolute;left:0;top:0;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(closest-side,rgba(88,168,234,.20),rgba(88,168,234,.07) 45%,rgba(88,168,234,0));pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:32px clamp(32px,6vw,96px);align-items:end">
+    <div>
+      <div data-hero="" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Blog</div>
+      <h1 data-hero="" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(40px,5.4vw,76px);line-height:1;letter-spacing:-.02em;text-wrap:balance;max-width:16ch">Normativa y noticias tributarias, <em style="font-style:italic;color:#8FC6F2">al día</em></h1>
+    </div>
+    <div>
+      <p data-hero="" style="margin:0;color:#B7C3D8;font-size:clamp(16px,1.3vw,18px);font-weight:300;line-height:1.6;max-width:48ch;text-wrap:pretty">Notas sobre cambios del SRI, la SCVS y la SEPS, guías en PDF de libre descarga y videos explicativos preparados por nuestro equipo.</p>
+      <label data-hero="" style="margin-top:24px;display:flex;align-items:center;gap:10px;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:10px;padding:0 14px;height:50px;transition:border-color .15s ease,box-shadow .15s ease" style-focus-within="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+        <i class="ph-light ph-magnifying-glass" aria-hidden="true" style="font-size:20px;color:#9AA8C2"></i>
+        <input type="search" value="{{ q }}" onInput="{{ onSearch }}" placeholder="Buscar por tema, título o palabra clave" aria-label="Buscar en el blog" style="flex:1;min-width:0;height:100%;background:transparent;border:none;outline:none;color:#EEF2F8;font-size:16px">
+      </label>
+    </div>
+  </div>
+</section>
+
+<div style="position:sticky;top:68px;z-index:30;background:rgba(10,20,40,.86);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-block:1px solid rgba(157,190,230,.12)">
+  <div style="max-width:1320px;margin:0 auto;padding:12px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px">
+    <div role="tablist" aria-label="Tipo de publicación" style="display:flex;gap:4px;padding:4px;background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:10px;overflow-x:auto;max-width:100%">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <button data-press="" type="button" role="tab" aria-selected="{{ t.on }}" onClick="{{ t.pick }}" style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border:none;border-radius:7px;padding:8px 14px;font-size:14px;font-weight:500;cursor:pointer;background:{{ t.bg }};color:{{ t.color }};transition:background-color .15s ease,color .15s ease,transform .12s ease" style-active="transform:scale(.97)"><i class="{{ t.icon }}" aria-hidden="true" style="font-size:17px"></i>{{ t.label }}<span style="font-family:'Geist Mono',monospace;font-size:11px;opacity:.7">{{ t.count }}</span></button>
+      </sc-for>
+    </div>
+    <div aria-label="Tema" style="display:flex;flex-wrap:wrap;gap:6px;flex:1 1 320px">
+      <sc-for list="{{ topics }}" as="tp" hint-placeholder-count="7">
+        <button data-press="" type="button" aria-pressed="{{ tp.on }}" onClick="{{ tp.pick }}" style="font-size:13px;border-radius:999px;padding:6px 12px;cursor:pointer;border:1px solid {{ tp.border }};background:{{ tp.bg }};color:{{ tp.color }};transition:background-color .15s ease,border-color .15s ease,color .15s ease">{{ tp.label }}</button>
+      </sc-for>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;font-size:13px;color:#9AA8C2">Orden
+      <select value="{{ sort }}" onChange="{{ onSort }}" style="font-size:14px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:7px 10px;outline:none">
+        <option value="desc">Más recientes</option>
+        <option value="asc">Más antiguas</option>
+      </select>
+    </label>
+  </div>
+</div>
+
+<section style="padding:clamp(32px,4vw,56px) 0 clamp(80px,10vw,128px)">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+
+    <sc-if value="{{ showFeatured }}" hint-placeholder-val="{{ true }}">
+      <article data-sr="m" data-glow-host="" style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:20px;overflow:hidden;margin-bottom:clamp(40px,5vw,64px)">
+        <div data-glow="" aria-hidden="true" style="position:absolute;left:0;top:0;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(closest-side,rgba(88,168,234,.20),rgba(88,168,234,.07) 45%,rgba(88,168,234,0));pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+        <div style="position:relative;padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase">
+            <span style="color:#07101F;background:#58A8EA;border-radius:4px;padding:3px 7px">Destacado</span>
+            <span style="display:inline-flex;align-items:center;gap:6px;color:#8FC6F2"><i class="{{ feat.icon }}" aria-hidden="true" style="font-size:15px"></i>{{ feat.typeLabel }}</span>
+            <span style="color:#9AA8C2">{{ feat.dateStr }}</span>
+          </div>
+          <h2 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(28px,3.2vw,44px);line-height:1.08;letter-spacing:-.015em;color:#FFFFFF;text-wrap:balance">{{ feat.titulo }}</h2>
+          <p style="margin:0;color:#B7C3D8;font-size:17px;font-weight:300;line-height:1.6;max-width:52ch;text-wrap:pretty">{{ feat.resumen }}</p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:8px">
+            <sc-if value="{{ feat.hasFile }}" hint-placeholder-val="{{ true }}">
+              <a data-press="" href="{{ feat.dlUrl }}" download="" style="display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)"><i class="ph-light ph-download-simple" aria-hidden="true" style="font-size:18px"></i>Descargar PDF</a>
+            </sc-if>
+            <button data-press="" type="button" onClick="{{ feat.open }}" style="display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:8px;background:transparent;color:#EEF2F8;border:1px solid rgba(157,190,230,.3);font-size:15px;font-weight:500;cursor:pointer;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA" style-active="transform:scale(.97)">{{ feat.openLabel }} <span aria-hidden="true">→</span></button>
+          </div>
+        </div>
+        <button type="button" onClick="{{ feat.open }}" onPointerMove="{{ onDocMove }}" onPointerLeave="{{ onDocLeave }}" aria-label="Abrir publicación destacada" style="position:relative;perspective:900px;min-height:260px;border:none;border-left:1px solid rgba(157,190,230,.1);cursor:pointer;background:radial-gradient(120% 90% at 80% 10%,rgba(88,168,234,.22),transparent 60%),#0D1A33;display:flex;align-items:center;justify-content:center;padding:32px">
+          <div ref="{{ docRef }}" style="width:min(62%,240px);aspect-ratio:3/4;background:#E8EDF4;border-radius:6px;box-shadow:0 30px 60px -20px rgba(0,0,0,.6);transform:rotate(-3deg);transition:transform .6s cubic-bezier(0.23,1,0.32,1),box-shadow .6s ease;will-change:transform;padding:22px;display:flex;flex-direction:column;gap:10px;text-align:left">
+            <img src="assets/logo.png" alt="" style="height:18px;width:auto;align-self:flex-start;filter:invert(1) hue-rotate(180deg)">
+            <div style="height:1px;background:rgba(10,20,40,.14);margin:6px 0"></div>
+            <div style="font-family:'Newsreader',Georgia,serif;font-size:17px;line-height:1.15;color:#0A1428">{{ feat.titulo }}</div>
+            <div style="margin-top:auto;display:flex;justify-content:space-between;font-family:'Geist Mono',monospace;font-size:10px;letter-spacing:.1em;color:#34425F"><span>{{ feat.badge }}</span><span>{{ feat.extra }}</span></div>
+          </div>
+        </button>
+      </article>
+    </sc-if>
+
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap">
+      <span role="status" style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.1em;color:#9AA8C2">{{ countText }}</span>
+      <sc-if value="{{ hasFilters }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ clearFilters }}" style="background:none;border:none;color:#8FC6F2;font-size:14px;cursor:pointer;padding:4px 0" style-hover="color:#FFFFFF">Limpiar filtros</button>
+      </sc-if>
+    </div>
+
+    <sc-for list="{{ groups }}" as="g" hint-placeholder-count="2">
+      <div style="margin-top:40px">
+        <h3 data-ghead="" style="margin:0;padding-bottom:12px;border-bottom:2px solid #EEF2F8;font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#EEF2F8">{{ g.label }}</h3>
+        <sc-for list="{{ g.items }}" as="p" hint-placeholder-count="3">
+          <article data-item="" style="display:flex;flex-wrap:wrap;align-items:flex-start;gap:14px 28px;padding:24px 12px;margin:0 -12px;border-bottom:1px solid rgba(157,190,230,.14);border-radius:4px;transition:background-color .2s ease" style-hover="background:rgba(88,168,234,.05)">
+            <div style="flex:0 0 92px;display:flex;flex-direction:column;gap:10px">
+              <span style="font-family:'Geist Mono',monospace;font-size:12px;color:#9AA8C2">{{ p.dayStr }}</span>
+              <span style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#0D1A33;border:1px solid rgba(157,190,230,.16);color:#58A8EA"><i class="{{ p.icon }}" aria-hidden="true" style="font-size:21px"></i></span>
+            </div>
+            <div style="flex:1 1 360px;min-width:0">
+              <div style="display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase">
+                <span style="color:#8FC6F2">{{ p.typeLabel }}</span>
+                <span style="color:#6B7A96">{{ p.extra }}</span>
+              </div>
+              <h4 style="margin:8px 0 0;font-size:clamp(18px,1.5vw,21px);font-weight:400;line-height:1.35;letter-spacing:-.01em;text-wrap:pretty"><a href="{{ p.href }}" onClick="{{ p.open }}" style="color:#FFFFFF;transition:color .15s ease" style-hover="color:#8FC6F2">{{ p.titulo }}</a></h4>
+              <p style="margin:8px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55;max-width:70ch;text-wrap:pretty">{{ p.resumen }}</p>
+              <div style="margin-top:12px;display:flex;flex-wrap:wrap;gap:6px">
+                <sc-for list="{{ p.temas }}" as="tm" hint-placeholder-count="1">
+                  <span style="font-size:12px;color:#B7C3D8;border:1px solid rgba(157,190,230,.2);border-radius:999px;padding:3px 9px">{{ tm }}</span>
+                </sc-for>
+              </div>
+            </div>
+            <div style="flex:0 0 auto;display:flex;flex-wrap:wrap;gap:8px;align-self:center">
+              <sc-if value="{{ p.hasFile }}" hint-placeholder-val="{{ false }}">
+                <a data-press="" href="{{ p.dlUrl }}" download="" aria-label="Descargar PDF: {{ p.titulo }}" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:14px;font-weight:500;white-space:nowrap;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)"><i class="ph-light ph-download-simple" aria-hidden="true" style="font-size:17px"></i>Descargar</a>
+              </sc-if>
+              <button data-press="" type="button" onClick="{{ p.open }}" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:transparent;color:#EEF2F8;border:1px solid rgba(157,190,230,.28);font-size:14px;font-weight:500;white-space:nowrap;cursor:pointer;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA" style-active="transform:scale(.97)"><i class="{{ p.openIcon }}" aria-hidden="true" style="font-size:17px"></i>{{ p.openLabel }}</button>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </sc-for>
+
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:40px;padding:56px 24px;border:1px dashed rgba(157,190,230,.24);border-radius:16px;text-align:center">
+        <i class="ph-light ph-magnifying-glass" aria-hidden="true" style="font-size:32px;color:#58A8EA"></i>
+        <p style="margin:12px 0 0;font-size:18px;color:#FFFFFF">No encontramos publicaciones con esos filtros</p>
+        <p style="margin:6px 0 0;font-size:15px;color:#9AA8C2">Pruebe con otra palabra o <button type="button" onClick="{{ clearFilters }}" style="background:none;border:none;padding:0;color:#8FC6F2;font-size:15px;cursor:pointer;text-decoration:underline">vea todas</button>.</p>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ false }}">
+      <div style="margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:12px">
+        <button data-press="" type="button" onClick="{{ loadMore }}" style="display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:8px;background:transparent;color:#EEF2F8;border:1px solid rgba(157,190,230,.3);font-size:15px;font-weight:500;cursor:pointer;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA" style-active="transform:scale(.97)">Cargar más publicaciones <span aria-hidden="true">→</span></button>
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6B7A96">{{ shownText }}</span>
+      </div>
+    </sc-if>
+  </div>
+</section>
+</main>
+
+<footer style="background:#0A1428;color:#9AA8C2;font-size:13px;border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1320px;margin:0 auto;padding:32px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
+    <img src="assets/logo.png" alt="TAX AUDITORS" style="height:26px;width:auto;display:block">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px"><span>© 2026 TAX AUDITORS COMPANY TAXAUD S.A.S. · RUC 0691784323001 · Ecuador</span><div style="display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></div></div>
+  </div>
+</footer>
+
+<sc-if value="{{ open }}" hint-placeholder-val="{{ false }}">
+  <div ref="{{ backRef }}" onClick="{{ close }}" style="position:fixed;inset:0;z-index:60;background:rgba(4,9,20,.74);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow-y:auto;padding:clamp(12px,5vh,64px) 12px">
+    <article ref="{{ panelRef }}" role="dialog" aria-modal="true" aria-label="{{ cur.titulo }}" onClick="{{ stop }}" style="position:relative;max-width:880px;margin:0 auto;background:#0D1A33;border:1px solid rgba(157,190,230,.18);border-radius:20px;padding:clamp(24px,4.5vw,52px);box-shadow:0 40px 100px -30px rgba(0,0,0,.7)">
+      <button data-press="" type="button" onClick="{{ close }}" aria-label="Cerrar" style="position:absolute;top:16px;right:16px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(157,190,230,.2);background:#0A1428;color:#EEF2F8;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .15s ease" style-hover="border-color:#58A8EA"><i class="ph-light ph-x" aria-hidden="true" style="font-size:20px"></i></button>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding-right:52px">
+        <span style="display:inline-flex;align-items:center;gap:6px;color:#8FC6F2"><i class="{{ cur.icon }}" aria-hidden="true" style="font-size:15px"></i>{{ cur.typeLabel }}</span>
+        <span style="color:#9AA8C2">{{ cur.dateStr }}</span>
+        <span style="color:#6B7A96">{{ cur.extra }}</span>
+      </div>
+      <h2 style="margin:16px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-.015em;color:#FFFFFF;text-wrap:balance">{{ cur.titulo }}</h2>
+      <p style="margin:16px 0 0;color:#B7C3D8;font-size:18px;font-weight:300;line-height:1.6;text-wrap:pretty">{{ cur.resumen }}</p>
+
+      <sc-if value="{{ cur.isVideo }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:28px;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#07101F;border:1px solid rgba(157,190,230,.14)">
+          <sc-if value="{{ cur.ytSrc }}" hint-placeholder-val="{{ false }}">
+            <iframe src="{{ cur.ytSrc }}" title="{{ cur.titulo }}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style="width:100%;height:100%;border:0;display:block"></iframe>
+          </sc-if>
+          <sc-if value="{{ cur.mp4 }}" hint-placeholder-val="{{ false }}">
+            <video src="{{ cur.mp4 }}" controls="" playsinline="" style="width:100%;height:100%;display:block;background:#000"></video>
+          </sc-if>
+          <sc-if value="{{ cur.noVideo }}" hint-placeholder-val="{{ false }}">
+            <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#9AA8C2;text-align:center;padding:24px">
+              <i class="ph-light ph-play-circle" aria-hidden="true" style="font-size:56px;color:#58A8EA"></i>
+              <span style="font-size:15px">Video pendiente de cargar</span>
+              <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em;color:#6B7A96">AGREGUE EL ID DE YOUTUBE O EL ARCHIVO MP4</span>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ cur.hasFile }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:16px 20px;padding:18px 20px;border-radius:14px;background:#07101F;border:1px solid rgba(157,190,230,.14)">
+          <span style="width:48px;height:56px;border-radius:6px;background:#E8EDF4;color:#0A1428;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="ph-light ph-file-pdf" aria-hidden="true" style="font-size:26px"></i></span>
+          <div style="flex:1 1 200px;min-width:0">
+            <div style="font-size:15px;font-weight:500;color:#FFFFFF;overflow-wrap:anywhere">{{ cur.fileName }}</div>
+            <div style="margin-top:4px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em;color:#9AA8C2">{{ cur.fileMeta }}</div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <a data-press="" href="{{ cur.fileUrl }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;border:1px solid rgba(157,190,230,.28);color:#EEF2F8;font-size:14px;font-weight:500;transition:border-color .15s ease" style-hover="border-color:#58A8EA;color:#FFFFFF"><i class="ph-light ph-eye" aria-hidden="true" style="font-size:17px"></i>Ver en línea</a>
+            <a data-press="" href="{{ cur.dlUrl }}" download="" style="display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:14px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)"><i class="ph-light ph-download-simple" aria-hidden="true" style="font-size:17px"></i>Descargar</a>
+          </div>
+        </div>
+      </sc-if>
+
+      <div style="margin-top:28px;display:grid;gap:16px">
+        <sc-for list="{{ cur.cuerpo }}" as="para" hint-placeholder-count="0">
+          <p style="margin:0;color:#D6DEEA;font-size:17px;line-height:1.7;max-width:66ch;text-wrap:pretty">{{ para }}</p>
+        </sc-for>
+      </div>
+
+      <div style="margin-top:32px;padding-top:20px;border-top:1px solid rgba(157,190,230,.14);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{ cur.temas }}" as="tm" hint-placeholder-count="1">
+            <span style="font-size:12px;color:#B7C3D8;border:1px solid rgba(157,190,230,.2);border-radius:999px;padding:3px 9px">{{ tm }}</span>
+          </sc-for>
+        </div>
+        <button data-press="" type="button" onClick="{{ copyLink }}" style="display:inline-flex;align-items:center;gap:8px;background:none;border:none;color:#8FC6F2;font-size:14px;cursor:pointer;padding:6px 0" style-hover="color:#FFFFFF"><i class="ph-light ph-link-simple" aria-hidden="true" style="font-size:17px"></i>{{ copyLabel }}</button>
+      </div>
+    </article>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;pageSize&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:8,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:4,&quot;max&quot;:30,&quot;step&quot;:1,&quot;section&quot;:&quot;Listado&quot;},&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;showFeatured&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Listado&quot;}}">
+const TYPES = {
+  noticia: { label: 'Noticia', tab: 'Noticias', icon: 'ph-light ph-newspaper', open: 'Leer', openIcon: 'ph-light ph-article' },
+  documento: { label: 'Documento PDF', tab: 'Documentos', icon: 'ph-light ph-file-pdf', open: 'Ver detalle', openIcon: 'ph-light ph-eye' },
+  video: { label: 'Video', tab: 'Videos', icon: 'ph-light ph-play-circle', open: 'Reproducir', openIcon: 'ph-light ph-play' }
+};
+const MONTHS = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+const EASE = 'cubic-bezier(0.23, 1, 0.32, 1)', OUT = 'cubic-bezier(0.16, 1, 0.3, 1)';
+const norm = s => (s || '').toString().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+const fromRow = r => ({
+  id: r.id, tipo: r.tipo, fecha: r.fecha, titulo: r.titulo, resumen: r.resumen || '', temas: r.temas || [], destacado: !!r.destacado,
+  cuerpo: (r.cuerpo || '').split(/\n\s*\n/).map(s => s.trim()).filter(Boolean),
+  archivo: r.archivo_url ? { url: r.archivo_url, peso: r.archivo_peso || '', paginas: r.archivo_paginas || 0 } : null,
+  video: { youtube: r.video_youtube || '', mp4: r.video_mp4 || '', duracion: r.video_duracion || '' }
+});
+const parseDate = s => { const [y, m, d] = (s || '').split('-').map(Number); return { y, m: (m || 1) - 1, d: d || 1 }; };
+
+class Component extends DCLogic {
+  state = { pubs: [], type: 'todo', topic: '', q: '', sort: 'desc', limit: 0, openId: null, copied: false, wide: true };
+  docRef = React.createRef(); backRef = React.createRef(); panelRef = React.createRef();
+  motionOn() { return (this.props.motion ?? true) && !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+  fineOn() { return this.motionOn() && matchMedia('(hover: hover) and (pointer: fine)').matches; }
+
+  setupFx() {
+    this.onPress = e => {
+      const el = e.target.closest && e.target.closest('[data-press]'); if (!el || !this.motionOn()) return;
+      if (el.dataset.nav !== undefined) {
+        el.animate([{ backgroundSize: '100% 1px', color: '#FFFFFF' }, { backgroundSize: '100% 2px', color: '#8FC6F2' }, { backgroundSize: '100% 1px', color: '#FFFFFF' }], { duration: 420, easing: EASE });
+        return;
+      }
+      const r = el.getBoundingClientRect();
+      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+      el.style.overflow = 'hidden'; el.style.isolation = 'isolate';
+      const size = Math.hypot(r.width, r.height) * 2, dot = document.createElement('span');
+      dot.setAttribute('aria-hidden', 'true');
+      dot.style.cssText = 'position:absolute;left:' + (e.clientX - r.left - size / 2) + 'px;top:' + (e.clientY - r.top - size / 2) + 'px;width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:currentColor;pointer-events:none;z-index:-1;opacity:0';
+      el.appendChild(dot);
+      dot.animate([{ transform: 'scale(0)', opacity: 0.22 }, { transform: 'scale(1)', opacity: 0 }], { duration: 600, easing: EASE }).onfinish = () => dot.remove();
+    };
+    this.onOver = e => {
+      const el = e.target.closest && e.target.closest('[data-press]'); if (!el || el.contains(e.relatedTarget)) return;
+      const arrow = [...el.querySelectorAll('span[aria-hidden="true"]')].find(s => s.textContent.trim() === '→');
+      if (arrow) { arrow.style.display = 'inline-block'; arrow.style.transition = 'transform .3s cubic-bezier(0.23,1,0.32,1)'; arrow.style.transform = e.type === 'pointerover' ? 'translateX(4px)' : 'none'; }
+    };
+    addEventListener('pointerdown', this.onPress); addEventListener('pointerover', this.onOver); addEventListener('pointerout', this.onOver);
+    this.fx = { hosts: [] };
+    if (this.fineOn()) {
+      this.onPointer = e => { this.fx.px = e.clientX; this.fx.py = e.clientY; this.fxKick(); };
+      addEventListener('pointermove', this.onPointer, { passive: true });
+      addEventListener('scroll', this.onPointerScroll = () => this.fxKick(), { passive: true });
+    }
+    this.io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      this.io.unobserve(e.target);
+      const m = this.srMap.get(e.target); if (m) this.runReveal(e.target, m[0], m[1]);
+    }), { rootMargin: '0px 0px -6% 0px' });
+    this.srMap = new Map();
+    if (this.motionOn()) document.querySelectorAll('[data-hero]').forEach((el, i) => el.animate(
+      [{ opacity: 0, transform: 'translateY(18px)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }],
+      { duration: 1600, delay: 80 + i * 120, easing: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)', fill: 'backwards' }));
+  }
+  refreshHosts() {
+    const els = [...document.querySelectorAll('[data-glow-host]')];
+    const old = new Map(this.fx.hosts.map(o => [o.h, o]));
+    this.fx.hosts = els.map(h => old.get(h) || { h, g: h.querySelector('[data-glow]'), x: 0, y: 0, init: false }).filter(o => o.g);
+  }
+  fxKick() { if (!this.fxRaf) { this.fxLast = performance.now(); this.fxRaf = requestAnimationFrame(this.fxTick); } }
+  fxTick = now => {
+    const fx = this.fx, dt = Math.min(0.05, (now - this.fxLast) / 1000); this.fxLast = now;
+    const k = 1 - Math.exp(-dt * 8); let busy = false;
+    fx.hosts.forEach(o => {
+      if (!o.h.isConnected) return;
+      const r = o.h.getBoundingClientRect();
+      const inside = fx.px !== undefined && fx.py >= r.top && fx.py <= r.bottom && fx.px >= r.left && fx.px <= r.right;
+      o.g.style.opacity = inside ? '1' : '0';
+      if (!inside) return;
+      const tx = fx.px - r.left, ty = fx.py - r.top;
+      if (!o.init) { o.x = tx; o.y = ty; o.init = true; }
+      o.x += (tx - o.x) * k; o.y += (ty - o.y) * k;
+      o.g.style.transform = 'translate3d(' + o.x.toFixed(1) + 'px,' + o.y.toFixed(1) + 'px,0)';
+      if (Math.abs(tx - o.x) + Math.abs(ty - o.y) > 0.3) busy = true;
+    });
+    this.fxRaf = busy ? requestAnimationFrame(this.fxTick) : 0;
+  };
+  runReveal(el, kind, delay) {
+    const K = {
+      m: [[{ opacity: 0, transform: 'translateY(48px) scale(.965)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], 1600],
+      e: [[{ opacity: 0, letterSpacing: '.42em' }, { opacity: 1, letterSpacing: '.18em' }], 1400],
+      i: [[{ opacity: 0, transform: 'translateY(22px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], 1100]
+    };
+    const [frames, dur] = K[kind];
+    el.style.opacity = '';
+    el.animate(frames, { duration: dur, delay, easing: OUT, fill: 'backwards' });
+  }
+  // reveals for the dynamic list: on first paint and every time the filters change
+  reveal(reset) {
+    if (!this.io || !this.motionOn()) return;
+    if (reset) document.querySelectorAll('[data-seen]').forEach(el => {
+      if (el.dataset.sr === 'm') return;
+      el.removeAttribute('data-seen'); this.io.unobserve(el); el.style.opacity = '';
+      el.getAnimations().forEach(a => a.cancel());
+    });
+    let n = 0;
+    document.querySelectorAll('[data-sr]:not([data-seen]),[data-ghead]:not([data-seen]),[data-item]:not([data-seen])').forEach(el => {
+      el.setAttribute('data-seen', '');
+      const kind = el.dataset.sr || (el.dataset.ghead !== undefined ? 'e' : 'i');
+      const top = el.getBoundingClientRect().top;
+      if (top < innerHeight * 0.94) { this.runReveal(el, kind, reset ? n++ * 45 : 200 + n++ * 90); return; }
+      el.style.opacity = '0'; this.srMap.set(el, [kind, 0]); this.io.observe(el);
+    });
+  }
+  onDocMove = e => {
+    if (!this.fineOn() || !this.docRef.current) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    const ry = ((e.clientX - r.left) / r.width - 0.5) * 14, rx = -((e.clientY - r.top) / r.height - 0.5) * 10;
+    this.docRef.current.style.transform = 'rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) rotate(-1.5deg) translateY(-6px)';
+    this.docRef.current.style.boxShadow = (-ry * 2).toFixed(0) + 'px 40px 70px -24px rgba(0,0,0,.7)';
+  };
+  onDocLeave = () => { if (!this.docRef.current) return; this.docRef.current.style.transform = ''; this.docRef.current.style.boxShadow = ''; };
+
+  componentDidMount() {
+    let tries = 0;
+    const load = async () => {
+      if ((!window.TAXAUD_PUBS || !window.TAXAUD_SUPABASE) && tries++ < 60) { setTimeout(load, 50); return; }
+      const cfg = window.TAXAUD_SUPABASE || {};
+      let pubs = null;
+      if (cfg.url && cfg.anonKey) {
+        try {
+          const headers = { apikey: cfg.anonKey };
+          if (cfg.anonKey.startsWith('eyJ')) headers.Authorization = 'Bearer ' + cfg.anonKey;
+          const r = await fetch(cfg.url.replace(/\/$/, '') + '/rest/v1/publicaciones?select=*&publicado=eq.true&order=fecha.desc', { headers });
+          if (r.ok) pubs = (await r.json()).map(fromRow);
+        } catch (e) { console.warn('Supabase no disponible, usando publicaciones locales', e); }
+      }
+      if (!pubs) pubs = window.TAXAUD_PUBS || [];
+      this.setState({ pubs }, () => { this.refreshHosts(); this.reveal(false); });
+      const m = location.hash.match(/p=([\w-]+)/);
+      if (m) this.setState({ openId: m[1] });
+    };
+    this.setupFx();
+    load();
+    this.onResize = () => this.setState({ wide: innerWidth >= 1000 });
+    this.onKey = e => { if (e.key === 'Escape' && this.state.openId) this.closeItem(); };
+    this.onResize();
+    addEventListener('resize', this.onResize);
+    addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() {
+    removeEventListener('resize', this.onResize); removeEventListener('keydown', this.onKey);
+    removeEventListener('pointerdown', this.onPress); removeEventListener('pointerover', this.onOver); removeEventListener('pointerout', this.onOver);
+    this.onPointer && removeEventListener('pointermove', this.onPointer); this.onPointerScroll && removeEventListener('scroll', this.onPointerScroll);
+    cancelAnimationFrame(this.fxRaf); this.io && this.io.disconnect(); document.body.style.overflow = '';
+  }
+  componentDidUpdate() {
+    const prev = this._prevState || {}; this._prevState = { ...this.state };
+    if (!!prev.openId !== !!this.state.openId) {
+      document.body.style.overflow = this.state.openId ? 'hidden' : '';
+      if (this.state.openId && this.motionOn() && this.panelRef.current) {
+        this.backRef.current.animate([{ opacity: 0, backdropFilter: 'blur(0px)' }, { opacity: 1, backdropFilter: 'blur(8px)' }], { duration: 360, easing: 'ease-out' });
+        this.panelRef.current.animate([{ opacity: 0, transform: 'translateY(32px) scale(.98)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 700, easing: OUT });
+        [...this.panelRef.current.children].slice(1).forEach((c, k) => c.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }], { duration: 600, delay: 120 + Math.min(k, 6) * 60, easing: OUT, fill: 'backwards' }));
+      }
+    }
+    const key = [this.state.type, this.state.topic, this.state.q, this.state.sort].join('|');
+    if (this._key !== undefined && this._key !== key) this.reveal(true); else if (prev.limit !== this.state.limit || prev.pubs !== this.state.pubs) this.reveal(false);
+    this._key = key;
+    this.refreshHosts();
+  }
+
+  openItem(id, e) {
+    if (e) e.preventDefault();
+    this.setState({ openId: id, copied: false });
+    history.replaceState(null, '', '#p=' + id);
+  }
+  closeItem() {
+    const done = () => this.setState({ openId: null });
+    if (this.motionOn() && this.panelRef.current && !this.closing) {
+      this.closing = true;
+      this.backRef.current.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, easing: 'ease-in', fill: 'forwards' });
+      this.panelRef.current.animate([{ opacity: 1, transform: 'none' }, { opacity: 0, transform: 'translateY(16px) scale(.985)' }], { duration: 220, easing: 'ease-in', fill: 'forwards' }).onfinish = () => { this.closing = false; done(); };
+    } else done();
+    history.replaceState(null, '', location.pathname + location.search);
+  }
+
+  decorate(p) {
+    const t = TYPES[p.tipo] || TYPES.noticia;
+    const d = parseDate(p.fecha);
+    const file = p.archivo && p.archivo.url ? p.archivo : null;
+    const v = p.video || {};
+    const words = (p.cuerpo || []).join(' ').split(/\s+/).length + (p.resumen || '').split(/\s+/).length;
+    const extra = p.tipo === 'documento' && file ? ['PDF', file.peso, file.paginas ? file.paginas + (file.paginas === 1 ? ' pág.' : ' págs.') : ''].filter(Boolean).join(' · ')
+      : p.tipo === 'video' ? (v.duracion || '')
+      : 'Lectura ' + Math.max(1, Math.round(words / 200)) + ' min';
+    return {
+      ...p, temas: p.temas || [], cuerpo: p.cuerpo || [],
+      typeLabel: t.label, icon: t.icon, openLabel: t.open, openIcon: t.openIcon,
+      dateStr: d.d + ' de ' + MONTHS[d.m] + ' de ' + d.y,
+      dayStr: String(d.d).padStart(2, '0') + ' ' + MONTHS[d.m].slice(0, 3),
+      badge: t.label.toUpperCase(), extra,
+      hasFile: !!file, fileUrl: file ? file.url : '',
+      dlUrl: file ? (/\/storage\/v1\/object\/public\//.test(file.url) ? file.url + '?download=' : file.url) : '', fileName: file ? file.url.split('/').pop() : '',
+      fileMeta: file ? ['PDF', file.peso, file.paginas ? file.paginas + ' páginas' : ''].filter(Boolean).join(' · ') : '',
+      isVideo: p.tipo === 'video',
+      ytSrc: v.youtube ? 'https://www.youtube-nocookie.com/embed/' + v.youtube + '?rel=0' : '',
+      mp4: !v.youtube && v.mp4 ? v.mp4 : '',
+      noVideo: p.tipo === 'video' && !v.youtube && !v.mp4,
+      href: '#p=' + p.id,
+      open: e => this.openItem(p.id, e)
+    };
+  }
+
+  renderVals() {
+    const { pubs, type, topic, q, sort, openId, copied, wide } = this.state;
+    const pageSize = this.props.pageSize ?? 8;
+    const limit = this.state.limit || pageSize;
+    const sorted = [...pubs].sort((a, b) => sort === 'desc' ? (b.fecha || '').localeCompare(a.fecha || '') : (a.fecha || '').localeCompare(b.fecha || ''));
+    const nq = norm(q.trim());
+    const byTopicQ = sorted.filter(p => (!topic || (p.temas || []).includes(topic)) &&
+      (!nq || norm([p.titulo, p.resumen, (p.temas || []).join(' '), (p.cuerpo || []).join(' ')].join(' ')).includes(nq)));
+    const filtered = byTopicQ.filter(p => type === 'todo' || p.tipo === type);
+    const hasFilters = type !== 'todo' || !!topic || !!nq;
+
+    const featRaw = (this.props.showFeatured ?? true) && !hasFilters ? (sorted.find(p => p.destacado) || null) : null;
+    const listSrc = featRaw ? filtered.filter(p => p.id !== featRaw.id) : filtered;
+    const shown = listSrc.slice(0, limit);
+
+    const groups = [];
+    shown.forEach(p => {
+      const d = parseDate(p.fecha); const key = d.y + '-' + d.m;
+      let g = groups[groups.length - 1];
+      if (!g || g.key !== key) { g = { key, label: MONTHS[d.m] + ' ' + d.y, items: [] }; groups.push(g); }
+      g.items.push(this.decorate(p));
+    });
+
+    const tabs = [['todo', 'Todo', 'ph-light ph-squares-four'], ...Object.keys(TYPES).map(k => [k, TYPES[k].tab, TYPES[k].icon])].map(([k, label, icon]) => ({
+      label, icon, on: type === k,
+      count: k === 'todo' ? byTopicQ.length : byTopicQ.filter(p => p.tipo === k).length,
+      bg: type === k ? '#EEF2F8' : 'transparent', color: type === k ? '#0A1428' : '#B7C3D8',
+      pick: () => this.setState({ type: k, limit: 0 })
+    }));
+    const topicList = [...new Set(pubs.flatMap(p => p.temas || []))];
+    const topics = [['', 'Todos los temas'], ...topicList.map(t => [t, t])].map(([k, label]) => ({
+      label, on: topic === k,
+      border: topic === k ? '#58A8EA' : 'rgba(157,190,230,.2)', bg: topic === k ? 'rgba(88,168,234,.16)' : 'transparent', color: topic === k ? '#FFFFFF' : '#B7C3D8',
+      pick: () => this.setState({ topic: k, limit: 0 })
+    }));
+
+    const cur = openId ? pubs.find(p => p.id === openId) : null;
+    const n = listSrc.length + (featRaw ? 1 : 0);
+    return {
+      wide, q, sort, docRef: this.docRef, backRef: this.backRef, panelRef: this.panelRef, onDocMove: this.onDocMove, onDocLeave: this.onDocLeave, tabs, topics, groups, hasFilters,
+      showFeatured: !!featRaw, feat: featRaw ? this.decorate(featRaw) : {},
+      countText: n === 1 ? '1 PUBLICACIÓN' : n + ' PUBLICACIONES',
+      isEmpty: pubs.length > 0 && filtered.length === 0,
+      hasMore: listSrc.length > shown.length,
+      shownText: 'MOSTRANDO ' + shown.length + ' DE ' + listSrc.length,
+      loadMore: () => this.setState({ limit: limit + pageSize }),
+      onSearch: e => this.setState({ q: e.target.value, limit: 0 }),
+      onSort: e => this.setState({ sort: e.target.value }),
+      clearFilters: () => this.setState({ type: 'todo', topic: '', q: '', limit: 0 }),
+      open: !!cur, cur: cur ? this.decorate(cur) : { temas: [], cuerpo: [] },
+      close: () => this.closeItem(), stop: e => e.stopPropagation(),
+      copyLabel: copied ? 'Enlace copiado' : 'Copiar enlace',
+      copyLink: () => { navigator.clipboard && navigator.clipboard.writeText(location.href.split('#')[0] + '#p=' + openId); this.setState({ copied: true }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

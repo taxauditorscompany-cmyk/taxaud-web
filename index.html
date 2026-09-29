@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>TAXAUD Auditores</title>
+<meta name="description" content="TAX AUDITORS — Auditoría, contabilidad, tributación y gestión de riesgos en Ecuador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A1428;color:#EEF2F8;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+*{box-sizing:border-box}
+a{color:#8FC6F2;text-decoration:none}
+a:hover{color:#FFFFFF}
+::selection{background:#58A8EA;color:#07101F}
+:focus-visible{outline:2px solid #58A8EA;outline-offset:3px;border-radius:6px}
+input,select,textarea,button{font-family:inherit}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@keyframes taxaud-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+[data-nav][aria-current="page"]{color:#FFFFFF!important;background-size:100% 1px!important}
+@media (max-width:480px){[data-hdr-cta]{display:none!important}}
+[data-marquee]:has(button:hover),[data-marquee]:focus-within{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){[data-marquee]{animation:none!important;flex-wrap:wrap;width:auto!important}[data-marquee-dup]{display:none!important}}
+</style>
+</helmet>
+
+<header style="position:sticky;top:0;z-index:40;background:rgba(10,20,40,.72);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid rgba(255,255,255,.08)">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
+    <a href="#inicio" aria-label="TAX AUDITORS, inicio" style="display:flex"><img src="assets/logo.png" alt="TAX AUDITORS" style="height:34px;width:auto;display:block"></a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav aria-label="Secciones" style="display:flex;gap:28px;font-size:14px">
+        <a href="#inicio" aria-current="{{ cur.inicio }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Inicio</a>
+        <a href="#servicios" aria-current="{{ cur.servicios }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Servicios</a>
+        <a href="#nosotros" aria-current="{{ cur.nosotros }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Nosotros</a>
+        <a href="#metodo" aria-current="{{ cur.metodo }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Cómo trabajamos</a>
+        <a href="#calculadora" aria-current="{{ cur.calculadora }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Calculadora</a>
+        <a href="blog.html" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Blog</a>
+        <a href="#contacto" aria-current="{{ cur.contacto }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Contacto</a>
+        <a href="{{ contaXUrl }}" data-press="" aria-label="CONTA - X, acceso de clientes" style="display:inline-flex;align-items:center;padding:5px 12px;margin:-1px 0;border:1px solid rgba(88,168,234,.45);border-radius:6px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></a>
+      </nav>
+    </sc-if>
+    <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+    <a data-press="" data-hdr-cta="" href="#contacto" onClick="{{ ctaGeneral }}" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;padding:9px 14px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:14px;font-weight:500;white-space:nowrap;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta</a>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <button data-press="" type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="menu-movil" aria-label="{{ menuLabel }}" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;background:transparent;border:1px solid rgba(157,190,230,.28);color:#EEF2F8;cursor:pointer;font-size:22px;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA" style-active="transform:scale(.96)"><i class="{{ menuIcon }}" aria-hidden="true"></i></button>
+      </sc-if>
+    </div>
+  </div>
+  <sc-if value="{{ showMobileMenu }}" hint-placeholder-val="{{ false }}">
+    <nav id="menu-movil" ref="{{ menuRef }}" aria-label="Secciones" style="max-width:1320px;margin:0 auto;padding:4px clamp(16px,4vw,48px) 20px;display:grid">
+      <a href="#inicio" aria-current="{{ cur.inicio }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Inicio<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="#servicios" aria-current="{{ cur.servicios }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Servicios<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="#nosotros" aria-current="{{ cur.nosotros }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Nosotros<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="#metodo" aria-current="{{ cur.metodo }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Cómo trabajamos<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="#calculadora" aria-current="{{ cur.calculadora }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Calculadora<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="blog.html" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Blog<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="#contacto" aria-current="{{ cur.contacto }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Contacto<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="{{ contaXUrl }}" data-press="" aria-label="CONTA - X, acceso de clientes" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 16px;font-size:17px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(88,168,234,.45);border-radius:8px;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></span><span aria-hidden="true" style="font-size:14px;color:#58A8EA">↗</span></a>
+      <a data-press="" href="#contacto" onClick="{{ ctaGeneral }}" style="margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:16px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
+    </nav>
+  </sc-if>
+</header>
+
+<main>
+<section id="inicio" data-screen-label="Inicio" data-glow-host="" style="display:{{ show.inicio }};position:relative;overflow:hidden;background:#0A1428;color:#EEF2F8">
+  <div data-glow="" aria-hidden="true" style="position:absolute;left:0;top:0;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(closest-side,rgba(88,168,234,.20),rgba(88,168,234,.07) 45%,rgba(88,168,234,0));pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(56px,9vw,112px) clamp(16px,4vw,48px) clamp(48px,6vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,96px);align-items:end">
+    <div>
+      <div data-hero="" style="display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#EEF2F8"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:#58A8EA"></span>Firma de auditoría · Ecuador</div>
+      <h1 data-hero="" style="margin:28px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(48px,7vw,96px);line-height:.95;letter-spacing:-.025em;text-wrap:balance;max-width:13ch;color:#FFFFFF">Expertos en sus números, <em style="font-style:italic;color:#8FC6F2;padding-right:.04em">cerca</em> de sus decisiones.</h1>
+      <p data-hero="" style="margin:28px 0 0;max-width:56ch;font-size:clamp(17px,1.4vw,19px);font-weight:300;line-height:1.55;color:#B7C3D8;text-wrap:pretty">Somos el socio estratégico de la gerencia: brindamos soluciones de auditoría, contabilidad, tributación y representación legal que fortalecen la gestión y aceleran el crecimiento de cada organización.</p>
+      <div data-hero="" style="display:flex;flex-wrap:wrap;gap:12px;margin-top:36px">
+        <a data-press="" href="#contacto" onClick="{{ ctaGeneral }}" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:10px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
+        <a data-press="" href="#servicios" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;padding:13px 20px;border-radius:8px;border:1px solid rgba(255,255,255,.5);color:#FFFFFF;font-size:15px;font-weight:500;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.97)">Ver servicios</a>
+      </div>
+    </div>
+    <dl data-hero="" aria-label="TAXAUD en cifras" style="margin:0;font-size:14px;border-top:1px solid rgba(157,190,230,.22);display:grid;grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div style="grid-column:1/-1;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8E9CB8;padding:14px 0">EN CIFRAS</div>
+      <div style="padding:22px 0 22px 0;border-top:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
+        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap">+<span data-count="">350</span></dd>
+        <dt style="font-size:14px;color:#9AA8C2">Clientes atendidos</dt>
+      </div>
+      <div style="padding:22px 20px 22px 20px;border-top:1px solid rgba(157,190,230,.12);border-left:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
+        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap">+<span data-count="">1200</span></dd>
+        <dt style="font-size:14px;color:#9AA8C2">Asesorías brindadas</dt>
+      </div>
+      <div style="padding:22px 0 22px 0;border-top:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
+        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap"><span data-count="">15</span></dd>
+        <dt style="font-size:14px;color:#9AA8C2">Años de experiencia</dt>
+      </div>
+      <div style="padding:22px 20px 22px 20px;border-top:1px solid rgba(157,190,230,.12);border-left:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
+        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap"><span data-count="" data-visitas="">12500</span></dd>
+        <dt style="font-size:14px;color:#9AA8C2">Visitas al sitio</dt>
+      </div>
+    </dl>
+  </div>
+  <sc-if value="{{ showRouting }}" hint-placeholder-val="{{ true }}">
+    <div style="position:relative;border-top:1px solid rgba(157,190,230,.12)">
+      <div style="max-width:1320px;margin:0 auto;padding:22px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px">
+        <span style="font-size:14px;color:#9AA8C2">¿Qué necesita resolver?</span>
+        <div style="flex:1 1 100%;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)">
+          <div data-marquee="" style="display:flex;width:max-content;animation:taxaud-marquee 55s linear infinite">
+            <div style="display:flex;gap:8px;padding:4px 8px 4px 0">
+              <sc-for list="{{ quick }}" as="q" hint-placeholder-count="6">
+                <button data-press="" type="button" onClick="{{ q.pick }}" style="font-size:14px;white-space:nowrap;color:#EEF2F8;background:rgba(88,168,234,.08);border:1px solid rgba(157,190,230,.22);border-radius:999px;padding:9px 15px;cursor:pointer;transition:border-color .15s ease,background-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;background:rgba(88,168,234,.16)" style-active="transform:scale(.97)">{{ q.label }}</button>
+              </sc-for>
+            </div>
+            <div data-marquee-dup="" aria-hidden="true" style="display:flex;gap:8px;padding:4px 8px 4px 0">
+              <sc-for list="{{ quick }}" as="q" hint-placeholder-count="6">
+                <button data-press="" type="button" tabIndex="-1" onClick="{{ q.pick }}" style="font-size:14px;white-space:nowrap;color:#EEF2F8;background:rgba(88,168,234,.08);border:1px solid rgba(157,190,230,.22);border-radius:999px;padding:9px 15px;cursor:pointer;transition:border-color .15s ease,background-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;background:rgba(88,168,234,.16)" style-active="transform:scale(.97)">{{ q.label }}</button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</section>
+
+<section id="servicios" data-screen-label="Servicios" ref="{{ secRef }}" style="display:{{ show.servicios }};position:relative;height:{{ secHeight }}">
+  <div style="position:{{ stickyPos }};top:68px;min-height:{{ stickyMinH }};display:flex;align-items:center;padding:clamp(24px,5vh,72px) 0">
+    <div style="position:relative;width:100%;max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,80px);align-items:center">
+      <div>
+        <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Servicios</div>
+        <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.02em;text-wrap:balance">Centralización de servicios, un mismo <em style="font-style:italic;color:#8FC6F2">criterio</em></h2>
+        <div ref="{{ drumBoxRef }}" onPointerDown="{{ onDrumDown }}" style="position:relative;margin-top:24px;height:320px;perspective:1100px;perspective-origin:50% 30%;touch-action:{{ drumTouch }};cursor:{{ drumCursor }};user-select:none">
+          <div data-floor="" aria-hidden="true" style="position:absolute;left:50%;top:62%;width:78%;height:92px;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(157,190,230,.18);background:radial-gradient(closest-side,rgba(88,168,234,.10),rgba(88,168,234,0));pointer-events:none"></div>
+          <div role="tablist" aria-label="Servicios" aria-orientation="horizontal" onKeyDown="{{ onTabKey }}" ref="{{ drumRef }}" style="position:absolute;inset:0;transform-style:preserve-3d">
+            <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+              <button type="button" data-drum="" role="tab" id="{{ s.tabId }}" aria-selected="{{ s.on }}" aria-controls="{{ s.cardId }}" tabIndex="{{ s.tabIndex }}" onClick="{{ s.pick }}" style="position:absolute;left:50%;top:50%;width:min(236px,62%);height:136px;margin:-68px 0 0 calc(min(236px,62%) / -2);display:flex;flex-direction:column;justify-content:space-between;text-align:left;padding:16px 18px;background:#111E38;border:1px solid rgba(157,190,230,.16);border-radius:16px;cursor:pointer;color:{{ s.color }};will-change:transform,opacity;-webkit-box-reflect:below 8px linear-gradient(to bottom,transparent 60%,rgba(255,255,255,.10));transition:color .2s ease,border-color .2s ease;overflow:hidden">
+                <span style="display:flex;justify-content:space-between;align-items:center;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em"><span style="display:flex;align-items:center;gap:10px"><span style="width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:rgba(88,168,234,.10);color:#8FC6F2;font-size:18px"><i class="{{ s.iconClass }}"></i></span><span style="color:{{ s.numColor }}">{{ s.num }}</span></span><span style="color:#9AA8C2">{{ s.tag }}</span></span>
+                <span style="font-size:18px;line-height:1.2;letter-spacing:-.015em;font-weight:500;text-wrap:balance">{{ s.name }}</span>
+                <span data-shade="" aria-hidden="true" style="position:absolute;inset:0;background:#07101F;opacity:0;pointer-events:none"></span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="margin-top:20px;display:flex;align-items:center;gap:14px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em;color:#9AA8C2">
+          <span ref="{{ counterRef }}" style="display:inline-block">{{ counter }}</span>
+          <div style="flex:1;height:1px;background:rgba(157,190,230,.16);position:relative;overflow:hidden"><div ref="{{ barRef }}" style="position:absolute;inset:0;background:#58A8EA;transform-origin:left center;transform:scaleX(0.1667)"></div></div>
+          <span>{{ hint }}</span>
+        </div>
+      </div>
+      <div ref="{{ stackRef }}" onPointerMove="{{ onStackMove }}" onPointerLeave="{{ onStackLeave }}" style="display:grid;padding-top:52px;isolation:isolate;transform-origin:50% 60%;will-change:transform">
+        <sc-for list="{{ services }}" as="s" hint-placeholder-count="6">
+          <article data-card="" id="{{ s.cardId }}" role="tabpanel" aria-labelledby="{{ s.tabId }}" style="grid-area:1/1;position:relative;background:#111E38;border:1px solid rgba(157,190,230,.14);border-radius:28px;padding:clamp(28px,3.2vw,44px);transform-origin:50% 0;will-change:transform,opacity;backface-visibility:hidden;overflow:hidden">
+            <div data-stag="" style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(88,168,234,.10);border:1px solid rgba(88,168,234,.22);color:#8FC6F2;font-size:24px"><i class="{{ s.iconClass }}"></i></span><span style="font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.12em;color:#58A8EA">{{ s.num }} — {{ s.tag }}</span></div>
+            <h3 data-stag="" style="margin:18px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(30px,3vw,40px);line-height:1;letter-spacing:-.015em;color:#FFFFFF">{{ s.name }}</h3>
+            <p data-stag="" style="margin:14px 0 0;color:#B7C3D8;font-size:16px;line-height:1.6;max-width:56ch;text-wrap:pretty">{{ s.desc }}</p>
+            <ul style="list-style:none;padding:0;margin:22px 0 0;border-top:1px solid rgba(157,190,230,.12)">
+              <sc-for list="{{ s.list }}" as="li" hint-placeholder-count="4">
+                <li data-stag="" style="display:grid;grid-template-columns:22px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid rgba(157,190,230,.12);font-size:15px;line-height:1.5;color:#EEF2F8"><span aria-hidden="true" style="color:#58A8EA">—</span><span>{{ li }}</span></li>
+              </sc-for>
+            </ul>
+            <div data-stag="" style="display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:24px">
+              <a data-press="" href="#contacto" onClick="{{ s.cta }}" tabIndex="{{ s.tabIndex }}" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:10px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
+              <span style="font-size:13px;color:#9AA8C2">Llegará con este servicio preseleccionado.</span>
+            </div>
+            <div data-shade="" aria-hidden="true" style="position:absolute;inset:0;border-radius:inherit;background:#07101F;opacity:0;pointer-events:none"></div>
+          </article>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" data-screen-label="Nosotros" style="display:{{ show.nosotros }};padding:clamp(80px,10vw,136px) 0;border-top:1px solid rgba(157,190,230,.12)">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,6vw,96px);align-items:start">
+      <div>
+        <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Acerca de nosotros</div>
+        <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.02em;text-wrap:balance;max-width:16ch">Una firma ecuatoriana que <em style="font-style:italic;color:#8FC6F2">responde</em> por sus números</h2>
+        <p data-sr="p" style="margin:24px 0 0;color:#B7C3D8;font-size:clamp(17px,1.35vw,19px);font-weight:300;line-height:1.6;max-width:50ch;text-wrap:pretty">TAX AUDITORS COMPANY TAXAUD S.A.S. es una firma de auditoría, contabilidad y tributación con sede en Riobamba. Acompañamos a empresas y cooperativas de todo el país a cumplir con la SCVS, la SEPS y el SRI, y a tomar decisiones con información financiera confiable.</p>
+      </div>
+      <ol data-sr-list="" style="list-style:none;padding:0;margin:0;border-top:1px solid rgba(157,190,230,.16)">
+        <li style="display:grid;grid-template-columns:44px 1fr;gap:4px 0;padding:22px 0;border-bottom:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">01</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Independencia</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55;max-width:48ch">Nuestra opinión técnica no se negocia: la emitimos conforme a las normas, aunque no sea la que se esperaba.</p></div></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;gap:4px 0;padding:22px 0;border-bottom:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">02</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Claridad</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55;max-width:48ch">Explicamos cada hallazgo y cada obligación en lenguaje que su directorio pueda usar.</p></div></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;gap:4px 0;padding:22px 0;border-bottom:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">03</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Respaldo jurídico</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55;max-width:48ch">Cada criterio contable y tributario se revisa también desde la ley, para que sea defendible.</p></div></li>
+      </ol>
+    </div>
+    <dl data-sr-list="" style="margin:clamp(48px,6vw,72px) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 32px;border-top:2px solid #EEF2F8">
+      <div style="padding-top:18px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2">RAZÓN SOCIAL</dt><dd style="margin:8px 0 0;font-size:16px;font-weight:500">TAX AUDITORS COMPANY TAXAUD S.A.S.</dd></div>
+      <div style="padding-top:18px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2">SEDE</dt><dd style="margin:8px 0 0;font-size:16px;font-weight:500">Riobamba, Ecuador</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="mision" data-screen-label="Misión y valores" style="display:{{ show.nosotros }};padding:clamp(80px,10vw,136px) 0;border-top:1px solid rgba(157,190,230,.12)">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+      <div>
+        <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Misión</div>
+        <p data-sr="p" style="margin:18px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(22px,2vw,28px);line-height:1.35;letter-spacing:-.01em;color:#FFFFFF;text-wrap:pretty">Brindamos servicios integrales de contabilidad, auditoría, tributación y asesoría legal empresarial a personas naturales, PYMES, sociedades y entidades financieras y no financieras del sector económico popular y solidario en Ecuador.</p>
+        <p data-sr="p" style="margin:18px 0 0;color:#B7C3D8;font-size:16px;line-height:1.6;max-width:56ch;text-wrap:pretty">Combinamos rigor técnico y cumplimiento normativo con atención cercana, para entregar seguridad jurídica, eficiencia tributaria y razonabilidad financiera a cada cliente. Trabajamos con un equipo especializado y procesos organizados que generan resultados medibles y confianza de largo plazo.</p>
+      </div>
+      <div>
+        <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Visión 2031</div>
+        <p data-sr="p" style="margin:18px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(22px,2vw,28px);line-height:1.35;letter-spacing:-.01em;color:#FFFFFF;text-wrap:pretty">Ser una de las firmas líderes de contabilidad, auditoría y asesoría tributaria-legal del Ecuador, reconocida por la <em style="font-style:italic;color:#8FC6F2">calidad técnica</em> de su equipo.</p>
+        <p data-sr="p" style="margin:18px 0 0;color:#B7C3D8;font-size:16px;line-height:1.6;max-width:56ch;text-wrap:pretty">Con una Auditoría consolidada como línea de negocio propia, presencia en varias provincias del país y procesos internos digitalizados que sostengan un crecimiento ordenado y medible.</p>
+      </div>
+    </div>
+    <div style="margin-top:clamp(64px,8vw,104px)">
+      <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Valores corporativos</div>
+      <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(34px,4vw,54px);line-height:1;letter-spacing:-.02em;text-wrap:balance;max-width:20ch">Lo que guía <em style="font-style:italic;color:#8FC6F2">cada gestión</em></h2>
+      <ol data-sr-list="" style="list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:0 40px">
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:22px 0;border-top:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">01</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Integridad y ética profesional</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55">Actuamos con transparencia y apego a la normativa en cada informe y asesoría.</p></div></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:22px 0;border-top:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">02</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Confidencialidad</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55">Protegemos la información financiera, tributaria y legal de cada cliente.</p></div></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:22px 0;border-top:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">03</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Excelencia técnica</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55">Nos mantenemos actualizados en normativa contable, tributaria, societaria y laboral.</p></div></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:22px 0;border-top:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">04</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Compromiso con el cliente</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55">Cumplimos plazos y respondemos por los resultados de cada gestión.</p></div></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:22px 0;border-top:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">05</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Trabajo en equipo</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55">Coordinamos Contabilidad, Auditoría y Legal para un servicio integral.</p></div></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:22px 0;border-top:1px solid rgba(157,190,230,.16)"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:5px">06</span><div><h3 style="margin:0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">Mejora continua</h3><p style="margin:6px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55">Revisamos y optimizamos nuestros procesos internos de forma constante.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="respaldo" data-screen-label="Respaldo" style="display:{{ show.nosotros }};padding:clamp(88px,11vw,150px) 0;background:#07101F;border-block:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+    <figure data-sr="m" style="margin:0;background:#E8EDF4;border-radius:28px;padding:clamp(32px,4.5vw,56px)">
+      <img src="assets/firma.png" alt="MGS. CPA. Diego Velastegui M., Ab. — Seguridad jurídica y eficiencia tributaria" style="width:100%;height:auto;display:block">
+      <figcaption style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(10,20,40,.12);font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;color:#34425F">GERENTE GENERAL</figcaption>
+    </figure>
+    <div>
+      <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Respaldo</div>
+      <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.02em;text-wrap:balance;max-width:18ch">Cada caso, revisado desde el número y <em style="font-style:italic;color:#8FC6F2">desde la ley</em></h2>
+      <p data-sr="p" style="margin:24px 0 0;color:#B7C3D8;font-size:clamp(17px,1.35vw,19px);font-weight:300;line-height:1.6;max-width:54ch;text-wrap:pretty">La Gerencia General está a cargo de MGS. CPA. Diego Velastegui M., Ab., contador público autorizado con maestría y abogado. Una observación contable llega con su sustento legal, y una estrategia tributaria es eficiente y defendible.</p>
+      <div data-sr-list="" style="margin-top:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:0 28px;border-top:1px solid rgba(157,190,230,.14)">
+        <div style="padding-top:18px"><div style="font-weight:500;font-size:15px">Contador Público Autorizado</div><div style="color:#9AA8C2;font-size:14px;line-height:1.5;margin-top:6px">Criterio contable y de auditoría sobre sus estados financieros.</div></div>
+        <div style="padding-top:18px"><div style="font-weight:500;font-size:15px">Abogado</div><div style="color:#9AA8C2;font-size:14px;line-height:1.5;margin-top:6px">Lectura jurídica de cada obligación, requerimiento o reclamo.</div></div>
+        <div style="padding-top:18px"><div style="font-weight:500;font-size:15px">Magíster</div><div style="color:#9AA8C2;font-size:14px;line-height:1.5;margin-top:6px">Formación de posgrado aplicada a riesgos y tributación.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="metodo" data-screen-label="Cómo trabajamos" style="display:{{ show.metodo }};padding:clamp(80px,10vw,136px) 0">
+  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+    <div>
+      <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Cómo trabajamos</div>
+      <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.02em;text-wrap:balance;max-width:20ch">Sabrá en qué etapa está su caso <em style="font-style:italic;color:#8FC6F2">en todo momento</em></h2>
+    </div>
+    <ol data-sr-list="" ref="{{ stepsRef }}" style="list-style:none;padding:0;margin:64px 0 0;display:grid;grid-template-columns:{{ stepCols }};gap:0">
+      <sc-for list="{{ steps }}" as="st" hint-placeholder-count="5">
+        <li data-step="" style="position:relative;padding:{{ stepPad }};border-radius:14px;transition:background-color .3s ease">
+          <span aria-hidden="true" style="position:absolute;left:{{ tp.l }};right:{{ tp.r }};top:{{ tp.t }};bottom:{{ tp.b }};width:{{ tp.w }};height:{{ tp.h }};background:rgba(157,190,230,.16);overflow:hidden"><span data-fill="" style="position:absolute;inset:0;background:linear-gradient(90deg,#1F5FA8,#58A8EA);transform-origin:{{ fillOrigin }};transform:scale(0)"></span></span>
+          <span data-node="" aria-hidden="true" style="position:absolute;left:0;top:{{ nodeTop }};width:16px;height:16px;border-radius:50%;background:#0A1428;border:2px solid rgba(157,190,230,.3);transition:background-color .35s ease,border-color .35s ease,box-shadow .5s cubic-bezier(0.23,1,0.32,1),transform .35s cubic-bezier(0.23,1,0.32,1)"></span>
+          <div data-num="" style="font-family:'Geist Mono',monospace;font-size:clamp(34px,3.4vw,48px);font-weight:400;line-height:1;letter-spacing:-.04em;color:#2A3A5A;transition:color .4s ease">{{ st.num }}</div>
+          <h3 style="margin:18px 0 0;font-size:19px;font-weight:400;letter-spacing:-.01em;color:#FFFFFF">{{ st.title }}</h3>
+          <p style="margin:10px 0 0;color:#9AA8C2;font-size:15px;line-height:1.55;max-width:32ch;text-wrap:pretty">{{ st.desc }}</p>
+          <div data-tag="" style="margin-top:16px;display:inline-flex;align-items:center;gap:8px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.12em;color:#58A8EA;opacity:0;transform:translateY(4px);transition:opacity .35s ease,transform .35s cubic-bezier(0.23,1,0.32,1)"><span style="width:6px;height:6px;border-radius:50%;background:#58A8EA"></span>ETAPA ACTUAL</div>
+        </li>
+      </sc-for>
+    </ol>
+  </div>
+</section>
+
+<section id="calculadora" data-screen-label="Calculadora" data-glow-host="" style="display:{{ show.calculadora }};position:relative;overflow:clip;padding:clamp(80px,10vw,136px) 0">
+  <div data-glow="" aria-hidden="true" style="position:absolute;left:0;top:0;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(closest-side,rgba(88,168,234,.20),rgba(88,168,234,.07) 45%,rgba(88,168,234,0));pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+    <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Calculadoras</div>
+    <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.03em;max-width:18ch;text-wrap:balance">Haga sus cuentas <em style="font-style:italic;color:#8FC6F2">con criterio</em></h2>
+    <div data-sr="p" role="tablist" aria-label="Calculadoras" style="margin-top:36px;display:flex;flex-wrap:wrap;gap:4px;padding:4px;border-radius:14px;background:#07101F;border:1px solid rgba(157,190,230,.14);width:fit-content;max-width:100%">
+      <sc-for list="{{ calcTabs }}" as="tb" hint-placeholder-count="2">
+        <button data-press="" type="button" role="tab" aria-selected="{{ tb.on }}" onClick="{{ tb.pick }}" style="display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500;border-radius:10px;padding:11px 18px;cursor:pointer;border:none;background:{{ tb.bg }};color:{{ tb.color }};transition:background-color .2s ease,color .2s ease,transform .12s ease" style-active="transform:scale(.97)"><i class="{{ tb.icon }}" aria-hidden="true" style="font-size:18px"></i>{{ tb.label }}</button>
+      </sc-for>
+    </div>
+
+    <div style="display:{{ calcShow.ir }}">
+    <p style="margin:28px 0 0;max-width:60ch;color:#B7C3D8;font-size:17px;line-height:1.55;text-wrap:pretty">Impuesto a la renta de personas naturales, régimen general o RIMPE, ejercicios 2022 a 2026. Estime su impuesto con las tablas vigentes del SRI.</p>
+    <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,3vw,40px);align-items:start">
+      <div data-sr="m" style="background:#111E38;border:1px solid rgba(157,190,230,.14);border-radius:28px;padding:clamp(24px,3.5vw,40px);display:grid;gap:22px">
+        <div role="radiogroup" aria-label="Régimen" style="display:grid;gap:8px">
+          <span style="font-size:13px;font-weight:500;color:#B7C3D8">Régimen</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ calcRegs }}" as="g" hint-placeholder-count="3">
+              <button data-press="" type="button" role="radio" aria-checked="{{ g.on }}" onClick="{{ g.pick }}" style="font-size:14px;font-weight:500;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid {{ g.border }};background:{{ g.bg }};color:{{ g.color }};transition:background-color .15s ease,border-color .15s ease,transform .12s ease" style-active="transform:scale(.97)">{{ g.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div role="radiogroup" aria-label="Ejercicio fiscal" style="display:grid;gap:8px">
+          <span style="font-size:13px;font-weight:500;color:#B7C3D8">Ejercicio fiscal</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ calcYears }}" as="y" hint-placeholder-count="5">
+              <button data-press="" type="button" role="radio" aria-checked="{{ y.on }}" onClick="{{ y.pick }}" style="font-family:'Geist Mono',monospace;font-size:14px;font-weight:500;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid {{ y.border }};background:{{ y.bg }};color:{{ y.color }};font-variant-numeric:tabular-nums;transition:background-color .15s ease,border-color .15s ease,transform .12s ease" style-active="transform:scale(.97)">{{ y.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{ calcGen }}" hint-placeholder-val="{{ true }}">
+        <div role="radiogroup" aria-label="Tipo de ingreso" style="display:grid;gap:8px">
+          <span style="font-size:13px;font-weight:500;color:#B7C3D8">Tipo de ingreso</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ calcTipos }}" as="t" hint-placeholder-count="2">
+              <button data-press="" type="button" role="radio" aria-checked="{{ t.on }}" onClick="{{ t.pick }}" style="font-size:14px;font-weight:500;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid {{ t.border }};background:{{ t.bg }};color:{{ t.color }};transition:background-color .15s ease,border-color .15s ease,transform .12s ease" style-active="transform:scale(.97)">{{ t.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>{{ calcIngLabel }}</span>
+          <span style="position:relative;display:block"><span aria-hidden="true" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:'Geist Mono',monospace;font-size:12px;color:#6B7A96">USD</span><input value="{{ calc.ing }}" onChange="{{ calcSet.ing }}" inputMode="decimal" placeholder="0,00" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px 12px 52px;width:100%;outline:none;font-variant-numeric:tabular-nums;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></span>
+          <span style="font-weight:400;color:#9AA8C2">{{ calcIngHelp }}</span>
+        </label>
+        <sc-if value="{{ calcIndep }}" hint-placeholder-val="{{ false }}">
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Costos y gastos deducibles de su actividad</span>
+            <span style="position:relative;display:block"><span aria-hidden="true" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:'Geist Mono',monospace;font-size:12px;color:#6B7A96">USD</span><input value="{{ calc.costos }}" onChange="{{ calcSet.costos }}" inputMode="decimal" placeholder="0,00" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px 12px 52px;width:100%;outline:none;font-variant-numeric:tabular-nums;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></span>
+          </label>
+        </sc-if>
+        <sc-if value="{{ calcGen }}" hint-placeholder-val="{{ true }}">
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Gastos personales del año</span>
+          <span style="position:relative;display:block"><span aria-hidden="true" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:'Geist Mono',monospace;font-size:12px;color:#6B7A96">USD</span><input value="{{ calc.gp }}" onChange="{{ calcSet.gp }}" inputMode="decimal" placeholder="0,00" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px 12px 52px;width:100%;outline:none;font-variant-numeric:tabular-nums;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></span>
+          <span style="font-weight:400;color:#9AA8C2">Vivienda, salud, educación, alimentación, vestimenta y turismo.</span>
+        </label>
+        </sc-if>
+        <sc-if value="{{ calcHasCargas }}" hint-placeholder-val="{{ true }}">
+        <div role="radiogroup" aria-label="Cargas familiares" style="display:grid;gap:8px">
+          <span style="font-size:13px;font-weight:500;color:#B7C3D8">Cargas familiares</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ calcCargas }}" as="c" hint-placeholder-count="6">
+              <button data-press="" type="button" role="radio" aria-checked="{{ c.on }}" onClick="{{ c.pick }}" style="min-width:48px;font-size:14px;font-weight:500;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid {{ c.border }};background:{{ c.bg }};color:{{ c.color }};font-variant-numeric:tabular-nums;transition:background-color .15s ease,border-color .15s ease,transform .12s ease" style-active="transform:scale(.97)">{{ c.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.45;color:#B7C3D8;cursor:pointer"><input type="checkbox" checked="{{ calc.cat }}" onChange="{{ calcCat }}" style="margin:2px 0 0;width:18px;height:18px;accent-color:#58A8EA;flex-shrink:0"><span>Usted o una carga familiar tiene discapacidad o enfermedad catastrófica, rara o huérfana</span></label>
+        </sc-if>
+        <sc-if value="{{ calcShowRet }}" hint-placeholder-val="{{ true }}">
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Retenciones en la fuente del año <span style="font-weight:400;color:#9AA8C2">(opcional)</span></span>
+          <span style="position:relative;display:block"><span aria-hidden="true" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:'Geist Mono',monospace;font-size:12px;color:#6B7A96">USD</span><input value="{{ calc.ret }}" onChange="{{ calcSet.ret }}" inputMode="decimal" placeholder="0,00" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px 12px 52px;width:100%;outline:none;font-variant-numeric:tabular-nums;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></span>
+        </label>
+        </sc-if>
+      </div>
+
+      <div data-sr="m" aria-live="polite" style="position:sticky;top:92px;background:#07101F;border:1px solid rgba(88,168,234,.32);border-radius:28px;padding:clamp(24px,3.5vw,40px)">
+        <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9AA8C2">{{ calcRes.heroLabel }}</div>
+        <div style="margin-top:10px;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(44px,5.4vw,72px);line-height:1;letter-spacing:-.02em;color:{{ calcRes.heroColor }};font-variant-numeric:tabular-nums">{{ calcRes.hero }}</div>
+        <p style="margin:12px 0 0;font-size:14px;line-height:1.5;color:#9AA8C2;text-wrap:pretty">{{ calcRes.note }}</p>
+        <dl style="margin:28px 0 0;border-top:1px solid rgba(157,190,230,.16)">
+          <sc-for list="{{ calcRes.rows }}" as="r" hint-placeholder-count="7">
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(157,190,230,.12);font-size:15px">
+              <dt style="color:{{ r.lc }};font-weight:{{ r.w }}">{{ r.l }}</dt>
+              <dd style="margin:0;color:{{ r.vc }};font-weight:{{ r.w }};font-variant-numeric:tabular-nums;white-space:nowrap">{{ r.v }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+        <sc-if value="{{ calcRes.tip }}" hint-placeholder-val="{{ false }}">
+          <p style="margin:16px 0 0;font-size:13px;line-height:1.5;color:#8FC6F2">{{ calcRes.tip }}</p>
+        </sc-if>
+        <div style="margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px">
+          <a data-press="" href="#contacto" onClick="{{ calcReview }}" style="display:inline-flex;align-items:center;white-space:nowrap;gap:10px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Revisar con un auditor <span aria-hidden="true">→</span></a>
+          <button data-press="" type="button" onClick="{{ calcReset }}" style="font-size:14px;font-weight:500;background:none;border:1px solid rgba(157,190,230,.28);color:#8FC6F2;border-radius:8px;padding:12px 16px;cursor:pointer;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#8FC6F2;color:#FFFFFF" style-active="transform:scale(.96)">Limpiar</button>
+        </div>
+        <p style="margin:20px 0 0;font-size:12px;line-height:1.5;color:#9AA8C2">Estimación referencial. No sustituye la declaración ante el SRI ni la asesoría profesional.</p>
+      </div>
+    </div>
+
+    <div data-sr="m" style="margin-top:clamp(48px,6vw,72px)">
+      <h3 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:30px;line-height:1.1;letter-spacing:-.015em;color:#FFFFFF">{{ calcTitle }}</h3>
+      <div style="margin-top:20px;overflow-x:auto;border:1px solid rgba(157,190,230,.14);border-radius:16px">
+        <table style="width:100%;min-width:560px;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums">
+          <thead>
+            <tr style="background:#111E38;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#9AA8C2">
+              <sc-for list="{{ calcCols }}" as="col" hint-placeholder-count="4"><th scope="col" style="text-align:right;font-weight:500;padding:14px 18px">{{ col }}</th></sc-for>
+            </tr>
+          </thead>
+          <tbody>
+            <sc-for list="{{ calcTabla }}" as="row" hint-placeholder-count="10">
+              <tr style="background:{{ row.bg }};color:{{ row.color }};border-top:1px solid rgba(157,190,230,.1);transition:background-color .25s ease,color .25s ease">
+                <sc-for list="{{ row.cells }}" as="cell" hint-placeholder-count="4"><td style="text-align:right;padding:12px 18px">{{ cell }}</td></sc-for>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin:14px 0 0;font-size:13px;line-height:1.5;color:#9AA8C2;text-wrap:pretty">{{ calcFoot }}</p>
+    </div>
+
+    </div>
+
+    <div style="display:{{ calcShow.lab }}">
+    <p style="margin:28px 0 0;max-width:60ch;color:#B7C3D8;font-size:17px;line-height:1.55;text-wrap:pretty">Liquidación de haberes al terminar la relación laboral, según el Código del Trabajo. Para trabajadores del sector privado con sueldo fijo.</p>
+    <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(24px,3vw,40px);align-items:start">
+      <div style="background:#111E38;border:1px solid rgba(157,190,230,.14);border-radius:28px;padding:clamp(24px,3.5vw,40px);display:grid;gap:22px">
+        <div role="radiogroup" aria-label="Motivo de salida" style="display:grid;gap:8px">
+          <span style="font-size:13px;font-weight:500;color:#B7C3D8">Motivo de salida</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ labMotivos }}" as="mo" hint-placeholder-count="3">
+              <button data-press="" type="button" role="radio" aria-checked="{{ mo.on }}" onClick="{{ mo.pick }}" style="font-size:14px;font-weight:500;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid {{ mo.border }};background:{{ mo.bg }};color:{{ mo.color }};transition:background-color .15s ease,border-color .15s ease,transform .12s ease" style-active="transform:scale(.97)">{{ mo.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px">
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8">Fecha de ingreso<input type="date" value="{{ lab.ini }}" onChange="{{ labSet.ini }}" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none;font-variant-numeric:tabular-nums;color-scheme:dark;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8">Fecha de salida<input type="date" value="{{ lab.fin }}" onChange="{{ labSet.fin }}" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none;font-variant-numeric:tabular-nums;color-scheme:dark;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+        </div>
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Última remuneración mensual</span>
+          <span style="position:relative;display:block"><span aria-hidden="true" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:'Geist Mono',monospace;font-size:12px;color:#6B7A96">USD</span><input value="{{ lab.sueldo }}" onChange="{{ labSet.sueldo }}" inputMode="decimal" placeholder="0,00" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px 12px 52px;width:100%;outline:none;font-variant-numeric:tabular-nums;color-scheme:dark;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></span>
+          <span style="font-weight:400;color:#9AA8C2">Sueldo más horas extra y comisiones habituales.</span>
+        </label>
+        <div style="display:grid;gap:14px;padding:18px;border-radius:16px;background:#0D1830;border:1px solid rgba(157,190,230,.12)">
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9AA8C2">Valores impagos</span>
+          <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.45;color:#B7C3D8;cursor:pointer"><input type="checkbox" checked="{{ lab.pendMes }}" onChange="{{ labChk.pendMes }}" style="margin:2px 0 0;width:18px;height:18px;accent-color:#58A8EA;flex-shrink:0"><span>El sueldo del último mes está pendiente de pago</span></label>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px">
+            <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Otros sueldos atrasados <span style="font-weight:400;color:#9AA8C2">(meses)</span></span><input value="{{ lab.pendMeses }}" onChange="{{ labSet.pendMeses }}" inputMode="numeric" placeholder="0" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none;font-variant-numeric:tabular-nums;color-scheme:dark;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+            <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Fondos de reserva no pagados <span style="font-weight:400;color:#9AA8C2">(meses)</span></span><input value="{{ lab.frMeses }}" onChange="{{ labSet.frMeses }}" inputMode="numeric" placeholder="0" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none;font-variant-numeric:tabular-nums;color-scheme:dark;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+          </div>
+        </div>
+        <div role="radiogroup" aria-label="Región (décimo cuarto)" style="display:grid;gap:8px">
+          <span style="font-size:13px;font-weight:500;color:#B7C3D8">Región (décimo cuarto)</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ labRegiones }}" as="rg" hint-placeholder-count="2">
+              <button data-press="" type="button" role="radio" aria-checked="{{ rg.on }}" onClick="{{ rg.pick }}" style="font-size:14px;font-weight:500;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid {{ rg.border }};background:{{ rg.bg }};color:{{ rg.color }};transition:background-color .15s ease,border-color .15s ease,transform .12s ease" style-active="transform:scale(.97)">{{ rg.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div style="display:grid;gap:12px">
+          <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.45;color:#B7C3D8;cursor:pointer"><input type="checkbox" checked="{{ lab.m13 }}" onChange="{{ labChk.m13 }}" style="margin:2px 0 0;width:18px;height:18px;accent-color:#58A8EA;flex-shrink:0"><span>Recibe el décimo tercero mensualizado</span></label>
+          <label style="display:flex;align-items:flex-start;gap:12px;font-size:14px;line-height:1.45;color:#B7C3D8;cursor:pointer"><input type="checkbox" checked="{{ lab.m14 }}" onChange="{{ labChk.m14 }}" style="margin:2px 0 0;width:18px;height:18px;accent-color:#58A8EA;flex-shrink:0"><span>Recibe el décimo cuarto mensualizado</span></label>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:18px">
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Vacaciones no gozadas de años anteriores <span style="font-weight:400;color:#9AA8C2">(días)</span></span><input value="{{ lab.vacDias }}" onChange="{{ labSet.vacDias }}" inputMode="numeric" placeholder="0" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none;font-variant-numeric:tabular-nums;color-scheme:dark;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Anticipos o préstamos por descontar</span><span style="position:relative;display:block"><span aria-hidden="true" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);font-family:'Geist Mono',monospace;font-size:12px;color:#6B7A96">USD</span><input value="{{ lab.desc }}" onChange="{{ labSet.desc }}" inputMode="decimal" placeholder="0,00" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px 12px 52px;width:100%;outline:none;font-variant-numeric:tabular-nums;color-scheme:dark;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></span></label>
+        </div>
+      </div>
+
+      <div aria-live="polite" style="position:sticky;top:92px;background:#07101F;border:1px solid rgba(88,168,234,.32);border-radius:28px;padding:clamp(24px,3.5vw,40px)">
+        <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#9AA8C2">Total a recibir</div>
+        <div style="margin-top:10px;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(44px,5.4vw,72px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums">{{ labRes.hero }}</div>
+        <p style="margin:12px 0 0;font-size:14px;line-height:1.5;color:{{ labRes.noteColor }};text-wrap:pretty">{{ labRes.note }}</p>
+        <dl style="margin:28px 0 0;border-top:1px solid rgba(157,190,230,.16)">
+          <sc-for list="{{ labRes.rows }}" as="r" hint-placeholder-count="7">
+            <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(157,190,230,.12);font-size:15px">
+              <dt style="display:grid;gap:2px;color:{{ r.lc }};font-weight:{{ r.w }}"><span>{{ r.l }}</span><span style="font-size:12px;font-weight:400;color:#6B7A96">{{ r.d }}</span></dt>
+              <dd style="margin:0;color:{{ r.vc }};font-weight:{{ r.w }};font-variant-numeric:tabular-nums;white-space:nowrap">{{ r.v }}</dd>
+            </div>
+          </sc-for>
+        </dl>
+        <div style="margin-top:28px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px">
+          <a data-press="" href="#contacto" onClick="{{ labReview }}" style="display:inline-flex;align-items:center;white-space:nowrap;gap:10px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Revisar con un abogado laboral <span aria-hidden="true">→</span></a>
+          <button data-press="" type="button" onClick="{{ labReset }}" style="font-size:14px;font-weight:500;background:none;border:1px solid rgba(157,190,230,.28);color:#8FC6F2;border-radius:8px;padding:12px 16px;cursor:pointer;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#8FC6F2;color:#FFFFFF" style-active="transform:scale(.96)">Limpiar</button>
+        </div>
+        <p style="margin:20px 0 0;font-size:12px;line-height:1.5;color:#9AA8C2">Estimación referencial. Casos de embarazo, discapacidad, dirigentes sindicales o contratos especiales tienen indemnizaciones adicionales.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(48px,6vw,72px)">
+      <h3 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:30px;line-height:1.1;letter-spacing:-.015em;color:#FFFFFF">Cómo se calcula</h3>
+      <dl style="margin:20px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:0 32px">
+        <sc-for list="{{ labRules }}" as="ru" hint-placeholder-count="6">
+          <div style="padding:18px 0;border-top:1px solid rgba(157,190,230,.12)">
+            <dt style="font-size:15px;font-weight:500;color:#EEF2F8">{{ ru.t }}</dt>
+            <dd style="margin:6px 0 0;font-size:14px;line-height:1.5;color:#9AA8C2;text-wrap:pretty">{{ ru.d }}</dd>
+          </div>
+        </sc-for>
+      </dl>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Urgencia" data-glow-host="" style="display:{{ show.urgencia }};position:relative;overflow:hidden;background:#07101F;border-block:1px solid rgba(255,255,255,.06);color:#EEF2F8">
+  <div data-glow="" aria-hidden="true" style="position:absolute;left:0;top:0;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(closest-side,rgba(88,168,234,.20),rgba(88,168,234,.07) 45%,rgba(88,168,234,0));pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:clamp(56px,7vw,88px) clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px 48px">
+    <div ref="{{ urgRef }}" onPointerEnter="{{ urgPause }}" onPointerLeave="{{ urgResume }}" onFocus="{{ urgPause }}" onBlur="{{ urgResume }}" style="flex:1 1 520px;min-width:0">
+      <div data-sr="p" aria-live="polite" style="display:grid">
+        <div data-urg="" aria-hidden="false" style="grid-area:1/1;align-self:center">
+          <h2 style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:0;font-size:clamp(32px,3.8vw,52px);line-height:1;letter-spacing:-.02em;max-width:24ch;text-wrap:balance">¿Tiene un requerimiento del SRI o un cierre que <em style="font-style:italic;color:#8FC6F2">se acerca</em>?</h2>
+          <p style="margin:14px 0 0;color:#B7C3D8;font-size:17px;line-height:1.5;max-width:52ch;text-wrap:pretty">Cuéntenos su situación y revisamos opciones y plazos con usted.</p>
+        </div>
+        <div data-urg="" aria-hidden="true" style="grid-area:1/1;align-self:center;opacity:0;visibility:hidden">
+          <h2 style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:0;font-size:clamp(32px,3.8vw,52px);line-height:1;letter-spacing:-.02em;max-width:24ch;text-wrap:balance">¿Necesita contratar <em style="font-style:italic;color:#8FC6F2">Auditoría Externa</em> para su entidad?</h2>
+          <p style="margin:14px 0 0;color:#B7C3D8;font-size:17px;line-height:1.5;max-width:52ch;text-wrap:pretty">Somos auditores calificados por la SCVS, la SEPS y el CES. Le enviamos una propuesta con alcance, plazos y honorarios.</p>
+        </div>
+        <div data-urg="" aria-hidden="true" style="grid-area:1/1;align-self:center;opacity:0;visibility:hidden">
+          <h2 style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:0;font-size:clamp(32px,3.8vw,52px);line-height:1;letter-spacing:-.02em;max-width:24ch;text-wrap:balance">¿Es contratista del sector público y no ha recuperado sus <em style="font-style:italic;color:#8FC6F2">impuestos pagados en exceso</em>?</h2>
+          <p style="margin:14px 0 0;color:#B7C3D8;font-size:17px;line-height:1.5;max-width:52ch;text-wrap:pretty">Revisamos su caso y gestionamos la devolución ante el SRI.</p>
+        </div>
+      </div>
+      <div data-sr="p" style="margin-top:24px;display:flex;gap:8px">
+        <button type="button" data-urg-bar="" aria-label="Mensaje 1 de 3" onClick="{{ urgGo0 }}" style="position:relative;width:44px;height:20px;padding:0;background:none;border:none;cursor:pointer;display:flex;align-items:center"><span style="position:relative;display:block;width:100%;height:2px;border-radius:2px;background:rgba(157,190,230,.2);overflow:hidden"><span data-urg-fill="" style="position:absolute;inset:0;background:#58A8EA;transform-origin:left center;transform:scaleX(1)"></span></span></button>
+        <button type="button" data-urg-bar="" aria-label="Mensaje 2 de 3" onClick="{{ urgGo1 }}" style="position:relative;width:44px;height:20px;padding:0;background:none;border:none;cursor:pointer;display:flex;align-items:center"><span style="position:relative;display:block;width:100%;height:2px;border-radius:2px;background:rgba(157,190,230,.2);overflow:hidden"><span data-urg-fill="" style="position:absolute;inset:0;background:#58A8EA;transform-origin:left center;transform:scaleX(0)"></span></span></button>
+        <button type="button" data-urg-bar="" aria-label="Mensaje 3 de 3" onClick="{{ urgGo2 }}" style="position:relative;width:44px;height:20px;padding:0;background:none;border:none;cursor:pointer;display:flex;align-items:center"><span style="position:relative;display:block;width:100%;height:2px;border-radius:2px;background:rgba(157,190,230,.2);overflow:hidden"><span data-urg-fill="" style="position:absolute;inset:0;background:#58A8EA;transform-origin:left center;transform:scaleX(0)"></span></span></button>
+      </div>
+    </div>
+    <a data-press="" data-sr="p" href="#contacto" onClick="{{ ctaUrgent }}" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:10px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+
+<section id="contacto" data-screen-label="Contacto" data-glow-host="" style="display:{{ show.contacto }};position:relative;overflow:hidden;padding:clamp(80px,10vw,136px) 0">
+  <div data-glow="" aria-hidden="true" style="position:absolute;left:0;top:0;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(closest-side,rgba(88,168,234,.20),rgba(88,168,234,.07) 45%,rgba(88,168,234,0));pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(40px,6vw,88px);align-items:start">
+    <div>
+      <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Contacto</div>
+      <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(38px,5vw,68px);line-height:1;letter-spacing:-.03em">Hablemos de su <em style="font-style:italic;color:#8FC6F2">empresa</em></h2>
+      <ol data-sr-list="" style="list-style:none;padding:0;margin:36px 0 0;border-top:1px solid rgba(157,190,230,.16)">
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-bottom:1px solid rgba(157,190,230,.16);color:#B7C3D8;font-size:16px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:3px">01</span><span><b style="font-weight:500;color:#EEF2F8">Nos cuenta su caso</b> en el formulario o por WhatsApp.</span></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-bottom:1px solid rgba(157,190,230,.16);color:#B7C3D8;font-size:16px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:3px">02</span><span><b style="font-weight:500;color:#EEF2F8">Le contactamos</b> para coordinar una reunión breve.</span></li>
+        <li style="display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-bottom:1px solid rgba(157,190,230,.16);color:#B7C3D8;font-size:16px"><span style="font-family:'Geist Mono',monospace;font-size:12px;color:#58A8EA;padding-top:3px">03</span><span><b style="font-weight:500;color:#EEF2F8">Recibe una propuesta</b> con alcance, plazos y honorarios.</span></li>
+      </ol>
+      <dl data-sr-list="" style="margin:36px 0 0;display:grid;gap:14px;font-size:16px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">WHATSAPP</dt><dd style="margin:0;display:flex;flex-wrap:wrap;gap:4px 12px"><a href="https://wa.me/593995286674" target="_blank" rel="noopener" style="color:#EEF2F8" style-hover="color:#8FC6F2">099 528 6674</a><span aria-hidden="true" style="color:#6B7A96">/</span><a href="https://wa.me/593962742645" target="_blank" rel="noopener" style="color:#EEF2F8" style-hover="color:#8FC6F2">096 274 2645</a></dd></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">CORREO</dt><dd style="margin:0">taxauditorscompany@gmail.com</dd><button data-press="" type="button" onClick="{{ copyMail }}" style="font-size:12px;font-weight:500;background:none;border:1px solid rgba(157,190,230,.28);color:#8FC6F2;border-radius:8px;padding:5px 12px;cursor:pointer;min-width:84px;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#8FC6F2;color:#FFFFFF" style-active="transform:scale(.96)">{{ copyLabel }}</button></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">REDES</dt><dd style="margin:0;display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></dd></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">OFICINA</dt><dd style="margin:0">Riobamba, Ecuador</dd><a data-press="" href="https://maps.google.com/?q=-1.664594,-78.654312" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:6px;font-size:12px;font-weight:500;border:1px solid rgba(157,190,230,.28);color:#8FC6F2;border-radius:8px;padding:5px 12px;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#8FC6F2;color:#FFFFFF" style-active="transform:scale(.96)">Cómo llegar <span aria-hidden="true">↗</span></a></div>
+      </dl>
+      <div data-sr="m" style="margin-top:28px;border-radius:16px;overflow:hidden;border:1px solid rgba(157,190,230,.14);background:#111E38;aspect-ratio:16/10">
+        <iframe title="Ubicación de la oficina de TAX AUDITORS en Riobamba" src="https://maps.google.com/maps?q=-1.664594,-78.654312&amp;z=16&amp;output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style="display:block;width:100%;height:100%;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.55) brightness(.92) contrast(.95)"></iframe>
+      </div>
+    </div>
+
+    <div data-sr="m" style="background:#111E38;border:1px solid rgba(157,190,230,.14);border-radius:28px;padding:clamp(24px,3.5vw,40px)">
+      <h3 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:34px;line-height:1;letter-spacing:-.015em;color:#FFFFFF">Solicite su consulta</h3>
+      <p style="margin:8px 0 0;color:#9AA8C2;font-size:15px">Solo necesitamos un dato de contacto y una idea general de su caso.</p>
+      <form onSubmit="{{ submit }}" noValidate="" style="display:grid;gap:18px;margin-top:28px">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8">Nombre<input ref="{{ nameRef }}" name="name" autoComplete="name" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid {{ nameBorder }};border-radius:8px;padding:12px 14px;width:100%;outline:none;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Empresa o cooperativa <span style="font-weight:400;color:#9AA8C2">(opcional)</span></span><input name="org" autoComplete="organization" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8">WhatsApp o teléfono<input ref="{{ telRef }}" name="tel" type="tel" inputMode="tel" autoComplete="tel" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid {{ contactBorder }};border-radius:8px;padding:12px 14px;width:100%;outline:none;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+          <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8">Correo<input name="email" type="email" autoComplete="email" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid {{ contactBorder }};border-radius:8px;padding:12px 14px;width:100%;outline:none;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
+        </div>
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8">¿En qué podemos ayudarle?
+          <select value="{{ svc }}" onChange="{{ onSvc }}" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)">
+            <sc-for list="{{ svcOptions }}" as="o" hint-placeholder-count="7"><option value="{{ o.value }}">{{ o.label }}</option></sc-for>
+          </select>
+        </label>
+        <div role="radiogroup" aria-label="¿Para cuándo lo necesita?" style="display:grid;gap:8px">
+          <span style="font-size:13px;font-weight:500;color:#B7C3D8">¿Para cuándo lo necesita?</span>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <sc-for list="{{ whens }}" as="w" hint-placeholder-count="3">
+              <button data-press="" type="button" role="radio" aria-checked="{{ w.on }}" onClick="{{ w.pick }}" style="font-size:14px;font-weight:500;border-radius:999px;padding:9px 15px;cursor:pointer;border:1px solid {{ w.border }};background:{{ w.bg }};color:{{ w.color }};transition:background-color .15s ease,border-color .15s ease,transform .12s ease" style-active="transform:scale(.97)">{{ w.label }}</button>
+            </sc-for>
+          </div>
+        </div>
+        <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Cuéntenos brevemente <span style="font-weight:400;color:#9AA8C2">(opcional)</span></span><textarea name="msg" placeholder="Ej.: recibimos una notificación del SRI por diferencias en el IVA de 2025." style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;min-height:112px;resize:vertical;outline:none;line-height:1.5" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></textarea></label>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px">
+          <button data-press="" type="submit" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:10px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;border:none;font-size:15px;font-weight:500;cursor:pointer;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Enviar solicitud <span aria-hidden="true">→</span></button>
+          <span role="status" style="font-size:14px;line-height:1.45;color:{{ msgColor }}">{{ msg }}</span>
+        </div>
+        <p style="margin:0;font-size:13px;color:#9AA8C2">Su información es confidencial y solo se usa para responder a su consulta.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<sc-if value="{{ showGlossary }}" hint-placeholder-val="{{ true }}">
+  <section id="siglas" data-screen-label="Siglas" style="display:{{ show.servicios }};padding:clamp(72px,9vw,120px) 0;background:#07101F;border-top:1px solid rgba(255,255,255,.06)">
+    <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+      <div data-sr="e" style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Siglas</div>
+      <h2 data-sr="t" style="font-family:'Newsreader',Georgia,serif;font-weight:300;color:#FFFFFF;margin:14px 0 0;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.02em;max-width:24ch">Términos técnicos, explicados en <em style="font-style:italic;color:#8FC6F2">una línea</em></h2>
+      <dl data-sr-list="" style="margin:44px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0 32px">
+        <sc-for list="{{ glossary }}" as="g" hint-placeholder-count="12">
+          <div style="padding:18px 0;border-top:1px solid rgba(157,190,230,.12)">
+            <dt style="font-family:'Geist Mono',monospace;font-size:14px;font-weight:500;color:#58A8EA">{{ g.s }}</dt>
+            <dd style="margin:6px 0 0;font-size:14px;color:#EEF2F8">{{ g.n }}</dd>
+            <dd style="margin:4px 0 0;font-size:13px;line-height:1.5;color:#9AA8C2">{{ g.d }}</dd>
+          </div>
+        </sc-for>
+      </dl>
+    </div>
+  </section>
+</sc-if>
+</main>
+
+<footer style="background:#0A1428;color:#9AA8C2;font-size:13px;border-top:1px solid rgba(255,255,255,.06)">
+  <div style="max-width:1320px;margin:0 auto;padding:32px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
+    <img src="assets/logo.png" alt="TAX AUDITORS" style="height:26px;width:auto;display:block">
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px"><span>© 2026 TAX AUDITORS COMPANY TAXAUD S.A.S. · RUC 0691784323001 · Ecuador</span><div style="display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></div></div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;motion&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Comportamiento&quot;},&quot;showRouting&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;},&quot;showGlossary&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;}}">
+const SERVICES = [
+ {tag:'NIA', name:'Auditoría externa', icon:'ph-seal-check', desc:'Opinión independiente sobre sus estados financieros, conforme a las Normas Internacionales de Auditoría. Somos auditores calificados por los organismos de control y auditamos también a cualquier entidad financiera o no financiera que quiera fortalecer su organización e información financiera.', list:['Calificados por la Superintendencia de Compañías, Valores y Seguros','Calificados por la Superintendencia de Economía Popular y Solidaria','Calificados por el Consejo de Educación Superior para instituciones educativas','Auditoría voluntaria a entidades financieras y no financieras','Informe de auditoría, carta a la gerencia e informe de cumplimiento tributario']},
+ {tag:'NIIF', name:'Contabilidad financiera', icon:'ph-calculator', desc:'Registro, conciliación y cierre mensual bajo NIIF completas o NIIF para PYMES, con estados financieros que su directorio puede leer y usar para decidir.', list:['Registro contable y conciliaciones bancarias','Estados financieros mensuales y anuales','Nómina, beneficios sociales y obligaciones con el IESS','Carga de balances en el portal de la SCVS']},
+ {tag:'SRI', name:'Tributación y defensa tributaria', icon:'ph-scales', desc:'Cumplimiento y planificación ante el Servicio de Rentas Internas, con respaldo jurídico cuando llega una notificación, un requerimiento o una determinación.', list:['Declaraciones de IVA, retenciones e Impuesto a la Renta','Anexo Transaccional Simplificado y demás anexos','Planificación tributaria','Atención de requerimientos, reclamos y recursos']},
+ {tag:'SEPS', name:'Gestión de riesgos financieros', icon:'ph-shield-check', desc:'Para cooperativas y entidades supervisadas por la Superintendencia de Economía Popular y Solidaria: diseño y evaluación de la administración integral de riesgos.', list:['Riesgo de crédito, liquidez y mercado','Manuales, metodologías y matrices de riesgo','Indicadores clave de riesgo (KRI) y límites de exposición','Seguimiento de observaciones de auditoría y supervisión']},
+ {tag:'COSO', name:'Auditoría interna y control', icon:'ph-list-checks', desc:'Evaluamos y fortalecemos su control interno con el marco COSO y acompañamos el cumplimiento en prevención de lavado de activos.', list:['Evaluación de control interno','Auditoría interna tercerizada','Prevención de lavado de activos ante la UAFE','Evaluación de cumplimiento normativo']},
+ {tag:'IA', name:'Contabilidad automatizada', icon:'ph-cpu', desc:'Diseñamos flujos contables que capturan, clasifican y concilian información con mínima intervención manual, partiendo de las herramientas que usted ya usa.', list:['Captura automática de comprobantes electrónicos','Conciliaciones y reportes sin digitación','Tableros de indicadores financieros','Migración ordenada desde Excel']},
+ {tag:'LEGAL', name:'Servicios legales', icon:'ph-gavel', desc:'Defensa y patrocinio jurídico ante autoridades administrativas, tributarias y judiciales, con el respaldo técnico contable y financiero de nuestro equipo de auditoría.', list:['Derecho penal: delitos financieros y delitos fiscales','Derecho tributario','Derecho administrativo','Derecho societario','Derecho laboral']},
+ {tag:'PERITAJE', name:'Peritajes para la Función Judicial', icon:'ph-file-magnifying-glass', desc:'Informes periciales contables, financieros y tributarios para procesos judiciales: análisis técnico, independiente y sustentado, presentado con claridad ante jueces y tribunales.', list:['Peritajes contables y financieros','Peritajes tributarios','Liquidaciones laborales y de haberes','Revisión y réplica de informes periciales','Sustentación del informe en audiencia']}
+];
+const QUICK = [['Auditoría externa',0],['Auditoría interna',4],['Contabilidad mensual',1],['Declaraciones de impuestos',2],['Devolución de impuestos',2],['Impuestos pagados indebidamente',2],['Impuestos pagados en exceso',2],['Notificaciones SRI',2],['Notificaciones SCVS',0],['Notificaciones SEPS',3],['Notificaciones MDT',1],['Notificaciones IESS',1],['Peritajes judiciales',7],['Otros','']];
+const WHENS = ['Esta semana','Este mes','Estoy planificando'];
+const GLOSSARY = [
+ ['NIIF','Normas Internacionales de Información Financiera','Reglas con las que se preparan los estados financieros de las compañías.'],
+ ['NIIF PYMES','NIIF para Pequeñas y Medianas Entidades','Versión simplificada para empresas sin obligación pública de rendir cuentas.'],
+ ['NIA','Normas Internacionales de Auditoría','Estándares que rigen cómo se planifica, ejecuta e informa una auditoría.'],
+ ['COSO','Committee of Sponsoring Organizations','Marco internacional para diseñar y evaluar el control interno.'],
+ ['SCVS','Superintendencia de Compañías, Valores y Seguros','Controla a las sociedades mercantiles y exige auditoría externa según su tamaño.'],
+ ['SEPS','Superintendencia de Economía Popular y Solidaria','Supervisa a cooperativas y organizaciones de la economía popular y solidaria.'],
+ ['CES','Consejo de Educación Superior','Regula el sistema de educación superior y exige auditoría externa a las instituciones que lo integran.'],
+ ['SRI','Servicio de Rentas Internas','Administración tributaria del Ecuador.'],
+ ['UAFE','Unidad de Análisis Financiero y Económico','Recibe reportes para prevenir el lavado de activos.'],
+ ['IESS','Instituto Ecuatoriano de Seguridad Social','Entidad ante la que se declaran aportes y beneficios de los trabajadores.'],
+ ['MDT','Ministerio del Trabajo y Desarrollo Humano','Regula las relaciones laborales y registra contratos, actas de finiquito y décimos.']
+];
+const STEPS = [
+ ['Diagnóstico','Escuchamos su caso, revisamos la información e identificamos riesgos y prioridades.'],
+ ['Propuesta','Recibe alcance, cronograma y honorarios por escrito antes de empezar.'],
+ ['Ejecución','Pruebas, conciliaciones y análisis en papeles de trabajo trazables.'],
+ ['Informe','Conclusiones claras, observaciones priorizadas y recomendaciones aplicables.'],
+ ['Seguimiento','Acompañamos la implementación de las acciones correctivas hasta cerrarlas.']
+];
+// Enlace al sistema CONTA - X (único lugar donde se define). Cambiar luego a https://sistema.midominio.com
+const CONTAX_URL = 'https://conta-x-sistema.pages.dev';
+const EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
+const URGENT = [2, 0, 2]; // service preselected by each rotating message
+const wrap = i => { const n = SERVICES.length; return ((i % n) + n) % n; };
+const PAGES = { inicio: 'TAXAUD Auditores', servicios: 'Servicios', nosotros: 'Nosotros', metodo: 'Cómo trabajamos', calculadora: 'Calculadora tributaria', contacto: 'Contacto' };
+const IR_YEARS = {
+  2026: { cbf: 821.80, src: 'Res. NAC-DGERCGC25-00000043, 30 de diciembre de 2025', t: [[0,12208,0,0],[12208,15549,0,.05],[15549,20188,167,.10],[20188,26700,631,.12],[26700,35136,1412,.15],[35136,46575,2678,.20],[46575,62005,4965,.25],[62005,82679,8823,.30],[82679,109956,15025,.35],[109956,null,24572,.37]] },
+  2025: { cbf: 798.31, src: 'Res. NAC-DGERCGC24-00000041, diciembre de 2024', t: [[0,12081,0,0],[12081,15387,0,.05],[15387,19978,165,.10],[19978,26422,624,.12],[26422,34770,1398,.15],[34770,46089,2650,.20],[46089,61359,4914,.25],[61359,81817,8731,.30],[81817,108810,14869,.35],[108810,null,24316,.37]] },
+  2024: { cbf: 789.57, src: 'Res. NAC-DGERCGC23-00000036', t: [[0,11902,0,0],[11902,15159,0,.05],[15159,19682,163,.10],[19682,26031,615,.12],[26031,34255,1377,.15],[34255,45407,2611,.20],[45407,60450,4841,.25],[60450,80605,8602,.30],[80605,107199,14648,.35],[107199,null,23956,.37]] },
+  2023: { cbf: 763.44, src: 'Ley Orgánica para el Fortalecimiento de la Economía Familiar, R.O. S. 335, junio de 2023', t: [[0,11722,0,0],[11722,14930,0,.05],[14930,19385,160,.10],[19385,25638,606,.12],[25638,33738,1356,.15],[33738,44721,2571,.20],[44721,59537,4768,.25],[59537,79388,8472,.30],[79388,105580,14427,.35],[105580,null,23594,.37]] },
+  2022: { cbf: 719.65, legacy: 24090.30, src: 'Ley Orgánica para el Desarrollo Económico y Sostenibilidad Fiscal, art. 43', t: [[0,11310,0,0],[11310,14410,0,.05],[14410,18010,155,.10],[18010,21630,515,.12],[21630,31630,949.40,.15],[31630,41630,2449.40,.20],[41630,51630,4449.39,.25],[51630,61630,6949.39,.30],[61630,100000,9949.39,.35],[100000,null,23378.88,.37]] }
+};
+const IR_YEAR_LIST = [2026, 2025, 2024, 2023, 2022];
+const CANASTAS = [7, 9, 11, 14, 17, 20];
+const CALC0 = { reg: 'gen', anio: 2026, tipo: 'dep', ing: '', costos: '', gp: '', cargas: 0, cat: false, ret: '' };
+const num = v => { let s = String(v || '').replace(/[^\d.,]/g, ''); if (s.includes(',')) s = s.replace(/\./g, '').replace(',', '.'); else if (/^\d{1,3}(\.\d{3})+$/.test(s)) s = s.replace(/\./g, ''); const n = parseFloat(s); return isFinite(n) && n > 0 ? n : 0; };
+const usd = n => 'USD ' + n.toLocaleString('es-EC', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const int = n => n.toLocaleString('es-EC', { maximumFractionDigits: 2 });
+const NP_TABLE = [[0, 2500, 0], [2500, 5000, 5], [5000, 10000, 15], [10000, 15000, 35], [15000, 20000, 60]];
+const EMP_TABLE = [[20000, 50000, 60, .01], [50000, 75000, 360, .0125], [75000, 100000, 672.50, .015], [100000, 200000, 1047.50, .0175], [200000, 300000, 2797.50, .02]];
+const SBU = { 2022: 425, 2023: 450, 2024: 460, 2025: 470, 2026: 482 };
+const LAB0 = { pendMes: true, pendMeses: '', frMeses: '', motivo: 'ren', ini: '', fin: '', sueldo: '', region: 'sierra', m13: false, m14: false, vacDias: '', desc: '' };
+const D = s => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ''); return m ? Date.UTC(+m[1], +m[2] - 1, +m[3]) : null; };
+const span = (a, b) => Math.max(0, Math.round((b - a) / 864e5) + 1);
+const calcLab = l => {
+  const a = D(l.ini), b = D(l.fin), s = num(l.sueldo);
+  if (a === null || b === null || !s) return { ok: false, msg: 'Ingrese las fechas y la última remuneración para ver la liquidación.' };
+  if (b < a) return { ok: false, msg: 'La fecha de salida no puede ser anterior a la de ingreso.', err: true };
+  const fb = new Date(b), Y = fb.getUTCFullYear(), M = fb.getUTCMonth(), dd = fb.getUTCDate(), sbu = SBU[Y] || SBU[2026];
+  const dias = span(a, b), anos = dias / 365;
+  const fa = new Date(a), fe = new Date(b + 864e5), EY = fe.getUTCFullYear(), EM = fe.getUTCMonth(); // salida inclusive
+  let y = EY - fa.getUTCFullYear(), m = EM - fa.getUTCMonth(), d = fe.getUTCDate() - fa.getUTCDate();
+  if (d < 0) { m -= 1; d += new Date(Date.UTC(EY, EM, 0)).getUTCDate(); } if (m < 0) { y -= 1; m += 12; }
+  const completos = y;
+  const dPend = l.pendMes ? Math.min(dd, 30) : 0, pend = s / 30 * dPend, pMeses = Math.floor(num(l.pendMeses)), atras = s * pMeses, iess = (pend + atras) * 0.0945;
+  const frMeses = num(l.frMeses), fondos = s * 0.0833 * frMeses;
+  const i13 = Math.max(a, Date.UTC(M === 11 ? Y : Y - 1, 11, 1)), d13 = span(i13, b), v13 = l.m13 ? 0 : Math.min(s, s * d13 / 360);
+  const p14 = l.region === 'sierra' ? 7 : 2, i14 = Math.max(a, Date.UTC(M >= p14 ? Y : Y - 1, p14, 1)), d14 = span(i14, b), v14 = l.m14 ? 0 : Math.min(sbu, sbu * d14 / 360);
+  let ann = Date.UTC(Y, fa.getUTCMonth(), fa.getUTCDate()); if (ann > b) ann = Date.UTC(Y - 1, fa.getUTCMonth(), fa.getUTCDate()); ann = Math.max(ann, a);
+  const dVac = span(ann, b), extra = Math.min(15, Math.max(0, completos - 4)), vDiasProp = (15 + extra) * dVac / 360, vProp = s / 30 * vDiasProp;
+  const vDias = num(l.vacDias), vAcum = s / 30 * vDias;
+  const desah = 0.25 * s * completos;
+  const n = Math.ceil(anos - 1e-9), indem = l.motivo === 'desp' ? s * (n <= 3 ? 3 : Math.min(25, n)) : 0, meses = l.motivo === 'desp' ? (n <= 3 ? 3 : Math.min(25, n)) : 0;
+  const desc = num(l.desc), total = pend + atras + fondos - iess + v13 + v14 + vProp + vAcum + desah + indem - desc;
+  return { ok: true, pMeses, atras, frMeses, fondos, s, sbu, Y, dias, anos, y, m, d, dPend, pend, iess, d13, v13, d14, v14, dVac, vDiasProp, vProp, vDias, vAcum, desah, indem, meses, desc, total };
+};
+const calcRimpe = c => {
+  const ing = num(c.ing), ret = c.reg === 'emp' ? num(c.ret) : 0, nuevo = c.anio >= 2024;
+  let imp = 0, tramo = '', row = -1;
+  if (ing > 20000) { let k = 0; EMP_TABLE.forEach((r, i) => { if (ing > r[0]) k = i; }); const r = EMP_TABLE[k]; imp = r[2] + (ing - r[0]) * r[3]; row = k + 1; tramo = String(r[3] * 100).replace('.', ',') + ' % sobre el excedente de USD ' + r[0].toLocaleString('es-EC'); }
+  else if (ing > 0) { if (nuevo) { let k = 0; NP_TABLE.forEach((r, i) => { if (ing > r[0]) k = i; }); imp = NP_TABLE[k][2]; row = k; } else { imp = 60; row = 0; } tramo = 'Cuota fija'; }
+  return { ing, ret, nuevo, imp, tramo, row, saldo: imp - ret };
+};
+const calcIR = c => {
+  const ing = num(c.ing), dep = c.tipo === 'dep', iess = dep ? ing * 0.0945 : 0, costos = dep ? 0 : Math.min(num(c.costos), ing);
+  const Y = IR_YEARS[c.anio], T = Y.t, base = Math.max(0, ing - iess - costos); let k = 0; T.forEach((r, i) => { if (base > r[0]) k = i; });
+  const r = T[k], causado = base > 0 ? r[2] + (base - r[0]) * r[3] : 0;
+  const pct = Y.legacy ? (ing <= Y.legacy ? 0.2 : 0.1) : 0.18;
+  const tope = Y.cbf * (Y.legacy ? 7 : c.cat ? 100 : CANASTAS[c.cargas]), gp = num(c.gp), rebaja = Math.min(pct * Math.min(gp, tope), causado);
+  const imp = causado - rebaja, ret = num(c.ret);
+  return { Y, T, pct, ing, dep, iess, costos, base, k, causado, tope, gp, rebaja, imp, ret, saldo: imp - ret };
+};
+const pageFromHash = () => { const k = (location.hash || '').slice(1).toLowerCase(); return k === 'respaldo' ? 'nosotros' : k === 'siglas' ? 'servicios' : PAGES[k] ? k : 'inicio'; };
+
+class Component extends DCLogic {
+  state = { calcTab: 'ir', lab: { ...LAB0 }, calc: { ...CALC0 }, page: pageFromHash(), menuOpen: false, active: 0, pinned: false, svc: '0', when: 1, wide: true, msg: '', msgKind: '', copied: false, errName: false, errContact: false };
+  secRef = React.createRef(); stackRef = React.createRef(); barRef = React.createRef(); drumRef = React.createRef(); drumBoxRef = React.createRef(); stepsRef = React.createRef(); counterRef = React.createRef(); urgRef = React.createRef(); menuRef = React.createRef(); nameRef = React.createRef(); telRef = React.createRef();
+
+  motionOn() { return (this.props.motion ?? true) && !matchMedia('(prefers-reduced-motion: reduce)').matches; }
+
+  componentDidMount() {
+    this.cur = 0; this.target = 0; this.last = 0;
+    this.onResize = () => { const wide = innerWidth >= 1024; this.setState({ wide, pinned: innerWidth >= 900 && innerHeight >= 760 && this.motionOn() }, () => { this.readScroll(); this.kick(); }); };
+    this.sCur = 0; this.sTarget = 0;
+    this.onScroll = () => { this.readScroll(); this.kick(); this.readSteps(); };
+    this.onResize(); addEventListener('resize', this.onResize); addEventListener('scroll', this.onScroll, { passive: true });
+    this.paint(0); this.readSteps();
+    this.onPress = e => {
+      const el = e.target.closest && e.target.closest('[data-press]'); if (!el || !this.motionOn()) return;
+      const r = el.getBoundingClientRect();
+      if (el.dataset.nav !== undefined) { // nav: light sweep of the underline
+        el.animate([{ backgroundSize: '100% 1px', color: '#FFFFFF' }, { backgroundSize: '100% 2px', color: '#8FC6F2' }, { backgroundSize: '100% 1px', color: '#FFFFFF' }], { duration: 420, easing: EASE });
+        return;
+      }
+      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';
+      el.style.overflow = 'hidden'; el.style.isolation = 'isolate';
+      const size = Math.hypot(r.width, r.height) * 2, dot = document.createElement('span');
+      dot.setAttribute('aria-hidden', 'true');
+      dot.style.cssText = 'position:absolute;left:' + (e.clientX - r.left - size / 2) + 'px;top:' + (e.clientY - r.top - size / 2) + 'px;width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:currentColor;pointer-events:none;z-index:-1;opacity:0';
+      el.appendChild(dot);
+      dot.animate([{ transform: 'scale(0)', opacity: 0.22 }, { transform: 'scale(1)', opacity: 0 }], { duration: 600, easing: EASE }).onfinish = () => dot.remove();
+    };
+    this.onOver = e => {
+      const el = e.target.closest && e.target.closest('[data-press]'); if (!el || el.contains(e.relatedTarget)) return;
+      const arrow = [...el.querySelectorAll('span[aria-hidden="true"]')].find(s => s.textContent.trim() === '→');
+      if (arrow) { arrow.style.display = 'inline-block'; arrow.style.transition = 'transform .3s cubic-bezier(0.23,1,0.32,1)'; arrow.style.transform = e.type === 'pointerover' ? 'translateX(4px)' : 'none'; }
+    };
+    addEventListener('pointerdown', this.onPress); addEventListener('pointerover', this.onOver); addEventListener('pointerout', this.onOver);
+    this.fx = { hosts: [], tx: 0, ty: 0, rx: 0, ry: 0 };
+    if (this.motionOn() && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      this.fx.hosts = [...document.querySelectorAll('[data-glow-host]')].map(h => ({ h, g: h.querySelector('[data-glow]'), x: 0, y: 0, tx: 0, ty: 0, init: false }));
+      this.onPointer = e => { this.fx.px = e.clientX; this.fx.py = e.clientY; this.fxKick(); };
+      addEventListener('pointermove', this.onPointer, { passive: true });
+    }
+    this.drumBoxRef.current && this.drumBoxRef.current.addEventListener('wheel', this.onDrumWheel, { passive: false });
+    this.onHash = () => this.showPage(pageFromHash());
+    addEventListener('hashchange', this.onHash);
+    if (location.hash) scrollTo({ top: 0, behavior: 'instant' });
+    this.setTitle();
+    this.enterPage();
+    this.urgIdx = 0; this.urgRun();
+  }
+  // rotating call-to-action band: progress bar drives the timing; hover/focus pauses it
+  urgRun() {
+    const box = this.urgRef.current; if (!box) return;
+    const fills = box.querySelectorAll('[data-urg-fill]');
+    fills.forEach((f, k) => { f.getAnimations().forEach(a => a.cancel()); f.style.transform = 'scaleX(' + (k === this.urgIdx ? 0 : 0) + ')'; });
+    if (!this.motionOn()) { fills[this.urgIdx].style.transform = 'scaleX(1)'; return; }
+    this.urgAnim = fills[this.urgIdx].animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 7000, easing: 'linear', fill: 'forwards' });
+    this.urgAnim.onfinish = () => this.urgGo((this.urgIdx + 1) % URGENT.length, true);
+  }
+  urgGo(to, auto) {
+    const box = this.urgRef.current; if (!box || to === this.urgIdx) { if (!auto) this.urgRun(); return; }
+    const items = box.querySelectorAll('[data-urg]'), out = items[this.urgIdx], inn = items[to], m = this.motionOn();
+    const OUT = 'cubic-bezier(0.16, 1, 0.3, 1)';
+    out.getAnimations({ subtree: true }).forEach(a => a.cancel()); inn.getAnimations({ subtree: true }).forEach(a => a.cancel());
+    out.setAttribute('aria-hidden', 'true'); inn.setAttribute('aria-hidden', 'false');
+    inn.style.visibility = 'visible'; inn.style.opacity = '1';
+    if (m) {
+      const o = out.animate([{ opacity: 1, transform: 'none', filter: 'blur(0)' }, { opacity: 0, transform: 'translateY(-14px)', filter: 'blur(6px)' }], { duration: 520, easing: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)', fill: 'forwards' });
+      o.onfinish = () => { out.style.opacity = '0'; out.style.visibility = 'hidden'; o.cancel(); };
+      [...inn.children].forEach((c, k) => c.animate([{ opacity: 0, transform: 'translateY(18px)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 1100, delay: 220 + k * 110, easing: OUT, fill: 'backwards' }));
+    } else { out.style.opacity = '0'; out.style.visibility = 'hidden'; }
+    this.urgIdx = to; this.urgRun();
+  }
+  setTitle() { const p = this.state.page; document.title = p === 'inicio' ? PAGES.inicio : PAGES[p] + ' — TAXAUD Auditores'; }
+  showPage(page) {
+    if (page === this.state.page) { this.setState({ menuOpen: false }); scrollTo({ top: 0, behavior: this.motionOn() ? 'smooth' : 'instant' }); return; }
+    this.setState({ page, menuOpen: false }, () => {
+      scrollTo({ top: 0, behavior: 'instant' });
+      this.setTitle(); this.onResize(); this.paint(this.cur); this.readSteps(); this.enterPage();
+    });
+  }
+  enterPage() {
+    if (!this.motionOn()) return;
+    if (this.state.page === 'inicio') document.querySelectorAll('[data-hero]').forEach((el, i) => el.animate(
+      [{ opacity: 0, transform: 'translateY(18px)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }],
+      { duration: 1600, delay: 80 + i * 120, easing: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)', fill: 'backwards' }));
+    this.setupScrollReveals();
+    if (this.state.page === 'inicio') { cancelAnimationFrame(this.cRaf); this.countUp(); }
+  }
+  countUp() {
+    const els = [...document.querySelectorAll('[data-count]')];
+    els.forEach(el => { const n = parseInt((el.dataset.target || el.textContent).replace(/\D/g, ''), 10) || 0; el.dataset.target = n; el.textContent = n.toLocaleString('es-EC'); });
+    if (!this.motionOn() || !els.length) return;
+    const t0 = performance.now() + 250, dur = 1600;
+    els.forEach(el => { el.textContent = '0'; });
+    const tick = now => {
+      const k = Math.min(1, Math.max(0, (now - t0) / dur)), e = 1 - Math.pow(1 - k, 3);
+      els.forEach(el => { el.textContent = Math.round(+el.dataset.target * e).toLocaleString('es-EC'); });
+      if (k < 1) this.cRaf = requestAnimationFrame(tick);
+    };
+    this.cRaf = requestAnimationFrame(tick);
+    this.initVisitas();
+  }
+  // Visitas reales vía Supabase: +1 por sesión y refresco cada 30 s. Sin credenciales, queda la cifra fija.
+  initVisitas() {
+    if (this.visInit) return; this.visInit = true;
+    const go = () => {
+      const c = window.TAXAUD_SUPABASE; if (!c || !c.url || !c.anonKey) return;
+      const rpc = fn => fetch(c.url.replace(/\/$/, '') + '/rest/v1/rpc/' + fn, { method: 'POST', headers: { apikey: c.anonKey, Authorization: 'Bearer ' + c.anonKey, 'Content-Type': 'application/json' }, body: '{}' }).then(r => r.ok ? r.json() : null).catch(() => null);
+      let first = true;
+      try { first = !sessionStorage.getItem('taxaud-visita'); sessionStorage.setItem('taxaud-visita', '1'); } catch (e) {}
+      const apply = n => { n = +n; if (!n) return; document.querySelectorAll('[data-visitas]').forEach(el => this.tweenTo(el, n)); };
+      rpc(first ? 'registrar_visita' : 'total_visitas').then(apply);
+      this.visT = setInterval(() => { if (!document.hidden) rpc('total_visitas').then(apply); }, 30000);
+    };
+    if (window.TAXAUD_SUPABASE) return go();
+    const s = document.createElement('script'); s.src = 'publicaciones/supabase-config.js'; s.onload = go; document.head.appendChild(s);
+  }
+  tweenTo(el, n) {
+    const from = +el.dataset.target || 0; el.dataset.target = n;
+    if (from === n) return;
+    if (!this.motionOn()) { el.textContent = n.toLocaleString('es-EC'); return; }
+    const t0 = performance.now(), dur = from ? 700 : 1600;
+    const step = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(from + (n - from) * e).toLocaleString('es-EC'); if (k < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  }
+  componentWillUnmount() { clearInterval(this.visT); cancelAnimationFrame(this.sRaf); removeEventListener('pointerdown', this.onPress); removeEventListener('pointerover', this.onOver); removeEventListener('pointerout', this.onOver); cancelAnimationFrame(this.fxRaf); this.onPointer && removeEventListener('pointermove', this.onPointer); cancelAnimationFrame(this.raf); removeEventListener('scroll', this.onScroll); removeEventListener('resize', this.onResize); removeEventListener('hashchange', this.onHash); this.urgAnim && this.urgAnim.cancel(); this.io && this.io.disconnect(); clearTimeout(this.ct); }
+  // scroll → target progress. Each step has a rest zone so a card settles before the next one moves.
+  readScroll() {
+    if (!this.state.pinned || !this.secRef.current || this.dragging) return;
+    const el = this.secRef.current, span = el.offsetHeight - (innerHeight - 68);
+    const raw = Math.min(1, Math.max(0, (scrollY - (el.getBoundingClientRect().top + scrollY) + 68) / Math.max(1, span))) * (SERVICES.length - 1);
+    const i = Math.floor(raw), t = raw - i, h = 0.22;
+    const u = Math.min(1, Math.max(0, (t - h) / (1 - 2 * h)));
+    this.target = Math.min(SERVICES.length - 1, i + u * u * (3 - 2 * u));
+  }
+  kick() { if (!this.raf) { this.last = performance.now(); this.raf = requestAnimationFrame(this.tick); } }
+  tick = now => {
+    const dt = Math.min(0.05, (now - this.last) / 1000); this.last = now;
+    const k = this.motionOn() ? 1 - Math.exp(-dt * (this.state.pinned ? 14 : 9)) : 1;
+    this.cur += (this.target - this.cur) * k;
+    if (Math.abs(this.target - this.cur) < 0.0005) this.cur = this.target;
+    this.paint(this.cur);
+    const a = wrap(Math.round(this.cur)); if (a !== this.state.active) this.setState({ active: a });
+    this.raf = this.cur === this.target ? 0 : requestAnimationFrame(this.tick);
+  };
+  paint(p) {
+    const cards = this.stackRef.current ? this.stackRef.current.querySelectorAll('[data-card]') : [];
+    cards.forEach((c, i) => {
+      const N = SERVICES.length; let d = i - p; if (!this.state.pinned) d -= N * Math.round(d / N); let ty, s, o, sh;
+      if (d >= 0) { // waiting behind: recede up and back
+        const e = Math.min(d, 3);
+        ty = -e * 18; s = 1 - e * 0.05; o = d > 2 ? Math.max(0, 3 - d) : 1; sh = Math.min(1, d) * 0.55 + Math.max(0, Math.min(d - 1, 2)) * 0.12;
+      } else { // leaving: lift toward viewer and dissolve
+        const e = Math.min(-d, 1);
+        ty = e * 64; s = 1 + e * 0.04; o = 1 - e; sh = 0;
+      }
+      c.style.transform = 'translate3d(0,' + ty.toFixed(2) + 'px,0) scale(' + s.toFixed(4) + ')';
+      c.style.opacity = o.toFixed(3);
+      c.style.zIndex = String(100 - Math.round(Math.abs(d) * 10) - (d < 0 ? 50 : 0));
+      c.style.pointerEvents = Math.abs(d) < 0.5 ? 'auto' : 'none';
+      c.setAttribute('aria-hidden', Math.abs(d) < 0.5 ? 'false' : 'true');
+      const shade = c.querySelector('[data-shade]'); if (shade) shade.style.opacity = sh.toFixed(3);
+    });
+    // ring of cards around a vertical axis; cards stay facing the viewer and stack in depth
+    const box = this.drumBoxRef.current, W = box ? box.clientWidth : 560;
+    const RX = Math.min(230, W * 0.36), RZ = 240, LIFT = 46, STEP = 360 / SERVICES.length;
+    const ring = this.drumRef.current ? this.drumRef.current.querySelectorAll('[data-drum]') : [];
+    ring.forEach((el, i) => {
+      const a = (i - p) * STEP * Math.PI / 180, c = Math.cos(a), depth = (1 - c) / 2; // 0 front … 1 back
+      const x = Math.sin(a) * RX, z = (c - 1) * RZ, y = -depth * LIFT + 28;
+      el.style.transform = 'translate3d(' + x.toFixed(2) + 'px,' + y.toFixed(2) + 'px,' + z.toFixed(2) + 'px)';
+      el.style.zIndex = String(Math.round(c * 100) + 100);
+      el.style.opacity = (1 - depth * 0.35).toFixed(3);
+      el.style.borderColor = depth < 0.02 ? '#58A8EA' : 'rgba(157,190,230,.16)';
+      el.style.pointerEvents = depth > 0.8 ? 'none' : 'auto';
+      const sh = el.querySelector('[data-shade]'); if (sh) sh.style.opacity = Math.min(0.75, depth * 1.1).toFixed(3);
+    });
+    if (this.barRef.current) this.barRef.current.style.transform = 'scaleX(' + ((wrap(Math.round(p)) + 1) / SERVICES.length).toFixed(4) + ')';
+  }
+  // mouse / touch drag on the ring, with inertia. In pinned mode it also scrolls the page so the cards stay in sync.
+  scrollTopFor(p) {
+    const el = this.secRef.current, span = el.offsetHeight - (innerHeight - 68);
+    return el.getBoundingClientRect().top + scrollY - 68 + span * (p / (SERVICES.length - 1));
+  }
+  onDrumDown = e => {
+    if (e.button > 0) return;
+    const box = this.drumBoxRef.current, max = SERVICES.length - 1, PX = 120;
+    const x0 = e.clientX, p0 = this.cur; let moved = false, lastX = x0, lastT = performance.now(), v = 0;
+    const move = ev => {
+      const dx = ev.clientX - x0;
+      if (!moved && Math.abs(dx) > (ev.pointerType === 'touch' ? 10 : 4)) { moved = true; this.dragging = true; box.style.cursor = 'grabbing'; }
+      if (!moved) return;
+      const now = performance.now(), dt = Math.max(1, now - lastT);
+      v = 0.8 * v + 0.2 * ((ev.clientX - lastX) / dt); lastX = ev.clientX; lastT = now;
+      const raw = p0 - dx / PX;
+      this.target = !this.state.pinned ? raw : raw < 0 ? raw * 0.3 : raw > max ? max + (raw - max) * 0.3 : raw;
+      if (this.state.pinned) scrollTo({ top: this.scrollTopFor(Math.max(0, Math.min(max, this.target))), behavior: 'auto' });
+      this.kick();
+    };
+    const up = () => {
+      removeEventListener('pointermove', move); removeEventListener('pointerup', up); removeEventListener('pointercancel', up);
+      box.style.cursor = 'grab';
+      if (!moved) {
+        // tap: side card → rotate to it; empty area → step toward the tapped side; front card → normal click
+        const n = SERVICES.length, curI = wrap(Math.round(this.target));
+        const ring = [...(this.drumRef.current ? this.drumRef.current.querySelectorAll('[data-drum]') : [])];
+        const hit = e.target.closest && e.target.closest('[data-drum]'), hi = ring.indexOf(hit);
+        if (hi === curI) return;
+        let d;
+        if (hi >= 0) { d = ((hi - curI) % n + n) % n; if (d > n / 2) d -= n; }
+        else { const r = box.getBoundingClientRect(); d = e.clientX < r.left + r.width / 2 ? -1 : 1; }
+        this.goTo(Math.round(this.target) + d);
+        const block = ev => { ev.stopPropagation(); ev.preventDefault(); };
+        box.addEventListener('click', block, { capture: true, once: true });
+        setTimeout(() => box.removeEventListener('click', block, { capture: true }), 350);
+        return;
+      }
+      const fling = Math.round(this.target - v * 180 / PX), i = this.state.pinned ? Math.max(0, Math.min(max, fling)) : fling;
+      this.dragging = false;
+      if (this.state.pinned) scrollTo({ top: this.scrollTopFor(i), behavior: 'smooth' });
+      this.target = i; this.kick();
+      const block = ev => { ev.stopPropagation(); ev.preventDefault(); };
+      box.addEventListener('click', block, { capture: true, once: true });
+      setTimeout(() => box.removeEventListener('click', block, { capture: true }), 0);
+    };
+    addEventListener('pointermove', move); addEventListener('pointerup', up); addEventListener('pointercancel', up);
+  };
+  onDrumWheel = e => {
+    if (Math.abs(e.deltaX) <= Math.abs(e.deltaY)) return; // vertical wheel keeps scrolling the page
+    e.preventDefault();
+    this.wheelAcc = (this.wheelAcc || 0) + e.deltaX;
+    if (Math.abs(this.wheelAcc) < 60) return;
+    const step = this.wheelAcc > 0 ? 1 : -1; this.wheelAcc = 0;
+    this.goTo(Math.round(this.target) + step);
+  };
+  // pointer effects: soft light on dark sections + slight tilt of the detail stack (fine pointers only)
+  onStackMove = e => {
+    if (!this.fx || !this.fx.hosts.length) return;
+    const r = e.currentTarget.getBoundingClientRect();
+    this.fx.ty = ((e.clientX - r.left) / r.width - 0.5) * 5;
+    this.fx.tx = -((e.clientY - r.top) / r.height - 0.5) * 4;
+    this.fxKick();
+  };
+  onStackLeave = () => { if (!this.fx) return; this.fx.tx = 0; this.fx.ty = 0; this.fxKick(); };
+  fxKick() { if (!this.fxRaf) { this.fxLast = performance.now(); this.fxRaf = requestAnimationFrame(this.fxTick); } }
+  fxTick = now => {
+    const fx = this.fx, dt = Math.min(0.05, (now - this.fxLast) / 1000); this.fxLast = now;
+    const k = 1 - Math.exp(-dt * 8); let busy = false;
+    fx.hosts.forEach(o => {
+      const r = o.h.getBoundingClientRect();
+      const inside = fx.px !== undefined && fx.py >= r.top && fx.py <= r.bottom && r.bottom > 0 && r.top < innerHeight;
+      o.g.style.opacity = inside ? '1' : '0';
+      if (!inside) return;
+      o.tx = fx.px - r.left; o.ty = fx.py - r.top;
+      if (!o.init) { o.x = o.tx; o.y = o.ty; o.init = true; }
+      o.x += (o.tx - o.x) * k; o.y += (o.ty - o.y) * k;
+      o.g.style.transform = 'translate3d(' + o.x.toFixed(1) + 'px,' + o.y.toFixed(1) + 'px,0)';
+      if (Math.abs(o.tx - o.x) + Math.abs(o.ty - o.y) > 0.3) busy = true;
+    });
+    fx.rx += (fx.tx - fx.rx) * k; fx.ry += (fx.ty - fx.ry) * k;
+    if (this.stackRef.current) this.stackRef.current.style.transform = 'perspective(1400px) rotateX(' + fx.rx.toFixed(3) + 'deg) rotateY(' + fx.ry.toFixed(3) + 'deg)';
+    if (Math.abs(fx.tx - fx.rx) + Math.abs(fx.ty - fx.ry) > 0.005) busy = true;
+    this.fxRaf = busy ? requestAnimationFrame(this.fxTick) : 0;
+  };
+  // process timeline: progress fills as the section crosses the viewport
+  readSteps() {
+    const el = this.stepsRef.current; if (!el) return;
+    const r = el.getBoundingClientRect();
+    this.sTarget = this.motionOn() ? Math.min(1, Math.max(0, (innerHeight * 0.82 - r.top) / (innerHeight * 0.55 + r.height * 0.5))) : 1;
+    if (!this.sRaf) { this.sLast = performance.now(); this.sRaf = requestAnimationFrame(this.stepsTick); }
+  }
+  stepsTick = now => {
+    const dt = Math.min(0.05, (now - this.sLast) / 1000); this.sLast = now;
+    this.sCur += (this.sTarget - this.sCur) * (this.motionOn() ? 1 - Math.exp(-dt * 7) : 1);
+    if (Math.abs(this.sTarget - this.sCur) < 0.0005) this.sCur = this.sTarget;
+    this.paintSteps(this.sCur);
+    this.sRaf = this.sCur === this.sTarget ? 0 : requestAnimationFrame(this.stepsTick);
+  };
+  paintSteps(P) {
+    const el = this.stepsRef.current; if (!el) return;
+    const N = STEPS.length, x = P * N, cur = P <= 0.001 ? -1 : Math.min(N - 1, Math.floor(x - 0.001));
+    const wide = this.state.wide;
+    el.querySelectorAll('[data-step]').forEach((li, k) => {
+      const local = Math.min(1, Math.max(0, x - k)), reached = x > k + 0.02, isCur = k === cur;
+      const fill = li.querySelector('[data-fill]'); fill.style.transform = wide ? 'scaleX(' + local.toFixed(4) + ')' : 'scaleY(' + local.toFixed(4) + ')';
+      const node = li.querySelector('[data-node]');
+      node.style.borderColor = reached ? '#58A8EA' : 'rgba(157,190,230,.3)';
+      node.style.background = reached ? (isCur ? '#FFFFFF' : '#58A8EA') : '#0A1428';
+      node.style.boxShadow = isCur ? '0 0 0 6px rgba(88,168,234,.2)' : '0 0 0 0 rgba(31,95,168,0)';
+      node.style.transform = isCur ? 'scale(1.15)' : 'scale(1)';
+      li.querySelector('[data-num]').style.color = reached ? '#58A8EA' : '#2A3A5A';
+      const tag = li.querySelector('[data-tag]'); tag.style.opacity = isCur ? '1' : '0'; tag.style.transform = isCur ? 'none' : 'translateY(4px)';
+      li.style.background = isCur ? 'rgba(255,255,255,.035)' : 'transparent';
+    });
+  }
+  // scroll reveals: long, atmospheric entrances in the spirit of the reference (mask wipe on titles, tracking settle on labels, stagger on lists)
+  setupScrollReveals() {
+    const OUT = 'cubic-bezier(0.16, 1, 0.3, 1)';
+    const K = {
+      t: [[{ opacity: 0, transform: 'translateY(28px)', clipPath: 'inset(0 0 100% 0)', filter: 'blur(8px)' }, { opacity: 1, transform: 'none', clipPath: 'inset(0 0 -25% 0)', filter: 'blur(0)' }], 1500, 60],
+      e: [[{ opacity: 0, letterSpacing: '.42em' }, { opacity: 1, letterSpacing: '.18em' }], 1400, 0],
+      p: [[{ opacity: 0, transform: 'translateY(18px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], 1300, 220],
+      m: [[{ opacity: 0, transform: 'translateY(48px) scale(.965)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], 1600, 120],
+      i: [[{ opacity: 0, transform: 'translateY(22px)' }, { opacity: 1, transform: 'none' }], 1100, 0]
+    };
+    const targets = [];
+    document.querySelectorAll('[data-sr]').forEach(el => targets.push([el, el.dataset.sr, 0]));
+    document.querySelectorAll('[data-sr-list]').forEach(list => [...list.children].forEach((c, k) => targets.push([c, 'i', 160 + Math.min(k, 8) * 90])));
+    const run = (el, kind, extra) => {
+      const [frames, dur, delay] = K[kind];
+      el.style.opacity = '';
+      el.animate(frames, { duration: dur, delay: delay + extra, easing: OUT, fill: 'backwards' });
+    };
+    this.io && this.io.disconnect();
+    this.io = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      this.io.unobserve(e.target);
+      const m = this.srMap.get(e.target); if (m) run(e.target, m[0], m[1]);
+    }), { rootMargin: '0px 0px -8% 0px' });
+    this.srMap = new Map();
+    targets.forEach(([el, kind, extra]) => {
+      if (!el.getClientRects().length) return; // on a hidden page
+      if (el.getBoundingClientRect().top < innerHeight * 0.92) { run(el, kind, extra); return; } // on screen at page entry
+      el.style.opacity = '0';
+      this.srMap.set(el, [kind, extra]);
+      this.io.observe(el);
+    });
+  }
+  componentDidUpdate() {
+    if (this._menuWas !== this.state.menuOpen) {
+      this._menuWas = this.state.menuOpen;
+      const m = this.menuRef.current;
+      if (m && this.state.menuOpen && this.motionOn()) [...m.children].forEach((a, k) => a.animate([{ opacity: 0, transform: 'translateY(-6px)', filter: 'blur(3px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 420, delay: k * 40, easing: EASE, fill: 'backwards' }));
+    }
+    if (this._lastWide !== this.state.wide) { this._lastWide = this.state.wide; this.paintSteps(this.sCur); }
+    if (this._lastActive === undefined) this._lastActive = 0;
+    const prevActive = this._lastActive;
+    if (prevActive === this.state.active) return;
+    this._lastActive = this.state.active;
+    if (!this.motionOn()) return;
+    const i = this.state.active, dir = this.target >= this.cur ? 1 : -1;
+    const box = this.drumBoxRef.current, stack = this.stackRef.current;
+    // 1. floor ripple under the ring
+    const floor = box && box.querySelector('[data-floor]');
+    if (floor) {
+      const ring = floor.cloneNode(false); ring.removeAttribute('data-floor');
+      ring.style.background = 'none'; ring.style.borderColor = '#58A8EA'; ring.style.borderWidth = '1.5px';
+      box.insertBefore(ring, floor.nextSibling);
+      ring.animate([{ transform: 'translate(-50%,-50%) scale(.55)', opacity: .9 }, { transform: 'translate(-50%,-50%) scale(1.18)', opacity: 0 }], { duration: 900, easing: EASE }).onfinish = () => ring.remove();
+    }
+    // 2. front ring card: halo pulse
+    const card = box && box.querySelectorAll('[data-drum]')[i];
+    if (card) card.animate([{ boxShadow: '0 0 0 0 rgba(88,168,234,.45), 0 18px 36px -22px rgba(14,40,80,.35)' }, { boxShadow: '0 0 0 12px rgba(88,168,234,0), 0 24px 44px -22px rgba(14,40,80,.45)' }], { duration: 700, easing: EASE });
+    // 3. detail card: staggered content reveal + top accent sweep
+    const front = stack && stack.querySelectorAll('[data-card]')[i];
+    if (front) {
+      front.getAnimations({ subtree: true }).forEach(a => a.cancel());
+      front.querySelectorAll('[data-stag]').forEach((el, k) => el.animate(
+        [{ opacity: 0, transform: 'translateY(10px)', filter: 'blur(3px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }],
+        { duration: 520, delay: 90 + k * 45, easing: EASE, fill: 'backwards' }));
+      const bar = document.createElement('span'); bar.setAttribute('aria-hidden', 'true');
+      bar.style.cssText = 'position:absolute;left:0;top:0;height:2px;width:100%;background:linear-gradient(90deg,#1F5FA8,#58A8EA);transform-origin:' + (dir > 0 ? 'left' : 'right') + ' center;pointer-events:none';
+      front.appendChild(bar);
+      bar.animate([{ transform: 'scaleX(0)', opacity: 1 }, { transform: 'scaleX(1)', opacity: 1, offset: .6 }, { transform: 'scaleX(1)', opacity: 0 }], { duration: 1100, easing: EASE }).onfinish = () => bar.remove();
+    }
+    // 4. counter rolls in the travel direction
+    const c = this.counterRef.current;
+    if (c) c.animate([{ transform: 'translateY(' + (dir * 8) + 'px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 320, easing: EASE });
+  }
+  goTo(i) {
+    if (!this.state.pinned) { this.target = i; this.kick(); return; }
+    i = Math.max(0, Math.min(SERVICES.length - 1, i));
+    if (this.secRef.current) {
+      const el = this.secRef.current, span = el.offsetHeight - (innerHeight - 68);
+      const top = el.getBoundingClientRect().top + scrollY - 68 + span * (i / (SERVICES.length - 1));
+      scrollTo({ top, behavior: this.motionOn() ? 'smooth' : 'auto' });
+    } else { this.target = i; this.kick(); }
+  }
+
+  goContact(svc) {
+    if (svc !== undefined) this.setState({ svc: String(svc) });
+    if (this.state.page !== 'contacto') location.hash = 'contacto'; else scrollTo({ top: 0, behavior: this.motionOn() ? 'smooth' : 'instant' });
+    setTimeout(() => this.nameRef.current && this.nameRef.current.focus({ preventScroll: true }), this.motionOn() ? 500 : 60);
+  }
+  cta(svc) { return e => { e.preventDefault(); this.goContact(svc); }; }
+
+  setActive(i) { // shortest way around the ring
+    if (this.state.pinned) { this.goTo(i); return; }
+    const N = SERVICES.length, base = Math.round(this.target); let d = wrap(i - base); if (d > N / 2) d -= N; this.goTo(base + d);
+  }
+  onTabKey = e => {
+    const n = SERVICES.length; let i = this.state.active;
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') i = (i + 1) % n;
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') i = (i - 1 + n) % n;
+    else if (e.key === 'Home') i = 0; else if (e.key === 'End') i = n - 1; else return;
+    e.preventDefault(); this.setActive(i); this.setState({ active: i });
+    const b = document.getElementById('svc-tab-' + i); b && b.focus();
+  };
+
+  submit = e => {
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const name = (f.get('name') || '').trim(), tel = (f.get('tel') || '').trim(), mail = (f.get('email') || '').trim();
+    if (!name) { this.setState({ errName: true, errContact: false, msgKind: 'err', msg: 'Escriba su nombre para poder dirigirnos a usted.' }); this.nameRef.current.focus(); return; }
+    if (!tel && !/^\S+@\S+\.\S+$/.test(mail)) { this.setState({ errName: false, errContact: true, msgKind: 'err', msg: 'Déjenos un WhatsApp o un correo válido para responderle.' }); this.telRef.current.focus(); return; }
+    this.setState({ errName: false, errContact: false, msgKind: 'ok', msg: 'Gracias, ' + name.split(' ')[0] + '. Al publicar el sitio, esta solicitud llegará directamente a la firma.' });
+  };
+
+  calcVals() {
+    const c = this.state.calc, R = calcIR(c), set = patch => this.setState(s => ({ calc: { ...s.calc, ...patch } }));
+    const pill = on => ({ bg: on ? '#FFFFFF' : 'transparent', color: on ? '#0A1428' : '#B7C3D8', border: on ? '#FFFFFF' : 'rgba(157,190,230,.24)' });
+    const common = {
+      calc: c, calcAnio: String(c.anio), calcGen: c.reg === 'gen',
+      calcRegs: [['gen', 'Régimen general'], ['np', 'RIMPE Negocio popular'], ['emp', 'RIMPE Emprendedor']].map(([v, label]) => ({ label, on: c.reg === v, pick: () => set({ reg: v }), ...pill(c.reg === v) })),
+      calcYears: IR_YEAR_LIST.map(y => ({ label: String(y), on: c.anio === y, pick: () => set({ anio: y }), ...pill(c.anio === y) })),
+      calcSet: Object.fromEntries(['ing', 'costos', 'gp', 'ret'].map(k => [k, e => set({ [k]: e.target.value })])),
+      calcReset: () => this.setState(s => ({ calc: { ...CALC0, anio: s.calc.anio, reg: s.calc.reg } }))
+    };
+    const review = txt => e => { e.preventDefault(); this.goContact(2); if (txt) setTimeout(() => { const ta = document.querySelector('textarea[name="msg"]'); if (ta) ta.value = txt; }, 120); };
+    if (c.reg !== 'gen') return { ...common, ...this.calcRimpeVals(c, review) };
+    const has = R.ing > 0, row = (l, v, strong) => ({ l, v, lc: strong ? '#EEF2F8' : '#9AA8C2', vc: strong ? '#FFFFFF' : '#B7C3D8', w: strong ? 500 : 400 });
+    const t = R.T[R.k], P = Math.round(R.pct * 100) + ' %';
+    let heroLabel = 'Impuesto a la renta estimado', hero = usd(R.imp), heroColor = '#FFFFFF', note = 'Ingrese sus ingresos del año para ver el cálculo.';
+    if (has && R.ret > 0) { heroLabel = R.saldo >= 0 ? 'Valor a pagar' : 'Saldo a favor'; hero = usd(Math.abs(R.saldo)); heroColor = R.saldo >= 0 ? '#FFFFFF' : '#8FC6F2'; }
+    if (has) note = R.base <= R.T[0][1] ? 'Su base imponible está en la fracción exenta: no genera impuesto.' : 'Tramo de ' + Math.round(t[3] * 100) + ' % sobre el excedente de USD ' + int(t[0]) + '.' + (R.dep && R.imp > 0 ? ' Retención mensual aproximada: ' + usd(R.imp / 12) + '.' : '');
+    const rows = [row('Ingresos gravados', usd(R.ing)), R.dep ? row('(−) Aporte personal IESS 9,45 %', usd(R.iess)) : row('(−) Costos y gastos deducibles', usd(R.costos)), row('Base imponible', usd(R.base), true), row('Impuesto causado', usd(R.causado)), row('(−) Rebaja por gastos personales (' + P + ')', usd(R.rebaja)), row('Impuesto a la renta', usd(R.imp), true)];
+    if (R.ret > 0) rows.push(row('(−) Retenciones en la fuente', usd(R.ret)));
+    const room = R.tope - R.gp;
+    const tip = has && R.causado > 0 && room > 1 && R.pct * R.gp < R.causado ? 'Su tope de gastos personales es ' + usd(R.tope) + '. Con más facturas podría reducir su impuesto hasta ' + usd(Math.min(R.pct * room, R.causado - R.rebaja)) + ' adicionales.' : '';
+    return {
+      ...common, calcIndep: c.tipo === 'ind', calcHasCargas: !R.Y.legacy, calcShowRet: true, calcTitle: 'Tabla del impuesto a la renta ' + c.anio, calcCols: ['Fracción básica', 'Exceso hasta', 'Impuesto fracción básica', '% fracción excedente'],
+      calcFoot: 'Valores en USD. ' + R.Y.src + '. ' + (R.Y.legacy ? 'Rebaja por gastos personales: 20 % (ingresos brutos hasta USD 24.090,30) o 10 % del menor valor entre los gastos y 7 canastas familiares básicas (USD ' + int(R.Y.cbf) + ').' : 'Rebaja por gastos personales: 18 % del menor valor entre los gastos y el tope (7 a 20 canastas familiares básicas según cargas; 100 en casos de discapacidad o enfermedad catastrófica). Canasta básica de enero ' + c.anio + ': USD ' + int(R.Y.cbf) + '.'),
+      calcTipos: [['dep', 'Relación de dependencia'], ['ind', 'Actividad independiente']].map(([v, label]) => ({ label, on: c.tipo === v, pick: () => set({ tipo: v }), ...pill(c.tipo === v) })),
+      calcCargas: ['0', '1', '2', '3', '4', '5+'].map((label, i) => ({ label, on: c.cargas === i, pick: () => set({ cargas: i }), ...pill(c.cargas === i) })),
+      calcIngLabel: R.dep ? 'Ingresos del año por sueldos' : 'Ingresos del año por su actividad',
+      calcIngHelp: R.dep ? 'Sueldo mensual × 12, más horas extra y comisiones. Sin décimos ni fondos de reserva.' : 'Facturación total gravada del año.',
+      calcCat: e => set({ cat: e.target.checked }),
+      calcRes: { heroLabel, hero, heroColor, note, rows, tip },
+      calcTabla: R.T.map((r, i) => { const on = has && i === R.k; return { cells: [int(r[0]), r[1] ? int(r[1]) : 'en adelante', int(r[2]), Math.round(r[3] * 100) + ' %'], bg: on ? 'rgba(88,168,234,.14)' : 'transparent', color: on ? '#FFFFFF' : '#B7C3D8' }; }),
+      calcReview: review(has ? 'Usé la calculadora de impuesto a la renta ' + c.anio + ' (régimen general): base imponible ' + usd(R.base) + ', impuesto estimado ' + usd(R.imp) + '. Quisiera revisarlo con un auditor.' : '')
+    };
+  }
+  labVals() {
+    const l = this.state.lab, R = calcLab(l), set = patch => this.setState(s => ({ lab: { ...s.lab, ...patch } })), tab = this.state.calcTab;
+    const pill = on => ({ bg: on ? '#FFFFFF' : 'transparent', color: on ? '#0A1428' : '#B7C3D8', border: on ? '#FFFFFF' : 'rgba(157,190,230,.24)' });
+    const row = (l, v, d, strong) => ({ l, v, d: d || '', lc: strong ? '#EEF2F8' : '#9AA8C2', vc: strong ? '#FFFFFF' : '#B7C3D8', w: strong ? 500 : 400 });
+    const dec = x => (+x.toFixed(2)).toLocaleString('es-EC');
+    let rows = [], note = R.msg, hero = usd(0);
+    if (R.ok) {
+      hero = usd(Math.max(0, R.total));
+      const t = [R.y && R.y + (R.y === 1 ? ' año' : ' años'), R.m && R.m + (R.m === 1 ? ' mes' : ' meses'), R.d && R.d + (R.d === 1 ? ' día' : ' días')].filter(Boolean).join(', ');
+      note = 'Tiempo de servicio: ' + (t || '1 día') + '.';
+      if (l.pendMes) rows.push(row('Sueldo del último mes', usd(R.pend), R.dPend + ' días trabajados'));
+      if (R.pMeses > 0) rows.push(row('Sueldos atrasados', usd(R.atras), R.pMeses + (R.pMeses === 1 ? ' mes' : ' meses') + ' impagos'));
+      if (R.iess > 0) rows.push(row('(−) Aporte personal IESS', usd(R.iess), '9,45 % de los sueldos pendientes'));
+      if (R.fondos > 0) rows.push(row('Fondos de reserva no pagados', usd(R.fondos), '8,33 % × ' + dec(R.frMeses) + ' meses'));
+      if (!l.m13) rows.push(row('Décimo tercero proporcional', usd(R.v13), R.d13 + ' días desde el 1 de diciembre'));
+      if (!l.m14) rows.push(row('Décimo cuarto proporcional', usd(R.v14), R.d14 + ' días · SBU ' + R.Y + ' USD ' + R.sbu));
+      rows.push(row('Vacaciones proporcionales', usd(R.vProp), dec(R.vDiasProp) + ' días del período en curso'));
+      if (R.vDias > 0) rows.push(row('Vacaciones no gozadas', usd(R.vAcum), dec(R.vDias) + ' días de años anteriores'));
+      rows.push(row('Bonificación por desahucio', usd(R.desah), '25 % × ' + R.y + (R.y === 1 ? ' año completo' : ' años completos')));
+      if (l.motivo === 'desp') rows.push(row('Indemnización por despido', usd(R.indem), R.meses + ' remuneraciones · art. 188'));
+      if (R.desc > 0) rows.push(row('(−) Anticipos y préstamos', usd(R.desc)));
+      rows.push(row('Total a recibir', usd(Math.max(0, R.total)), '', true));
+    }
+    const motivoTxt = { ren: 'renuncia voluntaria', desp: 'despido intempestivo', mutuo: 'mutuo acuerdo' }[l.motivo];
+    return {
+      calcTabs: [['ir', 'Impuesto a la renta', 'ph-light ph-receipt'], ['lab', 'Liquidación laboral', 'ph-light ph-briefcase']].map(([v, label, icon]) => ({ label, icon, on: tab === v, pick: () => this.setState({ calcTab: v }), bg: tab === v ? '#FFFFFF' : 'transparent', color: tab === v ? '#0A1428' : '#B7C3D8' })),
+      calcShow: { ir: tab === 'ir' ? 'block' : 'none', lab: tab === 'lab' ? 'block' : 'none' },
+      lab: l,
+      labMotivos: [['ren', 'Renuncia voluntaria'], ['desp', 'Despido intempestivo'], ['mutuo', 'Mutuo acuerdo']].map(([v, label]) => ({ label, on: l.motivo === v, pick: () => set({ motivo: v }), ...pill(l.motivo === v) })),
+      labRegiones: [['sierra', 'Sierra / Amazonía'], ['costa', 'Costa / Galápagos']].map(([v, label]) => ({ label, on: l.region === v, pick: () => set({ region: v }), ...pill(l.region === v) })),
+      labSet: Object.fromEntries(['ini', 'fin', 'sueldo', 'vacDias', 'desc', 'pendMeses', 'frMeses'].map(k => [k, e => set({ [k]: e.target.value })])),
+      labChk: { m13: e => set({ m13: e.target.checked }), m14: e => set({ m14: e.target.checked }), pendMes: e => set({ pendMes: e.target.checked }) },
+      labRes: { hero, note, noteColor: R.err ? '#FF8A7A' : '#9AA8C2', rows },
+      labReset: () => this.setState({ lab: { ...LAB0 } }),
+      labReview: e => { e.preventDefault(); this.goContact(6); if (R.ok) { const txt = 'Usé la calculadora de liquidación laboral (' + motivoTxt + '): ' + note.replace('.', '') + ', total estimado ' + usd(Math.max(0, R.total)) + '. Quisiera revisarlo con un abogado.'; setTimeout(() => { const ta = document.querySelector('textarea[name="msg"]'); if (ta) ta.value = txt; }, 120); } },
+      labRules: [
+        { t: 'Décimo tercero', d: 'La doceava parte de lo ganado desde el 1 de diciembre del año anterior (art. 111).' },
+        { t: 'Décimo cuarto', d: 'Un SBU por año, proporcional a los días desde el 1 de agosto (Sierra y Amazonía) o el 1 de marzo (Costa y Galápagos) (art. 113).' },
+        { t: 'Vacaciones', d: 'Quince días por año, más un día por cada año adicional desde el sexto, hasta quince extra (arts. 69 y 71).' },
+        { t: 'Bonificación por desahucio', d: 'El 25 % de la última remuneración por cada año completo de servicio, en renuncia, mutuo acuerdo y despido (art. 185).' },
+        { t: 'Despido intempestivo', d: 'Hasta tres años: tres remuneraciones. Desde el cuarto, una por año, máximo 25. La fracción de año cuenta como año completo (art. 188).' },
+        { t: 'Fondos de reserva', d: 'Desde el segundo año de trabajo, el 8,33 % de la remuneración mensual (art. 196). Solo se suman los meses que el empleador no pagó ni depositó en el IESS.' }
+      ]
+    };
+  }
+  calcRimpeVals(c, review) {
+    const R = calcRimpe(c), np = c.reg === 'np', has = R.ing > 0, name = np ? 'RIMPE Negocio popular' : 'RIMPE Emprendedor';
+    const row = (l, v, strong) => ({ l, v, lc: strong ? '#EEF2F8' : '#9AA8C2', vc: strong ? '#FFFFFF' : '#B7C3D8', w: strong ? 500 : 400 });
+    let heroLabel = 'Impuesto a la renta RIMPE', hero = usd(R.imp), heroColor = '#FFFFFF', note = 'Ingrese sus ingresos brutos del año para ver el cálculo.';
+    if (has && R.ret > 0) { heroLabel = R.saldo >= 0 ? 'Valor a pagar' : 'Saldo a favor'; hero = usd(Math.abs(R.saldo)); heroColor = R.saldo >= 0 ? '#FFFFFF' : '#8FC6F2'; }
+    if (has) note = R.ing > 300000 ? 'Con ingresos superiores a USD 300.000 debe liquidar en el régimen general.' : np && R.ing > 20000 ? 'Supera USD 20.000: este año se liquida con la tabla de emprendedores. ' + R.tramo + '.' : R.tramo + (np ? '. Incluye el IVA: los negocios populares no lo declaran.' : '.');
+    const rows = [row('Ingresos brutos gravados', usd(R.ing)), row('Impuesto a la renta', usd(R.imp), true)];
+    if (R.ret > 0) rows.push(row('(−) Retenciones en la fuente', usd(R.ret)));
+    const f = n => n.toLocaleString('es-EC', { minimumFractionDigits: 2, maximumFractionDigits: 2 }), pc = x => String(+(x * 100).toFixed(2)).replace('.', ',') + ' %';
+    const mk = (cells, i) => ({ cells, bg: has && i === R.row ? 'rgba(88,168,234,.14)' : 'transparent', color: has && i === R.row ? '#FFFFFF' : '#B7C3D8' });
+    const useEmp = !np;
+    let cols, tabla, title;
+    if (useEmp) {
+      cols = ['Desde', 'Hasta', 'Impuesto fracción básica', 'Tipo marginal'];
+      tabla = [mk(['0,00', '20.000,00', R.nuevo ? 'Tabla de negocios populares' : '60,00', R.nuevo ? '—' : '0 %'], R.ing <= 20000 ? R.row >= 0 ? R.row : -1 : -9)]
+        .map(r => ({ ...r, bg: has && R.ing <= 20000 ? 'rgba(88,168,234,.14)' : 'transparent', color: has && R.ing <= 20000 ? '#FFFFFF' : '#B7C3D8' }))
+        .concat(EMP_TABLE.map((r, i) => mk([f(r[0]), f(r[1]), f(r[2]), pc(r[3])], i + 1)));
+      title = 'Tabla RIMPE Emprendedores ' + c.anio;
+    } else {
+      cols = ['Desde', 'Hasta', 'Impuesto a pagar'];
+      const off = R.ing > 20000 ? 99 : 0;
+      tabla = R.nuevo ? NP_TABLE.map((r, i) => mk([f(r[0]), f(r[1]), f(r[2])], i + off)) : [mk(['0,00', '20.000,00', '60,00'], off)];
+      title = 'Tabla RIMPE Negocios populares ' + c.anio;
+    }
+    return {
+      calcIndep: false, calcHasCargas: false, calcShowRet: !np,
+      calcIngLabel: 'Ingresos brutos del año', calcIngHelp: 'Ventas gravadas de las actividades del RIMPE, menos devoluciones y descuentos.',
+      calcRes: { heroLabel, hero, heroColor, note, rows, tip: '' },
+      calcTitle: title, calcCols: cols, calcTabla: tabla,
+      calcFoot: 'Valores en USD. ' + (R.nuevo ? 'Art. 97.6 LRTI reformado por la Ley Orgánica de Eficiencia Económica y Generación de Empleo (R.O. S. 461, 20 de diciembre de 2023); Res. NAC-DGERCGC24-00000027.' : 'Art. 97.6 LRTI, texto de la Ley Orgánica para el Desarrollo Económico y Sostenibilidad Fiscal (vigente 2022–2023).') + ' En el RIMPE no se aplican gastos personales ni costos; el impuesto se calcula sobre ingresos brutos. Permanencia máxima: tres ejercicios fiscales.',
+      calcReview: review(has ? 'Usé la calculadora de impuesto a la renta ' + c.anio + ' (' + name + '): ingresos brutos ' + usd(R.ing) + ', impuesto estimado ' + usd(R.imp) + '. Quisiera revisarlo con un auditor.' : '')
+    };
+  }
+  copyMail = async () => {
+    try { await navigator.clipboard.writeText('taxauditorscompany@gmail.com'); } catch (_) {}
+    this.setState({ copied: true }); clearTimeout(this.ct); this.ct = setTimeout(() => this.setState({ copied: false }), 1600);
+  };
+
+  renderVals() {
+    const { active, svc, when } = this.state;
+    const pad = i => String(i + 1).padStart(2, '0');
+    const services = SERVICES.map((s, i) => ({
+      ...s, num: pad(i), on: i === active, tabId: 'svc-tab-' + i, tabIndex: i === active ? 0 : -1,
+      color: i === active ? '#FFFFFF' : '#9AA8C2', numColor: i === active ? '#58A8EA' : '#6B7A96', weight: i === active ? 500 : 400,
+      cardId: 'svc-card-' + i, iconClass: 'ph-light ' + s.icon, cta: this.cta(i), pick: () => this.setActive(i)
+    }));
+    const pinned = this.state.pinned;
+    const page = this.state.page, vis = k => page === k ? 'block' : 'none';
+    return {
+      wide: this.state.wide, narrow: !this.state.wide, menuOpen: this.state.menuOpen, showMobileMenu: !this.state.wide && this.state.menuOpen, contaXUrl: CONTAX_URL, menuRef: this.menuRef,
+      menuIcon: this.state.menuOpen ? 'ph-light ph-x' : 'ph-light ph-list', menuLabel: this.state.menuOpen ? 'Cerrar menú' : 'Abrir menú',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      show: { inicio: vis('inicio'), servicios: vis('servicios'), nosotros: vis('nosotros'), metodo: vis('metodo'), contacto: vis('contacto'), calculadora: vis('calculadora'), urgencia: page === 'contacto' ? 'none' : 'block' },
+      cur: Object.fromEntries(Object.keys(PAGES).map(k => [k, page === k ? 'page' : undefined])),
+      showRouting: this.props.showRouting ?? true,
+      showGlossary: this.props.showGlossary ?? true,
+      quick: QUICK.map(([label, i]) => ({ label, pick: () => this.goContact(i) })),
+      services, drumRef: this.drumRef, drumBoxRef: this.drumBoxRef, onDrumDown: this.onDrumDown,
+      drumTouch: 'pan-y', drumCursor: 'grab', counterRef: this.counterRef, stepsRef: this.stepsRef,
+      steps: STEPS.map(([title, desc], i) => ({ title, desc, num: String(i + 1).padStart(2, '0') })),
+      stepCols: this.state.wide ? 'repeat(5,minmax(0,1fr))' : '1fr',
+      stepPad: this.state.wide ? '40px 24px 24px 16px' : '0 0 36px 44px',
+      tp: this.state.wide ? { l: '0', r: '0', t: '0', b: 'auto', w: 'auto', h: '2px' } : { l: '7px', r: 'auto', t: '0', b: '0', w: '2px', h: 'auto' },
+      nodeTop: this.state.wide ? '-7px' : '0',
+      fillOrigin: this.state.wide ? 'left center' : 'center top',
+      secRef: this.secRef, onStackMove: this.onStackMove, onStackLeave: this.onStackLeave, stackRef: this.stackRef, barRef: this.barRef,
+      secHeight: pinned ? 'calc(' + (SERVICES.length * 60) + 'vh + 100vh)' : 'auto',
+      stickyPos: pinned ? 'sticky' : 'relative', stickyMinH: pinned ? 'calc(100vh - 68px)' : '0',
+      counter: String(active + 1).padStart(2, '0') + ' / ' + String(SERVICES.length).padStart(2, '0'),
+      hint: pinned ? 'SCROLL · ARRASTRE' : 'ARRASTRE · TOQUE',
+      onTabKey: this.onTabKey,
+      ctaGeneral: this.cta(), ctaUrgent: e => { e.preventDefault(); this.goContact(URGENT[this.urgIdx || 0]); },
+      urgRef: this.urgRef, urgPause: () => this.urgAnim && this.urgAnim.pause(), urgResume: e => { if (e && e.currentTarget.contains(document.activeElement) && e.type !== 'blur') return; this.urgAnim && this.urgAnim.playState === 'paused' && this.urgAnim.play(); },
+      urgGo0: () => this.urgGo(0), urgGo1: () => this.urgGo(1), urgGo2: () => this.urgGo(2),
+      svc, onSvc: e => this.setState({ svc: e.target.value }),
+      svcOptions: [...SERVICES.map((s, i) => ({ value: String(i), label: s.name })), { value: 'otro', label: 'Otro tema' }],
+      whens: WHENS.map((label, i) => ({ label, on: i === when, pick: () => this.setState({ when: i }),
+        bg: i === when ? '#FFFFFF' : 'transparent', color: i === when ? '#0A1428' : '#B7C3D8', border: i === when ? '#FFFFFF' : 'rgba(157,190,230,.24)' })),
+      glossary: GLOSSARY.map(([s, n, d]) => ({ s, n, d })),
+      nameRef: this.nameRef, telRef: this.telRef,
+      nameBorder: this.state.errName ? '#FF8A7A' : 'rgba(157,190,230,.24)',
+      contactBorder: this.state.errContact ? '#FF8A7A' : 'rgba(157,190,230,.24)',
+      submit: this.submit, msg: this.state.msg, msgColor: this.state.msgKind === 'err' ? '#FF8A7A' : '#8FC6F2',
+      copyMail: this.copyMail, copyLabel: this.state.copied ? 'Copiado' : 'Copiar',
+      ...this.calcVals(), ...this.labVals()
+    };
+  }
+}
+</script>
+</body>
+</html>
