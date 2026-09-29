@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<style>html,body{background:#0A1428;margin:0}@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}</style>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -544,6 +546,7 @@ input,select,textarea,button{font-family:inherit}
           </div>
         </div>
         <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Cuéntenos brevemente <span style="font-weight:400;color:#9AA8C2">(opcional)</span></span><textarea name="msg" placeholder="Ej.: recibimos una notificación del SRI por diferencias en el IVA de 2025." style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;min-height:112px;resize:vertical;outline:none;line-height:1.5" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></textarea></label>
+        <label style="display:flex;align-items:flex-start;gap:12px;font-size:13.5px;line-height:1.5;color:{{ consentColor }};cursor:pointer;transition:color .2s ease"><input ref="{{ consentRef }}" type="checkbox" name="consent" onChange="{{ consentChange }}" style="margin:2px 0 0;width:18px;height:18px;accent-color:#58A8EA;flex-shrink:0"><span>He leído la <a href="privacidad.html" target="_blank" rel="noopener" style="color:#8FC6F2;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(143,198,242,.4)">Política de privacidad</a> y autorizo a TAX AUDITORS COMPANY TAXAUD S.A.S. a tratar mis datos para responder mi consulta y enviarme una propuesta de servicios.</span></label>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px">
           <button data-press="" type="submit" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:10px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;border:none;font-size:15px;font-weight:500;cursor:pointer;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Enviar solicitud <span aria-hidden="true">→</span></button>
           <span role="status" style="font-size:14px;line-height:1.45;color:{{ msgColor }}">{{ msg }}</span>
@@ -577,7 +580,7 @@ input,select,textarea,button{font-family:inherit}
 <footer style="background:#0A1428;color:#9AA8C2;font-size:13px;border-top:1px solid rgba(255,255,255,.06)">
   <div style="max-width:1320px;margin:0 auto;padding:32px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
     <img src="assets/logo.png" alt="TAX AUDITORS" style="height:26px;width:auto;display:block">
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px"><span>© 2026 TAX AUDITORS COMPANY TAXAUD S.A.S. · RUC 0691784323001 · Ecuador</span><div style="display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></div></div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px"><span>© 2026 TAX AUDITORS COMPANY TAXAUD S.A.S. · RUC 0691784323001 · Ecuador</span><a href="privacidad.html" style="color:#B7C3D8;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(157,190,230,.35);transition:color .15s ease" style-hover="color:#FFFFFF">Política de privacidad</a><div style="display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></div></div>
   </div>
 </footer>
 </x-dc>
@@ -681,7 +684,7 @@ const pageFromHash = () => { const k = (location.hash || '').slice(1).toLowerCas
 
 class Component extends DCLogic {
   state = { calcTab: 'ir', lab: { ...LAB0 }, calc: { ...CALC0 }, page: pageFromHash(), menuOpen: false, active: 0, pinned: false, svc: '0', when: 1, wide: true, msg: '', msgKind: '', copied: false, errName: false, errContact: false };
-  secRef = React.createRef(); stackRef = React.createRef(); barRef = React.createRef(); drumRef = React.createRef(); drumBoxRef = React.createRef(); stepsRef = React.createRef(); counterRef = React.createRef(); urgRef = React.createRef(); menuRef = React.createRef(); nameRef = React.createRef(); telRef = React.createRef();
+  secRef = React.createRef(); stackRef = React.createRef(); barRef = React.createRef(); drumRef = React.createRef(); drumBoxRef = React.createRef(); stepsRef = React.createRef(); counterRef = React.createRef(); urgRef = React.createRef(); menuRef = React.createRef(); nameRef = React.createRef(); consentRef = React.createRef(); telRef = React.createRef();
 
   motionOn() { return (this.props.motion ?? true) && !matchMedia('(prefers-reduced-motion: reduce)').matches; }
 
@@ -1086,7 +1089,8 @@ class Component extends DCLogic {
     const name = (f.get('name') || '').trim(), tel = (f.get('tel') || '').trim(), mail = (f.get('email') || '').trim();
     if (!name) { this.setState({ errName: true, errContact: false, msgKind: 'err', msg: 'Escriba su nombre para poder dirigirnos a usted.' }); this.nameRef.current.focus(); return; }
     if (!tel && !/^\S+@\S+\.\S+$/.test(mail)) { this.setState({ errName: false, errContact: true, msgKind: 'err', msg: 'Déjenos un WhatsApp o un correo válido para responderle.' }); this.telRef.current.focus(); return; }
-    this.setState({ errName: false, errContact: false, msgKind: 'ok', msg: 'Gracias, ' + name.split(' ')[0] + '. Al publicar el sitio, esta solicitud llegará directamente a la firma.' });
+    if (!f.get('consent')) { this.setState({ errName: false, errContact: false, errConsent: true, msgKind: 'err', msg: 'Marque la casilla de autorización para poder enviar su solicitud.' }); this.consentRef.current.focus(); return; }
+    this.setState({ errConsent: false, errName: false, errContact: false, msgKind: 'ok', msg: 'Gracias, ' + name.split(' ')[0] + '. Al publicar el sitio, esta solicitud llegará directamente a la firma.' });
   };
 
   calcVals() {
@@ -1250,6 +1254,7 @@ class Component extends DCLogic {
       nameRef: this.nameRef, telRef: this.telRef,
       nameBorder: this.state.errName ? '#FF8A7A' : 'rgba(157,190,230,.24)',
       contactBorder: this.state.errContact ? '#FF8A7A' : 'rgba(157,190,230,.24)',
+      consentRef: this.consentRef, consentColor: this.state.errConsent ? '#FF8A7A' : '#9AA8C2', consentChange: e => { if (e.target.checked && this.state.errConsent) this.setState({ errConsent: false, msg: '' }); },
       submit: this.submit, msg: this.state.msg, msgColor: this.state.msgKind === 'err' ? '#FF8A7A' : '#8FC6F2',
       copyMail: this.copyMail, copyLabel: this.state.copied ? 'Copiado' : 'Copiar',
       ...this.calcVals(), ...this.labVals()

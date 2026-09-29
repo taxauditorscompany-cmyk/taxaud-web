@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<style>html,body{background:#0A1428;margin:0}@view-transition{navigation:auto}::view-transition-old(root),::view-transition-new(root){animation-duration:.22s}@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}</style>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -39,12 +41,32 @@ input::placeholder{color:#6B7A96}
         <a href="index.html#servicios" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Servicios</a>
         <a href="index.html#nosotros" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Nosotros</a>
         <a href="index.html#metodo" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Cómo trabajamos</a>
+        <a href="index.html#calculadora" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Calculadora</a>
         <a href="blog.html" aria-current="page" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#FFFFFF;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px">Blog</a>
         <a href="index.html#contacto" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Contacto</a>
+        <a href="https://sparkling-heart-e8a4.taxauditorscompany.workers.dev" data-press="" aria-label="CONTA - X, acceso de clientes" style="display:inline-flex;align-items:center;padding:5px 12px;margin:-1px 0;border:1px solid rgba(88,168,234,.45);border-radius:6px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></a>
       </nav>
     </sc-if>
-    <a data-press="" href="index.html#contacto" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;padding:9px 14px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:14px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta</a>
+    <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
+      <a data-press="" href="index.html#contacto" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;padding:9px 14px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:14px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta</a>
+      <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+        <button data-press="" type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuOpen }}" aria-controls="menu-movil" aria-label="{{ menuLabel }}" style="display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:8px;background:transparent;border:1px solid rgba(157,190,230,.28);color:#EEF2F8;cursor:pointer;font-size:22px;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA" style-active="transform:scale(.96)"><i class="{{ menuIcon }}" aria-hidden="true"></i></button>
+      </sc-if>
+    </div>
   </div>
+  <sc-if value="{{ showMobileMenu }}" hint-placeholder-val="{{ false }}">
+    <nav id="menu-movil" ref="{{ menuRef }}" aria-label="Secciones" style="max-width:1320px;margin:0 auto;padding:4px clamp(16px,4vw,48px) 20px;display:grid">
+      <a href="index.html#inicio" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Inicio<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="index.html#servicios" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Servicios<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="index.html#nosotros" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Nosotros<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="index.html#metodo" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Cómo trabajamos<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="index.html#calculadora" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Calculadora<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="blog.html" aria-current="page" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#FFFFFF;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Blog<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="index.html#contacto" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Contacto<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
+      <a href="https://sparkling-heart-e8a4.taxauditorscompany.workers.dev" data-press="" aria-label="CONTA - X, acceso de clientes" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 16px;font-size:17px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(88,168,234,.45);border-radius:8px;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></span><span aria-hidden="true" style="font-size:14px;color:#58A8EA">↗</span></a>
+      <a data-press="" href="index.html#contacto" style="margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:16px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
+    </nav>
+  </sc-if>
 </header>
 
 <main>
@@ -86,8 +108,9 @@ input::placeholder{color:#6B7A96}
   </div>
 </div>
 
-<section style="padding:clamp(32px,4vw,56px) 0 clamp(80px,10vw,128px)">
-  <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
+<section data-glow-host="" style="position:relative;overflow:clip;padding:clamp(32px,4vw,56px) 0 clamp(80px,10vw,128px)">
+  <div data-glow="" aria-hidden="true" style="position:absolute;left:0;top:0;width:760px;height:760px;margin:-380px 0 0 -380px;border-radius:50%;background:radial-gradient(closest-side,rgba(88,168,234,.20),rgba(88,168,234,.07) 45%,rgba(88,168,234,0));pointer-events:none;opacity:0;transition:opacity .5s ease;will-change:transform"></div>
+  <div style="position:relative;max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px)">
 
     <sc-if value="{{ showFeatured }}" hint-placeholder-val="{{ true }}">
       <article data-sr="m" data-glow-host="" style="position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));background:#07101F;border:1px solid rgba(157,190,230,.14);border-radius:20px;overflow:hidden;margin-bottom:clamp(40px,5vw,64px)">
@@ -179,7 +202,7 @@ input::placeholder{color:#6B7A96}
 <footer style="background:#0A1428;color:#9AA8C2;font-size:13px;border-top:1px solid rgba(255,255,255,.06)">
   <div style="max-width:1320px;margin:0 auto;padding:32px clamp(16px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px">
     <img src="assets/logo.png" alt="TAX AUDITORS" style="height:26px;width:auto;display:block">
-    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px"><span>© 2026 TAX AUDITORS COMPANY TAXAUD S.A.S. · RUC 0691784323001 · Ecuador</span><div style="display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></div></div>
+    <div style="display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px"><span>© 2026 TAX AUDITORS COMPANY TAXAUD S.A.S. · RUC 0691784323001 · Ecuador</span><a href="privacidad.html" style="color:#B7C3D8;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(157,190,230,.35);transition:color .15s ease" style-hover="color:#FFFFFF">Política de privacidad</a><div style="display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></div></div>
   </div>
 </footer>
 
@@ -263,7 +286,8 @@ const fromRow = r => ({
 const parseDate = s => { const [y, m, d] = (s || '').split('-').map(Number); return { y, m: (m || 1) - 1, d: d || 1 }; };
 
 class Component extends DCLogic {
-  state = { pubs: [], type: 'todo', topic: '', q: '', sort: 'desc', limit: 0, openId: null, copied: false, wide: true };
+  menuRef = React.createRef();
+  state = { menuOpen: false, pubs: [], type: 'todo', topic: '', q: '', sort: 'desc', limit: 0, openId: null, copied: false, wide: true };
   docRef = React.createRef(); backRef = React.createRef(); panelRef = React.createRef();
   motionOn() { return (this.props.motion ?? true) && !matchMedia('(prefers-reduced-motion: reduce)').matches; }
   fineOn() { return this.motionOn() && matchMedia('(hover: hover) and (pointer: fine)').matches; }
@@ -366,6 +390,8 @@ class Component extends DCLogic {
   onDocLeave = () => { if (!this.docRef.current) return; this.docRef.current.style.transform = ''; this.docRef.current.style.boxShadow = ''; };
 
   componentDidMount() {
+    this.onMenuKey = ev => { if (ev.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false }); };
+    addEventListener('keydown', this.onMenuKey);
     let tries = 0;
     const load = async () => {
       if ((!window.TAXAUD_PUBS || !window.TAXAUD_SUPABASE) && tries++ < 60) { setTimeout(load, 50); return; }
@@ -386,19 +412,21 @@ class Component extends DCLogic {
     };
     this.setupFx();
     load();
-    this.onResize = () => this.setState({ wide: innerWidth >= 1000 });
+    this.onResize = () => this.setState(s => ({ wide: innerWidth >= 1000, menuOpen: innerWidth >= 1000 ? false : s.menuOpen }));
     this.onKey = e => { if (e.key === 'Escape' && this.state.openId) this.closeItem(); };
     this.onResize();
     addEventListener('resize', this.onResize);
     addEventListener('keydown', this.onKey);
   }
   componentWillUnmount() {
+    removeEventListener('keydown', this.onMenuKey);
     removeEventListener('resize', this.onResize); removeEventListener('keydown', this.onKey);
     removeEventListener('pointerdown', this.onPress); removeEventListener('pointerover', this.onOver); removeEventListener('pointerout', this.onOver);
     this.onPointer && removeEventListener('pointermove', this.onPointer); this.onPointerScroll && removeEventListener('scroll', this.onPointerScroll);
     cancelAnimationFrame(this.fxRaf); this.io && this.io.disconnect(); document.body.style.overflow = '';
   }
   componentDidUpdate() {
+    this.menuAnim();
     const prev = this._prevState || {}; this._prevState = { ...this.state };
     if (!!prev.openId !== !!this.state.openId) {
       document.body.style.overflow = this.state.openId ? 'hidden' : '';
@@ -456,6 +484,18 @@ class Component extends DCLogic {
     };
   }
 
+  menuVals() {
+    const o = this.state.menuOpen;
+    return { narrow: !this.state.wide, menuOpen: !!o, showMobileMenu: !this.state.wide && !!o, menuRef: this.menuRef,
+      menuIcon: o ? 'ph-light ph-x' : 'ph-light ph-list', menuLabel: o ? 'Cerrar menú' : 'Abrir menú',
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })) };
+  }
+  menuAnim() {
+    if (this._menuWas === this.state.menuOpen) return;
+    this._menuWas = this.state.menuOpen;
+    const m = this.menuRef.current;
+    if (m && this.state.menuOpen && this.motionOn()) [...m.children].forEach((a, k) => a.animate([{ opacity: 0, transform: 'translateY(-6px)', filter: 'blur(3px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 420, delay: k * 40, easing: EASE, fill: 'backwards' }));
+  }
   renderVals() {
     const { pubs, type, topic, q, sort, openId, copied, wide } = this.state;
     const pageSize = this.props.pageSize ?? 8;
@@ -495,6 +535,7 @@ class Component extends DCLogic {
     const cur = openId ? pubs.find(p => p.id === openId) : null;
     const n = listSrc.length + (featRaw ? 1 : 0);
     return {
+      ...this.menuVals(),
       wide, q, sort, docRef: this.docRef, backRef: this.backRef, panelRef: this.panelRef, onDocMove: this.onDocMove, onDocLeave: this.onDocLeave, tabs, topics, groups, hasFilters,
       showFeatured: !!featRaw, feat: featRaw ? this.decorate(featRaw) : {},
       countText: n === 1 ? '1 PUBLICACIÓN' : n + ' PUBLICACIONES',
