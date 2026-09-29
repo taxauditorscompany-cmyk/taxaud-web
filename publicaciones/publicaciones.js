@@ -11,7 +11,33 @@
 */
 window.TAXAUD_PUBS = [
   {
-    id: 'registro-proveedores-facturacion-electronica', tipo: 'documento', fecha: '2026-09-29', destacado: true,
+    id: 'transporte-terrestre-facturacion-retenciones', tipo: 'documento', fecha: '2026-09-29', destacado: true,
+    titulo: 'Transporte terrestre comercial: lo que cambió con la reforma del SRI y cuándo se retiene',
+    resumen: 'La Resolución NAC-DGERCGC26-00000028 reforma la 00000024: fija retenciones de 1% o 0% según quién paga y cómo factura el socio, y amplía los plazos hasta el 31 de diciembre de 2026.',
+    temas: ['SRI'],
+    archivo: { url: 'publicaciones/archivos/transporte-terrestre-facturacion-retenciones.pdf', peso: '326 KB', paginas: 4 },
+    cuerpo: [
+      'El SRI reformó las reglas de facturación y retención del transporte terrestre comercial, excepto taxis. La Resolución NAC-DGERCGC26-00000028 rige desde el 31 de julio de 2026 y modifica la Resolución NAC-DGERCGC26-00000024.',
+      'Qué cambió',
+      '• Las retenciones ahora tienen porcentajes expresos: 1% o 0%, según quién paga y cómo factura el socio.',
+      '• Se amplían los plazos. El RUC y el campo "placa" en la factura electrónica se pueden cumplir hasta el 31 de diciembre de 2026. El SRI actualizará de oficio la actividad de los socios desde el 1 de enero de 2027.',
+      '• Hasta el 31 de diciembre de 2026 los socios pueden seguir facturando como puntos de emisión de la operadora.',
+      '¿Se retiene o no?',
+      'Hasta el 31-dic-2026 (socio como punto de emisión):',
+      '• La operadora no retiene (0%) al socio.',
+      '• El cliente retiene 1% al socio.',
+      '• El cliente retiene 1% a la operadora si el servicio es con unidades propias de la operadora.',
+      'Desde el 1-ene-2027 (socio con RUC propio):',
+      '• La operadora retiene 1% al socio.',
+      '• El cliente no retiene (0%) a la operadora si el servicio es con unidades de los socios.',
+      '• El cliente retiene 1% a la operadora si el servicio es con unidades propias de la operadora.',
+      'La retención aplica solo si quien paga es agente de retención. Cuando la retención es 0%, no se emite comprobante de retención informativo, salvo pagos al exterior, dividendos o comprobante de venta preimpreso.',
+      'Qué hacer: confirme en qué esquema factura su operadora o su socio antes de retener. Verifique que el RUC tenga la actividad correcta y que las facturas de la operadora incluyan la placa. Agende el 1 de enero de 2027.',
+      'TAX AUDITORS COMPANY TAXAUD S.A.S. — Seguridad jurídica y eficiencia tributaria. Fuente: SRI, Resoluciones NAC-DGERCGC26-00000024 y 00000028.'
+    ]
+  },
+  {
+    id: 'registro-proveedores-facturacion-electronica', tipo: 'documento', fecha: '2026-09-29',
     titulo: 'SRI crea el registro de proveedores de facturación electrónica',
     resumen: 'La Resolución Nro. NAC-DGERCGC26-00000027 obliga a quienes desarrollan o comercializan sistemas de facturación electrónica a identificarse en el RUC, y a los emisores a incluir el RUC de su proveedor en los comprobantes.',
     temas: ['SRI'],
