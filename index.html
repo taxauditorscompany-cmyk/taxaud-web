@@ -15,9 +15,8 @@
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/light/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&amp;family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
 <style>
-html,body{overflow-x:clip}
 html{scroll-behavior:smooth}
-body{margin:0;background:#0A1428;color:#EEF2F8;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:#0A1428;color:#EEF2F8;font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 *{box-sizing:border-box}
 a{color:#8FC6F2;text-decoration:none}
 a:hover{color:#FFFFFF}
@@ -947,7 +946,10 @@ class Component extends DCLogic {
   readSteps() {
     const el = this.stepsRef.current; if (!el) return;
     const r = el.getBoundingClientRect();
-    this.sTarget = this.motionOn() ? Math.min(1, Math.max(0, (innerHeight * 0.82 - r.top) / (innerHeight * 0.55 + r.height * 0.5))) : 1;
+    // Fin del recorrido limitado al scroll disponible, para que llegue a la etapa 05 aunque la página sea corta
+    const s0 = r.top + scrollY - innerHeight * 0.82, maxS = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+    const s1 = Math.min(s0 + innerHeight * 0.55 + r.height * 0.5, maxS);
+    this.sTarget = !this.motionOn() || s1 <= s0 + 1 ? (r.top < innerHeight ? 1 : 0) : Math.min(1, Math.max(0, (scrollY - s0) / (s1 - s0)));
     if (!this.sRaf) { this.sLast = performance.now(); this.sRaf = requestAnimationFrame(this.stepsTick); }
   }
   stepsTick = now => {
