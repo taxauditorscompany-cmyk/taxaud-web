@@ -19,3 +19,14 @@ Enlace CONTA - X: en index.html busque  const CONTAX_URL
 MODO PRUEBA: _headers (noindex) y robots.txt (Disallow) ocultan el sitio a Google.
   Al lanzar: borrar _headers y dejar robots.txt con "Disallow:" vacío.
 Supabase (blog, admin y contador de visitas): ver publicaciones/CONFIGURACION.md
+
+FORMULARIO DE CONTACTO (no usa Supabase)
+  functions/api/solicitudes.js  Guarda cada solicitud y envía el aviso por correo.
+  solicitudes.html               Listado privado de solicitudes (pide la clave ADMIN_CLAVE).
+  Configuración en Cloudflare Pages → taxaud-web → Settings:
+    Binding D1 "DB" → base taxaud-solicitudes
+    ADMIN_CLAVE (secreta), RESEND_API_KEY (secreta), MAIL_FROM, SITE_URL
+  Avisos: Resend, dominio taxauditorscompany.com verificado; remitente web@taxauditorscompany.com.
+  Respuestas a web@taxauditorscompany.com se reenvían a taxauditorscompany@gmail.com (Cloudflare Email Routing).
+  Al contratar Microsoft 365: desactivar Email Routing antes de poner los registros MX de Microsoft.
+Dominio: taxauditorscompany.com (Cloudflare Registrar), renovación automática cada 30 de septiembre.
