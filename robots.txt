@@ -1,3 +1,7 @@
-# PRUEBA: al lanzar oficialmente cambiar a  Disallow:  (vacío)
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /admin
+Disallow: /solicitudes
+Disallow: /api/
+
+Sitemap: https://taxauditorscompany.com/sitemap.xml

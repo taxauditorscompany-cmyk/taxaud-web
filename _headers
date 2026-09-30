@@ -1,3 +1,11 @@
-# PRUEBA: ocultar a Google. Borrar este archivo al lanzar oficialmente.
-/*
+# Sitio público. Solo las páginas privadas quedan ocultas para Google.
+/admin
+  X-Robots-Tag: noindex, nofollow
+/admin.html
+  X-Robots-Tag: noindex, nofollow
+/solicitudes
+  X-Robots-Tag: noindex, nofollow
+/solicitudes.html
+  X-Robots-Tag: noindex, nofollow
+/api/*
   X-Robots-Tag: noindex, nofollow

@@ -16,9 +16,12 @@ No abra index.html con doble clic: use un servidor (el hosting o "npx serve").
 Enlace CONTA - X: en index.html busque  const CONTAX_URL
   (hoy: https://sparkling-heart-e8a4.taxauditorscompany.workers.dev ; con dominio: https://sistema.taxauditorscompany.com)
 
-MODO PRUEBA: _headers (noindex) y robots.txt (Disallow) ocultan el sitio a Google.
-  Al lanzar: borrar _headers y dejar robots.txt con "Disallow:" vacío.
-Supabase (blog, admin y contador de visitas): ver publicaciones/CONFIGURACION.md
+SITIO PÚBLICO desde el 30-sep-2026 (lanzamiento oficial). Google puede indexarlo.
+  _headers y robots.txt solo ocultan admin, solicitudes y /api/. sitemap.xml lista las páginas públicas.
+  www.taxauditorscompany.com redirige a taxauditorscompany.com (regla de redirección en Cloudflare).
+Contador de visitas: functions/api/visitas.js (base D1 "DB"). Cifra pública = VIS_BASE (index.html) + visitas reales.
+Blog: las publicaciones se editan en publicaciones/publicaciones.js y se suben por GitHub (no usa Supabase).
+Supabase (solo si algún día se conecta admin.html): ver publicaciones/CONFIGURACION.md
 
 FORMULARIO DE CONTACTO (no usa Supabase)
   functions/api/solicitudes.js  Guarda cada solicitud y envía el aviso por correo.
