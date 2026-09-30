@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Solicitudes — TAXAUD</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A1428;--panel:#0E1A33;--line:rgba(157,190,230,.16);--tx:#EEF2F8;--mut:#9AA8C2;--acc:#58A8EA}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--tx);font-family:Geist,system-ui,sans-serif;font-size:15px;-webkit-text-size-adjust:100%}
+a{color:#8FC6F2}button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 16px 64px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.kick{font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+h1{font-family:Newsreader,Georgia,serif;font-weight:400;font-size:clamp(26px,4vw,34px);margin:6px 0 0}
+.btn{min-height:40px;padding:8px 14px;border-radius:8px;border:1px solid rgba(157,190,230,.3);background:transparent;cursor:pointer}
+.btn:hover{border-color:var(--acc)}.btn.pri{background:#fff;color:#0A1428;border-color:#fff;font-weight:500}.btn.pri:hover{background:var(--acc);border-color:var(--acc)}
+input,select,textarea{background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:9px 12px;min-height:40px;max-width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px rgba(88,168,234,.16)}
+.login{max-width:400px;margin:12vh auto 0;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px}
+.login input{width:100%;margin:14px 0}
+.err{color:#FF8A7A;font-size:14px;min-height:20px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0}
+.bar input{flex:1 1 220px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{padding:6px 12px;border-radius:999px;border:1px solid rgba(157,190,230,.24);background:transparent;cursor:pointer;font-size:13px}
+.chip[aria-pressed=true]{background:#fff;color:#0A1428;border-color:#fff}
+.list{display:grid;gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:10px}
+.card.nueva{border-color:rgba(88,168,234,.55)}
+.top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 16px;align-items:baseline}
+.nom{font-size:17px;font-weight:600}.org{color:var(--mut);font-weight:400}
+.meta{font-family:'Geist Mono',monospace;font-size:12px;color:var(--mut)}
+.row{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;color:#B7C3D8}
+.msg{white-space:pre-wrap;overflow-wrap:anywhere;color:var(--tx);background:rgba(7,16,31,.6);border-radius:8px;padding:10px 12px;font-size:14px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.acts textarea{flex:1 1 260px;min-height:40px;resize:vertical}
+.empty{color:var(--mut);padding:40px 0;text-align:center}
+.tag{font-size:12px;padding:2px 8px;border-radius:999px;background:rgba(88,168,234,.14);color:#8FC6F2}
+</style>
+</head>
+<body>
+<div id="app" class="wrap"></div>
+<script>
+(() => {
+  const API = '/api/solicitudes';
+  const app = document.getElementById('app');
+  let clave = ''; try { clave = sessionStorage.getItem('taxaud-clave') || ''; } catch (e) {}
+  let datos = [], estados = ['Nueva','Contactado','Cerrada','Descartada'], filtro = 'Nueva', q = '';
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const fecha = iso => { try { return new Date(iso).toLocaleString('es-EC', { timeZone: 'America/Guayaquil', dateStyle: 'medium', timeStyle: 'short' }); } catch (e) { return iso; } };
+  const wa = t => { let n = String(t || '').replace(/\D/g, ''); if (!n) return ''; if (n.startsWith('0')) n = '593' + n.slice(1); else if (n.length === 9) n = '593' + n; return 'https://wa.me/' + n; };
+
+  function login(msg) {
+    app.innerHTML = `<form class="login" id="f"><div class="kick">TAXAUD · Uso interno</div><h1>Solicitudes de contacto</h1>
+      <input id="k" type="password" autocomplete="current-password" placeholder="Clave de acceso" aria-label="Clave de acceso" required>
+      <div class="err" role="alert">${esc(msg || '')}</div><button class="btn pri" style="width:100%">Ingresar</button></form>`;
+    document.getElementById('f').onsubmit = e => { e.preventDefault(); clave = document.getElementById('k').value; cargar(); };
+    document.getElementById('k').focus();
+  }
+
+  async function cargar() {
+    let r;
+    try { r = await fetch(API, { headers: { 'x-clave': clave }, cache: 'no-store' }); } catch (e) { return login('Sin conexión. Intente de nuevo.'); }
+    if (r.status === 401) { try { sessionStorage.removeItem('taxaud-clave'); } catch (e) {} return login(clave ? 'Clave incorrecta.' : ''); }
+    if (!r.ok) return login('El servicio aún no está configurado en Cloudflare (base de datos o clave).');
+    const j = await r.json(); datos = j.solicitudes || []; estados = j.estados || estados;
+    try { sessionStorage.setItem('taxaud-clave', clave); } catch (e) {}
+    pintar();
+  }
+
+  function visibles() {
+    const t = q.toLowerCase();
+    return datos.filter(s => (filtro === 'Todas' || s.estado === filtro) &&
+      (!t || [s.nombre, s.empresa, s.telefono, s.correo, s.servicio, s.mensaje, s.nota].join(' ').toLowerCase().includes(t)));
+  }
+
+  function pintar() {
+    const cuenta = e => e === 'Todas' ? datos.length : datos.filter(s => s.estado === e).length;
+    const lista = visibles();
+    app.innerHTML = `<header><div><div class="kick">TAXAUD · Uso interno</div><h1>Solicitudes de contacto</h1></div>
+      <div class="acts"><button class="btn" id="rec">Actualizar</button><button class="btn" id="csv">Descargar Excel (CSV)</button><button class="btn" id="out">Salir</button></div></header>
+      <div class="bar"><input id="q" type="search" placeholder="Buscar por nombre, empresa, teléfono, correo o texto" value="${esc(q)}" aria-label="Buscar">
+      <div class="chips">${['Todas', ...estados].map(e => `<button class="chip" data-f="${esc(e)}" aria-pressed="${e === filtro}">${esc(e)} · ${cuenta(e)}</button>`).join('')}</div></div>
+      <div class="list">${lista.length ? lista.map(tarjeta).join('') : '<div class="empty">No hay solicitudes en esta vista.</div>'}</div>`;
+    document.getElementById('rec').onclick = cargar;
+    document.getElementById('out').onclick = () => { clave = ''; try { sessionStorage.removeItem('taxaud-clave'); } catch (e) {} login(); };
+    document.getElementById('csv').onclick = csv;
+    const qi = document.getElementById('q'); qi.oninput = () => { q = qi.value; const pos = qi.selectionStart; pintar(); const n = document.getElementById('q'); n.focus(); n.setSelectionRange(pos, pos); };
+    app.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { filtro = b.dataset.f; pintar(); });
+    app.querySelectorAll('[data-est]').forEach(sel => sel.onchange = () => guardar(+sel.dataset.est, { estado: sel.value }));
+    app.querySelectorAll('[data-nota]').forEach(b => b.onclick = () => guardar(+b.dataset.nota, { nota: document.getElementById('n' + b.dataset.nota).value }));
+  }
+
+  function tarjeta(s) {
+    const w = wa(s.telefono);
+    return `<article class="card ${s.estado === 'Nueva' ? 'nueva' : ''}">
+      <div class="top"><div class="nom">${esc(s.nombre)} ${s.empresa ? `<span class="org">· ${esc(s.empresa)}</span>` : ''}</div>
+      <div class="meta">#${s.id} · ${esc(fecha(s.creado))}${s.pais ? ' · ' + esc(s.pais) : ''}</div></div>
+      <div class="row">${s.servicio ? `<span class="tag">${esc(s.servicio)}</span>` : ''}${s.plazo ? `<span>Para: ${esc(s.plazo)}</span>` : ''}
+        ${s.telefono ? `<span>☎ ${esc(s.telefono)}${w ? ` · <a href="${w}" target="_blank" rel="noopener">WhatsApp ↗</a>` : ''}</span>` : ''}
+        ${s.correo ? `<span>✉ <a href="mailto:${esc(s.correo)}">${esc(s.correo)}</a></span>` : ''}</div>
+      ${s.mensaje ? `<div class="msg">${esc(s.mensaje)}</div>` : ''}
+      <div class="acts"><select data-est="${s.id}" aria-label="Estado">${estados.map(e => `<option ${e === s.estado ? 'selected' : ''}>${esc(e)}</option>`).join('')}</select>
+      <textarea id="n${s.id}" rows="1" placeholder="Nota interna (seguimiento)" aria-label="Nota interna">${esc(s.nota || '')}</textarea>
+      <button class="btn" data-nota="${s.id}">Guardar nota</button></div></article>`;
+  }
+
+  async function guardar(id, cambio) {
+    const r = await fetch(API, { method: 'PATCH', headers: { 'x-clave': clave, 'Content-Type': 'application/json' }, body: JSON.stringify({ id, ...cambio }) }).catch(() => null);
+    if (!r || !r.ok) { alert('No se pudo guardar. Intente de nuevo.'); return; }
+    const s = datos.find(x => x.id === id); if (s) Object.assign(s, cambio); pintar();
+  }
+
+  function csv() {
+    const cols = [['id','N.º'],['creado','Fecha'],['nombre','Nombre'],['empresa','Empresa'],['telefono','Teléfono'],['correo','Correo'],['servicio','Servicio'],['plazo','Para cuándo'],['mensaje','Mensaje'],['estado','Estado'],['nota','Nota'],['pais','País']];
+    const cel = v => '"' + String(v ?? '').replace(/"/g, '""') + '"';
+    const filas = [cols.map(c => cel(c[1])).join(';'), ...visibles().map(s => cols.map(([k]) => cel(k === 'creado' ? fecha(s[k]) : s[k])).join(';'))];
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob(['﻿' + filas.join('\r\n')], { type: 'text/csv;charset=utf-8' }));
+    a.download = 'solicitudes-taxaud-' + new Date().toISOString().slice(0, 10) + '.csv'; a.click();
+  }
+
+  clave ? cargar() : login();
+})();
+</script>
+</body>
+</html>

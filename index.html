@@ -539,6 +539,7 @@ input,select,textarea,button{font-family:inherit}
       <h3 style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:34px;line-height:1;letter-spacing:-.015em;color:#FFFFFF">Solicite su consulta</h3>
       <p style="margin:8px 0 0;color:#9AA8C2;font-size:15px">Solo necesitamos un dato de contacto y una idea general de su caso.</p>
       <form onSubmit="{{ submit }}" noValidate="" style="display:grid;gap:18px;margin-top:28px">
+        <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden"><label>No llenar este campo<input name="website" tabIndex="-1" autoComplete="off"></label></div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px">
           <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8">Nombre<input ref="{{ nameRef }}" name="name" autoComplete="name" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid {{ nameBorder }};border-radius:8px;padding:12px 14px;width:100%;outline:none;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
           <label style="display:grid;gap:8px;font-size:13px;font-weight:500;color:#B7C3D8"><span>Empresa o cooperativa <span style="font-weight:400;color:#9AA8C2">(opcional)</span></span><input name="org" autoComplete="organization" style="font-size:16px;color:#EEF2F8;background:#07101F;border:1px solid rgba(157,190,230,.24);border-radius:8px;padding:12px 14px;width:100%;outline:none;transition:border-color .15s ease,box-shadow .15s ease" style-focus="border-color:#58A8EA;box-shadow:0 0 0 4px rgba(88,168,234,.16)"></label>
@@ -1115,7 +1116,17 @@ class Component extends DCLogic {
     if (!name) { this.setState({ errName: true, errContact: false, msgKind: 'err', msg: 'Escriba su nombre para poder dirigirnos a usted.' }); this.nameRef.current.focus(); return; }
     if (!tel && !/^\S+@\S+\.\S+$/.test(mail)) { this.setState({ errName: false, errContact: true, msgKind: 'err', msg: 'Déjenos un WhatsApp o un correo válido para responderle.' }); this.telRef.current.focus(); return; }
     if (!f.get('consent')) { this.setState({ errName: false, errContact: false, errConsent: true, msgKind: 'err', msg: 'Marque la casilla de autorización para poder enviar su solicitud.' }); this.consentRef.current.focus(); return; }
-    this.setState({ errConsent: false, errName: false, errContact: false, msgKind: 'ok', msg: 'Gracias, ' + name.split(' ')[0] + '. Al publicar el sitio, esta solicitud llegará directamente a la firma.' });
+    if (this.sending) return;
+    this.sending = true;
+    const form = e.target, first = name.split(' ')[0];
+    const svcK = this.state.svc, svcName = svcK === 'otro' ? 'Otro tema' : ((SERVICES[+svcK] || {}).name || '');
+    const data = { nombre: name, empresa: (f.get('org') || '').trim(), telefono: tel, correo: mail, servicio: svcName, plazo: WHENS[this.state.when] || '', mensaje: (f.get('msg') || '').trim(), consentimiento: true, website: (f.get('website') || '').trim() };
+    this.setState({ errConsent: false, errName: false, errContact: false, msgKind: 'ok', msg: 'Enviando su solicitud…' });
+    fetch('/api/solicitudes', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(j => { if (!j || !j.ok) throw 0; form.reset(); this.setState({ msgKind: 'ok', msg: 'Gracias, ' + first + '. Recibimos su solicitud; le contactaremos pronto.' }); })
+      .catch(() => this.setState({ msgKind: 'err', msg: 'No pudimos enviar su solicitud. Por favor escríbanos por WhatsApp al 099 528 6674 o a taxauditorscompany@gmail.com.' }))
+      .finally(() => { this.sending = false; });
   };
 
   calcVals() {
