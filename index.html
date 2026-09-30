@@ -32,7 +32,22 @@ input,select,textarea,button{font-family:inherit}
 [data-marquee]:has(button:hover),[data-marquee]:focus-within{animation-play-state:paused!important}
 @media (prefers-reduced-motion:reduce){[data-marquee]{animation:none!important;flex-wrap:wrap;width:auto!important}[data-marquee-dup]{display:none!important}}
 </style>
+<style>#contax-dlg::backdrop{background:rgba(4,9,20,.72);backdrop-filter:blur(6px)}#contax-dlg[open]{animation:cxIn .32s cubic-bezier(0.23,1,0.32,1)}#contax-dlg[open]::backdrop{animation:cxFade .25s ease}@keyframes cxIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}@keyframes cxFade{from{opacity:0}}@media (prefers-reduced-motion:reduce){#contax-dlg[open],#contax-dlg[open]::backdrop{animation:none}}</style>
 </helmet>
+<dialog id="contax-dlg" aria-labelledby="contax-t" style="width:min(520px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid rgba(88,168,234,.35);border-radius:16px;background:#0E1A33;color:#EEF2F8;box-shadow:0 30px 80px rgba(0,0,0,.55);overflow:auto">
+  <div style="position:relative;padding:clamp(28px,5vw,40px)">
+    <button type="button" data-contax-close="" aria-label="Cerrar" style="position:absolute;top:14px;right:14px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:#9AA8C2;font-size:20px;cursor:pointer;transition:background-color .15s ease,color .15s ease" style-hover="background:rgba(157,190,230,.1);color:#FFFFFF">✕</button>
+    <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Plataforma interna</div>
+    <div aria-hidden="true" style="margin-top:18px;font-size:34px;font-weight:600;letter-spacing:.02em;line-height:1"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span style="color:#58A8EA;margin:0 .35em">—</span><span style="color:#58A8EA">X</span></div>
+    <h2 id="contax-t" style="margin:22px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,30px);line-height:1.2;letter-spacing:-.01em;color:#FFFFFF;text-wrap:balance">Tecnología propia al servicio de su empresa</h2>
+    <p style="margin:14px 0 0;color:#B7C3D8;font-size:16px;line-height:1.6;text-wrap:pretty">CONTA — X es la plataforma de gestión contable de uso exclusivo del equipo de TAX AUDITORS COMPANY TAXAUD S.A.S. Con ella automatizamos procesos, controlamos cada plazo y garantizamos a nuestros clientes un servicio preciso, oportuno y seguro.</p>
+    <p style="margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(157,190,230,.16);color:#9AA8C2;font-size:14px;line-height:1.5">Acceso restringido a personal autorizado.</p>
+    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
+      <a data-press="" data-contax-close="" href="#contacto" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:11px 18px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;text-decoration:none;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
+      <button type="button" data-press="" data-contax-close="" style="min-height:44px;padding:11px 18px;border-radius:8px;border:1px solid rgba(157,190,230,.3);background:transparent;color:#EEF2F8;font:inherit;font-size:15px;cursor:pointer;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA" style-active="transform:scale(.97)">Entendido</button>
+    </div>
+  </div>
+</dialog>
 
 <header style="position:sticky;top:0;z-index:40;background:rgba(10,20,40,.72);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid rgba(255,255,255,.08)">
   <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
@@ -46,7 +61,7 @@ input,select,textarea,button{font-family:inherit}
         <a href="#calculadora" aria-current="{{ cur.calculadora }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Calculadora</a>
         <a href="blog.html" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Blog</a>
         <a href="#contacto" aria-current="{{ cur.contacto }}" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Contacto</a>
-        <a href="{{ contaXUrl }}" data-press="" aria-label="CONTA - X, acceso de clientes" style="display:inline-flex;align-items:center;padding:5px 12px;margin:-1px 0;border:1px solid rgba(88,168,234,.45);border-radius:6px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></a>
+        <a href="{{ contaXUrl }}" data-press="" data-contax="" aria-haspopup="dialog" aria-label="CONTA - X, plataforma interna" style="display:inline-flex;align-items:center;padding:5px 12px;margin:-1px 0;border:1px solid rgba(88,168,234,.45);border-radius:6px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></a>
       </nav>
     </sc-if>
     <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
@@ -65,7 +80,7 @@ input,select,textarea,button{font-family:inherit}
       <a href="#calculadora" aria-current="{{ cur.calculadora }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Calculadora<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
       <a href="blog.html" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Blog<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
       <a href="#contacto" aria-current="{{ cur.contacto }}" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Contacto<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
-      <a href="{{ contaXUrl }}" data-press="" aria-label="CONTA - X, acceso de clientes" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 16px;font-size:17px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(88,168,234,.45);border-radius:8px;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></span><span aria-hidden="true" style="font-size:14px;color:#58A8EA">↗</span></a>
+      <a href="{{ contaXUrl }}" data-press="" data-contax="" aria-haspopup="dialog" aria-label="CONTA - X, plataforma interna" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 16px;font-size:17px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(88,168,234,.45);border-radius:8px;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></span><span aria-hidden="true" style="font-size:14px;color:#58A8EA">↗</span></a>
       <a data-press="" href="#contacto" onClick="{{ ctaGeneral }}" style="margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:16px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
     </nav>
   </sc-if>
@@ -87,11 +102,11 @@ input,select,textarea,button{font-family:inherit}
     <dl data-hero="" aria-label="TAXAUD en cifras" style="margin:0;font-size:14px;border-top:1px solid rgba(157,190,230,.22);display:grid;grid-template-columns:repeat(2,minmax(0,1fr))">
       <div style="grid-column:1/-1;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#8E9CB8;padding:14px 0">EN CIFRAS</div>
       <div style="padding:22px 0 22px 0;border-top:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
-        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap">+<span data-count="">350</span></dd>
+        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap">+<span data-count="">12200</span></dd>
         <dt style="font-size:14px;color:#9AA8C2">Clientes atendidos</dt>
       </div>
       <div style="padding:22px 20px 22px 20px;border-top:1px solid rgba(157,190,230,.12);border-left:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
-        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap">+<span data-count="">1200</span></dd>
+        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap">+<span data-count="">16000</span></dd>
         <dt style="font-size:14px;color:#9AA8C2">Asesorías brindadas</dt>
       </div>
       <div style="padding:22px 0 22px 0;border-top:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
@@ -99,7 +114,7 @@ input,select,textarea,button{font-family:inherit}
         <dt style="font-size:14px;color:#9AA8C2">Años de experiencia</dt>
       </div>
       <div style="padding:22px 20px 22px 20px;border-top:1px solid rgba(157,190,230,.12);border-left:1px solid rgba(157,190,230,.12);display:grid;gap:8px;align-content:start">
-        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap"><span data-count="" data-visitas="">12500</span></dd>
+        <dd style="margin:0;font-family:'Newsreader',Georgia,serif;font-weight:300;font-size:clamp(40px,4.4vw,56px);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;white-space:nowrap"><span data-count="" data-visitas="">30500</span></dd>
         <dt style="font-size:14px;color:#9AA8C2">Visitas al sitio</dt>
       </div>
     </dl>
@@ -513,10 +528,10 @@ input,select,textarea,button{font-family:inherit}
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">WHATSAPP</dt><dd style="margin:0;display:flex;flex-wrap:wrap;gap:4px 12px"><a href="https://wa.me/593995286674" target="_blank" rel="noopener" style="color:#EEF2F8" style-hover="color:#8FC6F2">099 528 6674</a><span aria-hidden="true" style="color:#6B7A96">/</span><a href="https://wa.me/593962742645" target="_blank" rel="noopener" style="color:#EEF2F8" style-hover="color:#8FC6F2">096 274 2645</a></dd></div>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">CORREO</dt><dd style="margin:0">taxauditorscompany@gmail.com</dd><button data-press="" type="button" onClick="{{ copyMail }}" style="font-size:12px;font-weight:500;background:none;border:1px solid rgba(157,190,230,.28);color:#8FC6F2;border-radius:8px;padding:5px 12px;cursor:pointer;min-width:84px;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#8FC6F2;color:#FFFFFF" style-active="transform:scale(.96)">{{ copyLabel }}</button></div>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">REDES</dt><dd style="margin:0;display:flex;gap:8px"><a data-press="" href="https://www.facebook.com/tax.auditors.9" target="_blank" rel="noopener" aria-label="Facebook de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-facebook-logo" aria-hidden="true"></i></a><a data-press="" href="https://www.instagram.com/tax_auditors_riobamba/" target="_blank" rel="noopener" aria-label="Instagram de TAX AUDITORS" style="display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(157,190,230,.22);color:#B7C3D8;font-size:20px;transition:border-color .15s ease,color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA;color:#FFFFFF" style-active="transform:scale(.94)"><i class="ph-light ph-instagram-logo" aria-hidden="true"></i></a></dd></div>
-        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">OFICINA</dt><dd style="margin:0">Riobamba, Ecuador</dd><a data-press="" href="https://maps.google.com/?q=-1.664594,-78.654312" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:6px;font-size:12px;font-weight:500;border:1px solid rgba(157,190,230,.28);color:#8FC6F2;border-radius:8px;padding:5px 12px;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#8FC6F2;color:#FFFFFF" style-active="transform:scale(.96)">Cómo llegar <span aria-hidden="true">↗</span></a></div>
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px"><dt style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;color:#9AA8C2;min-width:92px">OFICINA</dt><dd style="margin:0"><div role="radiogroup" aria-label="Elegir oficina" style="display:inline-flex;gap:2px;padding:3px;border:1px solid rgba(157,190,230,.28);border-radius:9px"><button type="button" role="radio" aria-checked="{{ ofi.ROn }}" onClick="{{ ofi.pickR }}" style="min-height:32px;padding:5px 14px;border:0;border-radius:6px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;background:{{ ofi.RBg }};color:{{ ofi.RFg }};transition:background-color .2s ease,color .2s ease">Riobamba</button><button type="button" role="radio" aria-checked="{{ ofi.QOn }}" onClick="{{ ofi.pickQ }}" style="min-height:32px;padding:5px 14px;border:0;border-radius:6px;font:inherit;font-size:13px;font-weight:500;cursor:pointer;background:{{ ofi.QBg }};color:{{ ofi.QFg }};transition:background-color .2s ease,color .2s ease">Quito</button></div><p aria-live="polite" style="margin:10px 0 0;color:#EEF2F8;font-size:15px;line-height:1.5;text-wrap:pretty">{{ ofi.addr }}</p><p style="margin:4px 0 0;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#58A8EA">Atención solo con cita previa</p></dd><a data-press="" href="{{ ofi.link }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;white-space:nowrap;flex-shrink:0;gap:6px;font-size:12px;font-weight:500;border:1px solid rgba(157,190,230,.28);color:#8FC6F2;border-radius:8px;padding:5px 12px;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#8FC6F2;color:#FFFFFF" style-active="transform:scale(.96)">Cómo llegar <span aria-hidden="true">↗</span></a></div>
       </dl>
       <div data-sr="m" style="margin-top:28px;border-radius:16px;overflow:hidden;border:1px solid rgba(157,190,230,.14);background:#111E38;aspect-ratio:16/10">
-        <iframe title="Ubicación de la oficina de TAX AUDITORS en Riobamba" src="https://maps.google.com/maps?q=-1.664594,-78.654312&amp;z=16&amp;output=embed" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style="display:block;width:100%;height:100%;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.55) brightness(.92) contrast(.95)"></iframe>
+        <iframe title="{{ ofi.title }}" src="{{ ofi.embed }}" loading="lazy" referrerPolicy="no-referrer-when-downgrade" style="display:block;width:100%;height:100%;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.55) brightness(.92) contrast(.95)"></iframe>
       </div>
     </div>
 
@@ -619,6 +634,9 @@ const STEPS = [
 ];
 // Enlace al sistema CONTA - X (único lugar donde se define). Al comprar el dominio: https://sistema.taxauditorscompany.com
 const CONTAX_URL = 'https://sparkling-heart-e8a4.taxauditorscompany.workers.dev';
+// Supabase guarda desde 12500; se suma esta diferencia para que la cifra pública parta de 30 500.
+const VIS_OFFSET = 18000;
+const OFICINAS = { R: { name: 'Riobamba', q: '-1.664594,-78.654312', addr: 'Uruguay 300 y Argentinos, Edificio Torre Capry, tercer piso' }, Q: { name: 'Quito', q: '-0.203439,-78.483353', addr: 'Av. Cristóbal Colón y 12 de Octubre, Torre Boreal' } };
 const EASE = 'cubic-bezier(0.23, 1, 0.32, 1)';
 const URGENT = [2, 0, 2]; // service preselected by each rotating message
 const wrap = i => { const n = SERVICES.length; return ((i % n) + n) % n; };
@@ -683,12 +701,18 @@ const calcIR = c => {
 const pageFromHash = () => { const k = (location.hash || '').slice(1).toLowerCase(); return k === 'respaldo' ? 'nosotros' : k === 'siglas' ? 'servicios' : PAGES[k] ? k : 'inicio'; };
 
 class Component extends DCLogic {
-  state = { calcTab: 'ir', lab: { ...LAB0 }, calc: { ...CALC0 }, page: pageFromHash(), menuOpen: false, active: 0, pinned: false, svc: '0', when: 1, wide: true, msg: '', msgKind: '', copied: false, errName: false, errContact: false };
+  state = { calcTab: 'ir', lab: { ...LAB0 }, calc: { ...CALC0 }, page: pageFromHash(), menuOpen: false, active: 0, pinned: false, svc: '0', when: 1, wide: true, msg: '', msgKind: '', copied: false, errName: false, errContact: false, ofi: 'R' };
   secRef = React.createRef(); stackRef = React.createRef(); barRef = React.createRef(); drumRef = React.createRef(); drumBoxRef = React.createRef(); stepsRef = React.createRef(); counterRef = React.createRef(); urgRef = React.createRef(); menuRef = React.createRef(); nameRef = React.createRef(); consentRef = React.createRef(); telRef = React.createRef();
 
   motionOn() { return (this.props.motion ?? true) && !matchMedia('(prefers-reduced-motion: reduce)').matches; }
 
   componentDidMount() {
+    this.onContax = e => {
+      const dl = document.getElementById('contax-dlg'); if (!dl || !e.target.closest) return;
+      if (e.target.closest('[data-contax]')) { e.preventDefault(); if (this.state.menuOpen) this.setState({ menuOpen: false }); if (!dl.open) dl.showModal(); return; }
+      if (e.target.closest('[data-contax-close]') || e.target === dl) dl.close();
+    };
+    document.addEventListener('click', this.onContax, true);
     this.cur = 0; this.target = 0; this.last = 0;
     this.onResize = () => { const wide = innerWidth >= 1024; this.setState({ wide, pinned: innerWidth >= 900 && innerHeight >= 760 && this.motionOn() }, () => { this.readScroll(); this.kick(); }); };
     this.sCur = 0; this.sTarget = 0;
@@ -791,7 +815,7 @@ class Component extends DCLogic {
       const rpc = fn => fetch(c.url.replace(/\/$/, '') + '/rest/v1/rpc/' + fn, { method: 'POST', headers: { apikey: c.anonKey, Authorization: 'Bearer ' + c.anonKey, 'Content-Type': 'application/json' }, body: '{}' }).then(r => r.ok ? r.json() : null).catch(() => null);
       let first = true;
       try { first = !sessionStorage.getItem('taxaud-visita'); sessionStorage.setItem('taxaud-visita', '1'); } catch (e) {}
-      const apply = n => { n = +n; if (!n) return; document.querySelectorAll('[data-visitas]').forEach(el => this.tweenTo(el, n)); };
+      const apply = n => { n = +n; if (!n) return; n += VIS_OFFSET; document.querySelectorAll('[data-visitas]').forEach(el => this.tweenTo(el, n)); };
       rpc(first ? 'registrar_visita' : 'total_visitas').then(apply);
       this.visT = setInterval(() => { if (!document.hidden) rpc('total_visitas').then(apply); }, 30000);
     };
@@ -806,7 +830,8 @@ class Component extends DCLogic {
     const step = now => { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(from + (n - from) * e).toLocaleString('es-EC'); if (k < 1) requestAnimationFrame(step); };
     requestAnimationFrame(step);
   }
-  componentWillUnmount() { clearInterval(this.visT); cancelAnimationFrame(this.sRaf); removeEventListener('pointerdown', this.onPress); removeEventListener('pointerover', this.onOver); removeEventListener('pointerout', this.onOver); cancelAnimationFrame(this.fxRaf); this.onPointer && removeEventListener('pointermove', this.onPointer); cancelAnimationFrame(this.raf); removeEventListener('scroll', this.onScroll); removeEventListener('resize', this.onResize); removeEventListener('hashchange', this.onHash); this.urgAnim && this.urgAnim.cancel(); this.io && this.io.disconnect(); clearTimeout(this.ct); }
+  componentWillUnmount() {
+    document.removeEventListener('click', this.onContax, true); clearInterval(this.visT); cancelAnimationFrame(this.sRaf); removeEventListener('pointerdown', this.onPress); removeEventListener('pointerover', this.onOver); removeEventListener('pointerout', this.onOver); cancelAnimationFrame(this.fxRaf); this.onPointer && removeEventListener('pointermove', this.onPointer); cancelAnimationFrame(this.raf); removeEventListener('scroll', this.onScroll); removeEventListener('resize', this.onResize); removeEventListener('hashchange', this.onHash); this.urgAnim && this.urgAnim.cancel(); this.io && this.io.disconnect(); clearTimeout(this.ct); }
   // scroll → target progress. Each step has a rest zone so a card settles before the next one moves.
   readScroll() {
     if (!this.state.pinned || !this.secRef.current || this.dragging) return;
@@ -1221,6 +1246,7 @@ class Component extends DCLogic {
     const pinned = this.state.pinned;
     const page = this.state.page, vis = k => page === k ? 'block' : 'none';
     return {
+      ofi: (() => { const k = this.state.ofi, o = OFICINAS[k], on = x => k === x; return { addr: o.addr, link: 'https://maps.google.com/?q=' + o.q, embed: 'https://maps.google.com/maps?q=' + o.q + '&z=16&output=embed', title: 'Ubicación de la oficina de TAX AUDITORS en ' + o.name, ROn: on('R'), QOn: on('Q'), RBg: on('R') ? '#58A8EA' : 'transparent', QBg: on('Q') ? '#58A8EA' : 'transparent', RFg: on('R') ? '#07101F' : '#B7C3D8', QFg: on('Q') ? '#07101F' : '#B7C3D8', pickR: () => this.setState({ ofi: 'R' }), pickQ: () => this.setState({ ofi: 'Q' }) }; })(),
       wide: this.state.wide, narrow: !this.state.wide, menuOpen: this.state.menuOpen, showMobileMenu: !this.state.wide && this.state.menuOpen, contaXUrl: CONTAX_URL, menuRef: this.menuRef,
       menuIcon: this.state.menuOpen ? 'ph-light ph-x' : 'ph-light ph-list', menuLabel: this.state.menuOpen ? 'Cerrar menú' : 'Abrir menú',
       toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),

@@ -28,7 +28,22 @@ a:hover{color:#FFFFFF}
 summary::-webkit-details-marker{display:none}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
+<style>#contax-dlg::backdrop{background:rgba(4,9,20,.72);backdrop-filter:blur(6px)}#contax-dlg[open]{animation:cxIn .32s cubic-bezier(0.23,1,0.32,1)}#contax-dlg[open]::backdrop{animation:cxFade .25s ease}@keyframes cxIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}@keyframes cxFade{from{opacity:0}}@media (prefers-reduced-motion:reduce){#contax-dlg[open],#contax-dlg[open]::backdrop{animation:none}}</style>
 </helmet>
+<dialog id="contax-dlg" aria-labelledby="contax-t" style="width:min(520px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:0;border:1px solid rgba(88,168,234,.35);border-radius:16px;background:#0E1A33;color:#EEF2F8;box-shadow:0 30px 80px rgba(0,0,0,.55);overflow:auto">
+  <div style="position:relative;padding:clamp(28px,5vw,40px)">
+    <button type="button" data-contax-close="" aria-label="Cerrar" style="position:absolute;top:14px;right:14px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:0;border-radius:8px;background:transparent;color:#9AA8C2;font-size:20px;cursor:pointer;transition:background-color .15s ease,color .15s ease" style-hover="background:rgba(157,190,230,.1);color:#FFFFFF">✕</button>
+    <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#58A8EA">Plataforma interna</div>
+    <div aria-hidden="true" style="margin-top:18px;font-size:34px;font-weight:600;letter-spacing:.02em;line-height:1"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span style="color:#58A8EA;margin:0 .35em">—</span><span style="color:#58A8EA">X</span></div>
+    <h2 id="contax-t" style="margin:22px 0 0;font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:clamp(24px,3vw,30px);line-height:1.2;letter-spacing:-.01em;color:#FFFFFF;text-wrap:balance">Tecnología propia al servicio de su empresa</h2>
+    <p style="margin:14px 0 0;color:#B7C3D8;font-size:16px;line-height:1.6;text-wrap:pretty">CONTA — X es la plataforma de gestión contable de uso exclusivo del equipo de TAX AUDITORS COMPANY TAXAUD S.A.S. Con ella automatizamos procesos, controlamos cada plazo y garantizamos a nuestros clientes un servicio preciso, oportuno y seguro.</p>
+    <p style="margin:18px 0 0;padding-top:16px;border-top:1px solid rgba(157,190,230,.16);color:#9AA8C2;font-size:14px;line-height:1.5">Acceso restringido a personal autorizado.</p>
+    <div style="margin-top:24px;display:flex;flex-wrap:wrap;gap:12px">
+      <a data-press="" data-contax-close="" href="index.html#contacto" style="display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:11px 18px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:15px;font-weight:500;text-decoration:none;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
+      <button type="button" data-press="" data-contax-close="" style="min-height:44px;padding:11px 18px;border-radius:8px;border:1px solid rgba(157,190,230,.3);background:transparent;color:#EEF2F8;font:inherit;font-size:15px;cursor:pointer;transition:border-color .15s ease,transform .12s ease" style-hover="border-color:#58A8EA" style-active="transform:scale(.97)">Entendido</button>
+    </div>
+  </div>
+</dialog>
 
 <header style="position:sticky;top:0;z-index:40;background:rgba(10,20,40,.72);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);border-bottom:1px solid rgba(255,255,255,.08)">
   <div style="max-width:1320px;margin:0 auto;padding:0 clamp(16px,4vw,48px);height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px">
@@ -42,7 +57,7 @@ summary::-webkit-details-marker{display:none}
         <a href="index.html#calculadora" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Calculadora</a>
         <a href="blog.html" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Blog</a>
         <a href="index.html#contacto" data-press="" data-nav="" style="position:relative;padding:6px 2px;color:#B7C3D8;white-space:nowrap;background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1),transform .12s ease" style-hover="color:#FFFFFF;background-size:100% 1px" style-active="transform:scale(.96)">Contacto</a>
-        <a href="https://sparkling-heart-e8a4.taxauditorscompany.workers.dev" data-press="" aria-label="CONTA - X, acceso de clientes" style="display:inline-flex;align-items:center;padding:5px 12px;margin:-1px 0;border:1px solid rgba(88,168,234,.45);border-radius:6px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></a>
+        <a href="https://sparkling-heart-e8a4.taxauditorscompany.workers.dev" data-press="" data-contax="" aria-haspopup="dialog" aria-label="CONTA - X, plataforma interna" style="display:inline-flex;align-items:center;padding:5px 12px;margin:-1px 0;border:1px solid rgba(88,168,234,.45);border-radius:6px;font-weight:600;letter-spacing:.02em;white-space:nowrap;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></a>
       </nav>
     </sc-if>
     <div style="display:flex;align-items:center;gap:10px;flex-shrink:0">
@@ -61,7 +76,7 @@ summary::-webkit-details-marker{display:none}
       <a href="index.html#calculadora" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Calculadora<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
       <a href="blog.html" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Blog<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
       <a href="index.html#contacto" data-press="" data-nav="" style="display:flex;align-items:center;justify-content:space-between;padding:14px 2px;font-size:17px;color:#B7C3D8;border-bottom:1px solid rgba(157,190,230,.12);background-image:linear-gradient(#58A8EA,#58A8EA);background-repeat:no-repeat;background-position:0 100%;background-size:0% 1px;transition:color .2s ease,background-size .35s cubic-bezier(0.23,1,0.32,1)" style-hover="color:#FFFFFF">Contacto<span aria-hidden="true" style="font-size:14px;color:#58A8EA">→</span></a>
-      <a href="https://sparkling-heart-e8a4.taxauditorscompany.workers.dev" data-press="" aria-label="CONTA - X, acceso de clientes" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 16px;font-size:17px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(88,168,234,.45);border-radius:8px;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></span><span aria-hidden="true" style="font-size:14px;color:#58A8EA">↗</span></a>
+      <a href="https://sparkling-heart-e8a4.taxauditorscompany.workers.dev" data-press="" data-contax="" aria-haspopup="dialog" aria-label="CONTA - X, plataforma interna" style="margin-top:14px;display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 16px;font-size:17px;font-weight:600;letter-spacing:.02em;border:1px solid rgba(88,168,234,.45);border-radius:8px;transition:border-color .2s ease,background-color .2s ease" style-hover="border-color:#58A8EA;background-color:rgba(88,168,234,.08)"><span><span style="color:#FFFFFF">CON</span><span style="color:#58A8EA">TA</span><span aria-hidden="true" style="color:#58A8EA;margin:0 .45em">—</span><span style="color:#58A8EA">X</span></span><span aria-hidden="true" style="font-size:14px;color:#58A8EA">↗</span></a>
       <a data-press="" href="index.html#contacto" style="margin-top:18px;display:flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 20px;border-radius:8px;background:#FFFFFF;color:#0A1428;font-size:16px;font-weight:500;transition:background-color .15s ease,transform .12s ease" style-hover="background:#58A8EA;color:#07101F" style-active="transform:scale(.97)">Solicitar consulta <span aria-hidden="true">→</span></a>
     </nav>
   </sc-if>
@@ -304,16 +319,23 @@ class Component extends DCLogic {
     });
   };
   componentDidMount() {
+    this.onContax = e => {
+      const dl = document.getElementById('contax-dlg'); if (!dl || !e.target.closest) return;
+      if (e.target.closest('[data-contax]')) { e.preventDefault(); if (this.state.menuOpen) this.setState({ menuOpen: false }); if (!dl.open) dl.showModal(); return; }
+      if (e.target.closest('[data-contax-close]') || e.target === dl) dl.close();
+    };
+    document.addEventListener('click', this.onContax, true);
     this.onMenuKey = ev => { if (ev.key === 'Escape' && this.state.menuOpen) this.setState({ menuOpen: false }); };
     addEventListener('keydown', this.onMenuKey);
     this.setupFx(); this.refreshHosts(); this.reveal();
-    this.onResize = () => this.setState(s => ({ wide: innerWidth >= 1000, menuOpen: innerWidth >= 1000 ? false : s.menuOpen }), () => this.refreshHosts());
+    this.onResize = () => { const vw = document.documentElement.clientWidth || innerWidth; this.setState(s => ({ wide: vw >= 1000, menuOpen: vw >= 1000 ? false : s.menuOpen }), () => this.refreshHosts()); };
     this.onResize();
     addEventListener('resize', this.onResize);
     addEventListener('scroll', this.onScroll, { passive: true });
     this.onScroll();
   }
   componentWillUnmount() {
+    document.removeEventListener('click', this.onContax, true);
     removeEventListener('keydown', this.onMenuKey);
     removeEventListener('resize', this.onResize); removeEventListener('scroll', this.onScroll);
     removeEventListener('pointerdown', this.onPress); removeEventListener('pointerover', this.onOver); removeEventListener('pointerout', this.onOver);
