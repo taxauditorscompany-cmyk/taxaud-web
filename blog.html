@@ -441,7 +441,7 @@ class Component extends DCLogic {
       if (!pubs) pubs = window.TAXAUD_PUBS || [];
       this.setState({ pubs }, () => { this.refreshHosts(); this.reveal(false); });
       const m = location.hash.match(/p=([\w-]+)/);
-      if (m) this.setState({ openId: m[1] });
+      if (m) { location.replace('/blog/' + m[1]); return; }
     };
     this.setupFx();
     load();
@@ -478,7 +478,7 @@ class Component extends DCLogic {
 
   openItem(id, e) {
     if (e) e.preventDefault();
-    this.setState({ openId: id, copied: false });
+    location.href = '/blog/' + id; return;
     history.replaceState(null, '', '#p=' + id);
   }
   closeItem() {
@@ -513,7 +513,7 @@ class Component extends DCLogic {
       ytSrc: v.youtube ? 'https://www.youtube-nocookie.com/embed/' + v.youtube + '?rel=0' : '',
       mp4: !v.youtube && v.mp4 ? v.mp4 : '',
       noVideo: p.tipo === 'video' && !v.youtube && !v.mp4,
-      href: '#p=' + p.id,
+      href: '/blog/' + p.id,
       open: e => this.openItem(p.id, e)
     };
   }
